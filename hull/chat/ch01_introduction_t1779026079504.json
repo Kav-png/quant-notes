@@ -1,0 +1,817 @@
+{
+  "conversation_id": "5e8ad231-740c-478b-8903-c87ea3a2b0c8",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain the core intuition in plain English",
+      "ts": "2026-05-17T13:55:16.952348+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nAt its core, a derivative is simply a financial instrument whose value depends on (or derives from) the values of other, more basic underlying variables, like stock prices, commodities, or exchange rates [1]. \n\nThink of it as a tool for time travel. It solves the problem of future uncertainty by allowing two parties to lock in a price today for a transaction that will occur in the future [2, 3]. This matters because it allows market participants to precisely transfer risk: hedgers use them to eliminate risk, while speculators use them to bet on market direction [4]. \n\n**DERIVATION**\nLet's mathematically define the payoff of the simplest derivative: the forward contract.\n\n1. **Step 1: Define the variables.** \n   We define \\(K\\) as the delivery price agreed upon today, and \\(S_T\\) as the spot price of the underlying asset at the contract's maturity date \\(T\\) [5]. We do this to establish the fixed cost versus the floating market value.\n\n2. **Step 2: Calculate the long position payoff.** \n   The party in the long position is obligated to buy the asset. They pay \\(K\\) to receive an asset that is currently worth \\(S_T\\). Therefore, we subtract the cost from the value received:\n   \\[Payoff_{long} = S_T - K\\] [5].\n\n3. **Step 3: Calculate the short position payoff.** \n   The party in the short position is obligated to sell the asset. They receive \\(K\\) and must give up an asset worth \\(S_T\\). Their payoff is the exact opposite of the long position:\n   \\[Payoff_{short} = K - S_T\\] [5].\n\n**KEY INSIGHT**\nBecause it costs nothing to enter into a forward contract today, the final payoff at maturity represents the trader's total absolute gain or loss [5]. It is a pure zero-sum game: every dollar made by the long position is a dollar lost by the short position.\n\n**WORKED EXAMPLE**\nSuppose a US corporation enters a long forward contract to buy 1 million British pounds for a delivery price of \\(K = 1.4400\\) USD per pound [6, 7]. \nIf the spot exchange rate at maturity rises to \\(S_T = 1.5000\\) USD per pound, the payoff per pound is \\(1.5000 - 1.4400 = 0.0600\\) USD. The corporation gains 60,000 USD total, because they are buying the pounds cheaper than the current market rate.\n\n**PITFALLS**\nA critical mistake beginners make is confusing forwards with options. A forward contract is an *obligation*, meaning payoffs can become highly negative if the market moves against you [8]. Options, by contrast, give you the *right* but not the obligation to trade, which limits your maximum loss to the initial fee (premium) you paid [8, 9].\n\nDoes this fundamental setup make sense, or would you like to see how the mathematical payoff profile changes when we introduce options instead?",
+      "ts": "2026-05-17T13:55:16.952348+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "A derivative can be defined as a financial instrument whose value depends on (or derives from) the values of other, more basic, underlying variables. Very often the variables underlying derivatives are the prices of traded assets. A stock option, for example, is a derivative whose value is dependent on the price of a stock. However, derivatives can be dependent on almost any variable, from the price of hogs to the amount of snow falling at a certain ski resort.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "Figure 1.1 Size of over-the-counter and exchange-traded derivatives markets.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "1.4 FUTURES CONTRACTS",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "Three broad categories of traders can be identified: hedgers, speculators, and arbitrageurs. Hedgers use derivatives to reduce the risk that they face from potential future movements in a market variable. Speculators use them to bet on the future direction of a market variable. Arbitrageurs take offsetting positions in two or more instruments to lock in a profit. As described in Business Snapshot 1.2, hedge funds have become big users of derivatives for all three purposes.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "One of the parties to a forward contract assumes a long position and agrees to buy the underlying asset on a certain specified future date for a certain specified price. The other party assumes a short position and agrees to sell the asset on the same date for the same price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    }
+  ]
+}

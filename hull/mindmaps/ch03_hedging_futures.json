@@ -1,0 +1,101 @@
+{
+  "mind_map": {
+    "name": "Hedging Strategies Using Futures",
+    "children": [
+      {
+        "name": "Basic Principles",
+        "children": [
+          {
+            "name": "Short Hedges",
+            "children": []
+          },
+          {
+            "name": "Long Hedges",
+            "children": []
+          },
+          {
+            "name": "Arguments For and Against Hedging",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Basis Risk",
+        "children": [
+          {
+            "name": "Definition: Spot minus Futures Price",
+            "children": []
+          },
+          {
+            "name": "Strengthening vs Weakening Basis",
+            "children": []
+          },
+          {
+            "name": "Choice of Contract Asset",
+            "children": []
+          },
+          {
+            "name": "Choice of Delivery Month",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Cross Hedging",
+        "children": [
+          {
+            "name": "Asset Hedged Differs from Futures Asset",
+            "children": []
+          },
+          {
+            "name": "Minimum Variance Hedge Ratio",
+            "children": []
+          },
+          {
+            "name": "Optimal Number of Contracts",
+            "children": []
+          },
+          {
+            "name": "Tailing the Hedge",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Stock Index Futures",
+        "children": [
+          {
+            "name": "Hedging an Equity Portfolio",
+            "children": []
+          },
+          {
+            "name": "Changing Portfolio Beta",
+            "children": []
+          },
+          {
+            "name": "Locking in Stock Picking Benefits",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Stack and Roll",
+        "children": [
+          {
+            "name": "Rolling Hedges Forward",
+            "children": []
+          },
+          {
+            "name": "Managing Long-Term Exposures",
+            "children": []
+          },
+          {
+            "name": "Liquidity and Cash Flow Risks",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

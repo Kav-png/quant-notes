@@ -1,0 +1,2277 @@
+{
+  "conversation_id": "49ba5778-6779-4bbd-a0d2-266bd065513e",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain the core intuition in plain English",
+      "ts": "2026-05-17T14:15:48.168663+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\n\nWhen an individual or company chooses to use futures markets to hedge a risk, their primary objective is to take a position that neutralizes that risk as much as possible [1]. Imagine a company that gains 10,000 USD for every 1 cent increase in the price of a commodity over the next 3 months, and loses 10,000 USD for every 1 cent decrease during that same period [1]. To protect itself, the company can take a short position in the futures market [1]. If the commodity's price drops, the physical business loses money, but the short futures position makes a profit, effectively canceling out the loss [1]. \n\nIf you already own an asset and expect to sell it later, you use a \"short hedge\" [2]. If you know you will need to purchase an asset in the future and want to lock in the price now, you use a \"long hedge\" [3]. The core problem this solves is uncertainty: hedging transforms unpredictable future market prices into predictable locked-in prices, allowing a company to focus on its actual business rather than speculating on interest rates, exchange rates, or commodity prices [4, 5].\n\n**DERIVATION**\n\nOften, the asset you are trying to hedge is not exactly the same as the asset underlying the available futures contract, a situation known as \"cross hedging\" [6]. In this case, simply matching your exposure one-for-one (a hedge ratio of 1.0) is rarely the best choice [7]. We must calculate the Minimum Variance Hedge Ratio, denoted as \\(h^*\\) [8].\n\nStep 1: Define the price changes over the life of the hedge.\nLet \\(\\Delta S\\) be the change in the spot price during the hedge period, and \\(\\Delta F\\) be the change in the futures price [8].\n\nStep 2: Define the goal of the hedge ratio. \nThe hedger wants to choose a value for the hedge ratio that minimizes the variance of the value of the hedged position [7]. \n\nStep 3: Identify the statistical relationship.\nThe minimum variance hedge ratio, \\(h^*\\), is the slope of the best-fit line from a linear regression of \\(\\Delta S\\) against \\(\\Delta F\\) [8]. This represents the expected average change in the spot price (\\(S\\)) for a given change in the futures price (\\(F\\)) [8].\n\nStep 4: Formulate the equation.\nUsing standard regression formulas, the slope \\(h^*\\) is calculated as:\n\\[h^* = \\rho \\frac{\\sigma_S}{\\sigma_F}\\]\nwhere \\(\\sigma_S\\) is the standard deviation of \\(\\Delta S\\), \\(\\sigma_F\\) is the standard deviation of \\(\\Delta F\\), and \\(\\rho\\) is the coefficient of correlation between the two variables [9].\n\nStep 5: Calculate the optimal number of contracts.\nOnce \\(h^*\\) is known, you determine the optimal number of futures contracts (\\(N^*\\)) required. Let \\(Q_A\\) be the size of the position being hedged, and \\(Q_F\\) be the size of one futures contract [10]. The formula is:\n\\[N^* = \\frac{h^* Q_A}{Q_F}\\]\n\n**KEY INSIGHT**\n\nThe optimal hedge ratio is simply the product of the correlation between the spot and futures price changes and the ratio of their volatilities [9]. If the futures price is much more volatile than the spot price, you will need a hedge ratio of less than 1.0 to avoid over-hedging the position [9].\n\n**WORKED EXAMPLE**\n\nAn airline expects to purchase 2,000,000 gallons of jet fuel in one month [11]. Because jet fuel futures are not actively traded, the airline decides to cross hedge using heating oil futures [6, 11]. \nHistorical data shows the standard deviation of jet fuel price changes is \\(\\sigma_S = 0.0263\\), the standard deviation of heating oil futures price changes is \\(\\sigma_F = 0.0313\\), and their correlation is \\(\\rho = 0.928\\) [11].\n\nFirst, we calculate the minimum variance hedge ratio:\n\\[h^* = 0.928 \\times \\frac{0.0263}{0.0313} = 0.7777\\]\nThis means for every gallon of jet fuel required, the airline should hedge 0.7777 gallons of heating oil [12].\n\nNext, we calculate the optimal number of contracts, knowing one heating oil contract covers 42,000 gallons [12]:\n\\[N^* = \\frac{0.7777 \\times 2,000,000}{42,000} = 37.03\\]\nThe airline should take a long position of 37 heating oil contracts [12].\n\n**PITFALLS**\n\nA common mistake is assuming that a hedge completely eliminates all risk. A \"perfect hedge\" completely eliminates risk, but these are incredibly rare in practice [13]. You will almost always face \"basis risk,\" which arises because the asset being hedged might not exactly match the futures asset, the timing of the transaction might be uncertain, or the futures contract might need to be closed out before its delivery month [14, 15]. The basis is defined mathematically as the spot price of the asset being hedged minus the futures price of the contract used [15].\n\nDoes this foundational intuition make sense, or would you like to dive deeper into how basis risk impacts the final effective price of a hedge?",
+      "ts": "2026-05-17T14:15:48.168663+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 265,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 266,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 267,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 268,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 269,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 270,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 271,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 272,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 273,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 274,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 275,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 276,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 277,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 278,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 279,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 280,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 281,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 282,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 283,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 284,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 285,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 286,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 287,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 288,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 289,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 290,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 291,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 292,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 293,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 294,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 295,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 296,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 297,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 298,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 299,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 300,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 301,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 302,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 303,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 304,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 305,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 306,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 307,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 308,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 309,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 310,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 311,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 312,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 313,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 314,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 315,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 316,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 317,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 318,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 319,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 320,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 321,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 322,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 323,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 324,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 325,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 326,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 327,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 328,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 329,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 330,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 331,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 332,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 333,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 334,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 335,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 336,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 337,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 338,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 339,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 340,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 341,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 342,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 343,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 344,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 345,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 346,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 347,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 348,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 349,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 350,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 351,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 352,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 353,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 354,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 355,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 356,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 357,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 358,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 359,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 360,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 361,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 362,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 363,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 364,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 365,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 366,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 367,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 368,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 369,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 370,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 371,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 372,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 373,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 374,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 375,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 376,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 377,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 378,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 379,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 380,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 381,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 382,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 383,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 384,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 385,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 386,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 387,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 388,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 389,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 390,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 391,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 392,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 393,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 394,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 395,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 396,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 397,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 398,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 399,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 400,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 401,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 402,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 403,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 404,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 405,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 406,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 407,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 408,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 409,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 410,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 411,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 412,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 413,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 414,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 415,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 416,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 417,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 418,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 419,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 420,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 421,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 422,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 423,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 424,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 425,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 426,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 427,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 428,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 429,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 430,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 431,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 432,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 433,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 434,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 435,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 436,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 437,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 438,
+          "cited_text": "The chapter initially treats futures contracts as forward contracts (that is, it ignores daily settlement). Later it explains an adjustment known as \"tailing\" that takes account of the difference between futures and forwards .",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 439,
+          "cited_text": "47",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 440,
+          "cited_text": "For an alternative outcome, suppose that the price of oil on August 15 proves to be $85 per barrel. The company realizes $85 per barrel for the oil and loses approximately",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 441,
+          "cited_text": "We have also assumed in the two examples that there is no daily settlement. In practice, daily settlement does have a small effect on the performance of a hedge. As explained in Chapter 2, it means that the payoff from the futures contract is realized day by day throughout the life of the hedge rather than all at the end.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 442,
+          "cited_text": "1 See Section 5.11 for a discussion of convenience yields.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 443,
+          "cited_text": "The gain on the futures contract is 69.10-68.00 = $1.10 per barrel. The basis when the contract is closed out is 70.00 - 69.10 = $0.90 per barrel. The effective price paid (in dollars per barrel) is the final spot price less the gain on the futures, or",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 444,
+          "cited_text": "The hedge ratio is the ratio of the size of the position taken in futures contracts to the size of the exposure. When the asset underlying the futures contract is the same as the asset being hedged, it is natural to use a hedge ratio of 1.0. This is the hedge ratio we have used in the examples considered so far. For instance, in Example 3.2, the hedger's exposure was on 20,000 barrels of oil, and futures contracts were entered into for the delivery of exactly this amount of oil.",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 445,
+          "cited_text": "1",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 446,
+          "cited_text": "The formula for h* is: h* = P crs",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 447,
+          "cited_text": "Optimal Number of Contracts",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 448,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 449,
+          "cited_text": "From equation (3.1), the minimum variance hedge ratio, h*, is therefore",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 450,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 451,
+          "cited_text": "3.3 BASIS RISK",
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        },
+        {
+          "citation_number": 452,
+          "cited_text": null,
+          "source_id": "65295aec-41a2-4154-abd1-8b593920ae58"
+        }
+      ]
+    }
+  ]
+}

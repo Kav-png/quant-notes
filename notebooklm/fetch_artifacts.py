@@ -167,31 +167,37 @@ async def main(
     notes_path: Path | None,
     track: str | None,
     args_slug: str | None = None,
+    notebook_id_override: str | None = None,
 ) -> None:
-    config = load_config()
-    entry = find_entry(config, key)
+    if notebook_id_override:
+        notebook_id = notebook_id_override
+        label = chapter or key
+        source_id = None
+    else:
+        config = load_config()
+        entry = find_entry(config, key)
 
-    if entry is None:
-        print(f"Key '{key}' not found in config.yaml")
-        sys.exit(1)
+        if entry is None:
+            print(f"Key '{key}' not found in config.yaml")
+            sys.exit(1)
 
-    notebook_id = entry.get("notebook_id", "").strip()
-    label = entry.get("label", key)
+        notebook_id = entry.get("notebook_id", "").strip()
+        label = entry.get("label", key)
 
-    if not notebook_id:
-        print(f"No notebook_id set for '{key}' in config.yaml")
-        sys.exit(1)
+        if not notebook_id:
+            print(f"No notebook_id set for '{key}' in config.yaml")
+            sys.exit(1)
 
-    # Resolve source_id by track (hull / wilmott) for structural scoping
-    source_id: str | None = None
-    if track == "hull":
-        source_id = entry.get("hull_source_id", "").strip() or None
-    elif track == "wilmott":
-        source_id = entry.get("wilmott_source_id", "").strip() or None
+        # Resolve source_id by track (hull / wilmott) for structural scoping
+        source_id = None
+        if track == "hull":
+            source_id = entry.get("hull_source_id", "").strip() or None
+        elif track == "wilmott":
+            source_id = entry.get("wilmott_source_id", "").strip() or None
 
-    if track and not source_id:
-        print(f"  WARNING: No source_id configured for track '{track}' — generating from all sources.")
-        print(f"  Run: python list_sources.py  then add the ID to config.yaml")
+        if track and not source_id:
+            print(f"  WARNING: No source_id configured for track '{track}' — generating from all sources.")
+            print(f"  Run: python list_sources.py  then add the ID to config.yaml")
 
     notes_content: str | None = None
     if notes_path and notes_path.exists():
@@ -239,5 +245,11 @@ if __name__ == "__main__":
         default=None,
         help="Override the output filename stem (e.g. ch13_wiener_ito → ch13_wiener_ito-notebooklm.md)",
     )
+    parser.add_argument(
+        "--notebook-id",
+        default=None,
+        dest="notebook_id",
+        help="Use this notebook_id directly, bypassing config.yaml key lookup",
+    )
     args = parser.parse_args()
-    asyncio.run(main(args.key, args.type, args.chapter, args.notes, args.track, args.slug))
+    asyncio.run(main(args.key, args.type, args.chapter, args.notes, args.track, args.slug, args.notebook_id))

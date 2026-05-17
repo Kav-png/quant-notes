@@ -13,7 +13,7 @@
     "1": {
       "status": "in_progress",
       "topics": {
-        "Probability distributions": false
+        "Probability distributions": true
       },
       "confidence": null
     },
@@ -23,8 +23,10 @@
       "confidence": null
     },
     "3": {
-      "status": "not_started",
-      "topics": {},
+      "status": "in_progress",
+      "topics": {
+        "AR/MA/ARMA": false
+      },
       "confidence": null
     },
     "4": {

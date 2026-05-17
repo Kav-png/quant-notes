@@ -1,0 +1,4449 @@
+{
+  "conversation_id": "e8515ba1-dafb-4458-a2f9-9f4da55de569",
+  "messages": [
+    {
+      "role": "user",
+      "content": "List all the formulas",
+      "ts": "2026-05-17T12:55:45.404683+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\nIn quantitative finance, we must measure both the expected reward and the associated risk of random events, such as stock returns [1]. To do this, we use mathematical summaries called *moments*. The mean (expected value) tells us the center of gravity or average payoff of an asset [2], the variance tells us the spread or risk [3], and covariance and correlation tell us how different assets move together [4]. \n\nDERIVATION\nHere are the foundational formulas for discrete and continuous probability distributions, followed by the derivation of the highly useful \"shortcut\" variance formula.\n\n**Core Formulas:**\n1. **Expected Value (Mean, \\(\\mu\\)):**\n   Discrete: \\[ E[X] = \\sum x p(x) \\] [5]\n   Continuous: \\[ E[X] = \\int x p(x) dx \\] [6]\n2. **Variance (\\(\\sigma^2\\)):**\n   Definition: \\[ \\text{Var}(X) = E[(X - \\mu)^2] \\] [7]\n3. **Covariance (\\(\\text{Cov}(X,Y)\\)):**\n   Definition: \\[ \\text{Cov}(X,Y) = E[(X - \\mu_X)(Y - \\mu_Y)] \\] [4]\n   Shortcut: \\[ \\text{Cov}(X,Y) = E[XY] - E[X]E[Y] \\] [8]\n4. **Correlation (\\(\\rho_{XY}\\)):**\n   \\[ \\rho_{XY} = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\sigma_Y} \\] [9]\n5. **Portfolio Variance:**\n   \\[ \\text{Var}(R_p) = \\sum_{i} w_i^2 \\sigma_i^2 + \\sum_{i \\neq j} w_i w_j \\text{Cov}(R_i, R_j) \\] [10]\n\n**Derivation: The Variance Shortcut Formula**\nStep 1: Start with the definition of variance. We want to measure the expected squared deviation from the mean.\n\\[ \\text{Var}(X) = E[(X - \\mu)^2] \\] [7]\n\nStep 2: Expand the quadratic term inside the expectation so we can apply linear operators to individual terms.\n\\[ \\text{Var}(X) = E[X^2 - 2\\mu X + \\mu^2] \\] [11]\n\nStep 3: Apply the linearity of the expectation operator. The expectation of a sum is the sum of expectations.\n\\[ \\text{Var}(X) = E[X^2] - E[2\\mu X] + E[\\mu^2] \\] [11]\n\nStep 4: Factor out the constants. Remember that \\(\\mu\\) is just a constant number, not a random variable, so its expectation is just itself.\n\\[ \\text{Var}(X) = E[X^2] - 2\\mu E[X] + \\mu^2 \\] [11]\n\nStep 5: Substitute \\(E[X]\\) with \\(\\mu\\) to combine like terms.\n\\[ \\text{Var}(X) = E[X^2] - 2\\mu^2 + \\mu^2 \\] [11]\n\nStep 6: Combine the final terms to yield the computational shortcut.\n\\[ \\text{Var}(X) = E[X^2] - \\mu^2 \\] [11]\nWhich is equivalently written as:\n\\[ \\text{Var}(X) = E[X^2] - (E[X])^2 \\] [12]\n\nKEY INSIGHT\nThe variance of a multi-asset portfolio is overwhelmingly dictated by the covariance (the cross terms) between its assets, rather than just their individual variances [10, 13]. When you sum a large number of independent random variables, their distribution approaches a Normal distribution regardless of their original shape, a universal rule known as the Central Limit Theorem [14].\n\nWORKED EXAMPLE\nSuppose you hold an equal-weighted portfolio (\\(w_1 = 0.5, w_2 = 0.5\\)) of two independent stocks. Let both standard deviations be \\(\\sigma_1 = 0.2\\) and \\(\\sigma_2 = 0.2\\). Because they are independent, \\(\\text{Cov}(R_1, R_2) = 0\\) [15].\nUsing the portfolio variance formula:\n\\[ \\text{Var}(R_p) = (0.5)^2(0.2)^2 + (0.5)^2(0.2)^2 + 0 \\]\n\\[ \\text{Var}(R_p) = 0.01 + 0.01 = 0.02 \\]\nThe standard deviation of the portfolio is \\(\\sqrt{0.02} \\approx 0.141\\). Notice this is strictly less than the 0.2 individual risk\u2014this mathematical result is the exact engine driving portfolio diversification [16].\n\nPITFALLS\nAssuming that zero covariance implies independence is a dangerous trap. While independent variables always have zero covariance, variables with zero covariance can still be highly dependent (for instance, if \\(Y = X^2\\) and \\(X\\) is symmetric around zero) [15, 17]. Additionally, be careful assuming all distributions have defined moments; fat-tailed power-law distributions lack finite means or variances, making these standard formulas diverge wildly [18].\n\nAre you comfortable with how the expectations operator handles linear combinations, or shall we dive into how the Central Limit Theorem helps us price assets?",
+      "ts": "2026-05-17T12:55:45.404683+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 265,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 266,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 267,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 268,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 269,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 270,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 271,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 272,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 273,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 274,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 275,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 276,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 277,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 278,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 279,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 280,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 281,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 282,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 283,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 284,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 285,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 286,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 287,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 288,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 289,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 290,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 291,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 292,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 293,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 294,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 295,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 296,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 297,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 298,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 299,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 300,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 301,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 302,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 303,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 304,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 305,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 306,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 307,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 308,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 309,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 310,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 311,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 312,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 313,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 314,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 315,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 316,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 317,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 318,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 319,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 320,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 321,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 322,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 323,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 324,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 325,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 326,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 327,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 328,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 329,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 330,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 331,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 332,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 333,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 334,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 335,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 336,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 337,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 338,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 339,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 340,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 341,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 342,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 343,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 344,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 345,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 346,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 347,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 348,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 349,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 350,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 351,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 352,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 353,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 354,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 355,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 356,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 357,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 358,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 359,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 360,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 361,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 362,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 363,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 364,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 365,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 366,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 367,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 368,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 369,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 370,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 371,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 372,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 373,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 374,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 375,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 376,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 377,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 378,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 379,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 380,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 381,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 382,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 383,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 384,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 385,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 386,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 387,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 388,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 389,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 390,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 391,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 392,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 393,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 394,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 395,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 396,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 397,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 398,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 399,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 400,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 401,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 402,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 403,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 404,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 405,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 406,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 407,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 408,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 409,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 410,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 411,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 412,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 413,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 414,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 415,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 416,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 417,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 418,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 419,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 420,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 421,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 422,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 423,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 424,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 425,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 426,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 427,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 428,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 429,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 430,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 431,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 432,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 433,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 434,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 435,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 436,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 437,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 438,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 439,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 440,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 441,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 442,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 443,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 444,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 445,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 446,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 447,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 448,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 449,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 450,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 451,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 452,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 453,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 454,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 455,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 456,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 457,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 458,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 459,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 460,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 461,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 462,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 463,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 464,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 465,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 466,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 467,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 468,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 469,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 470,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 471,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 472,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 473,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 474,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 475,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 476,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 477,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 478,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 479,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 480,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 481,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 482,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 483,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 484,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 485,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 486,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 487,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 488,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 489,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 490,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 491,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 492,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 493,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 494,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 495,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 496,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 497,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 498,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 499,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 500,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 501,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 502,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 503,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 504,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 505,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 506,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 507,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 508,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 509,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 510,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 511,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 512,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 513,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 514,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 515,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 516,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 517,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 518,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 519,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 520,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 521,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 522,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 523,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 524,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 525,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 526,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 527,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 528,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 529,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 530,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 531,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 532,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 533,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 534,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 535,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 536,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 537,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 538,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 539,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 540,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 541,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 542,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 543,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 544,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 545,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 546,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 547,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 548,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 549,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 550,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 551,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 552,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 553,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 554,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 555,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 556,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 557,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 558,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 559,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 560,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 561,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 562,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 563,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 564,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 565,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 566,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 567,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 568,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 569,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 570,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 571,
+          "cited_text": "ends up taking that particular\nnumerical value.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 572,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 573,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 574,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 575,
+          "cited_text": "is the variance or its square root,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 576,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 577,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 578,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 579,
+          "cited_text": "have positive and negative fluctuations canceling",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 580,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 581,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 582,
+          "cited_text": "gets large, you're going to see the mean value of the number",
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 583,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 584,
+          "cited_text": "And now, this formula here, if we bring it down and substitute",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 585,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 586,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "more formulas this is not all of them",
+      "ts": "2026-05-17T14:46:21.157789+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\nIn quantitative finance, assets rarely move in isolation. We need to measure how two variables (like stock returns) move together. Covariance measures this joint variability, and correlation standardizes it into a dimensionless number between \\(-1\\) and \\(1\\) [1, 2]. When we build portfolios, the total risk (variance) is heavily dictated by these co-movements [3, 4].\n\nDERIVATION\nLet's derive the computational shortcut for covariance, which saves us from tedious algebra in practice.\n\nStep 1: Start with the fundamental definition of covariance. \nWhy? This defines the expected product of the deviations of \\(X\\) and \\(Y\\) from their respective means [5].\n\\[Cov(X,Y) = E[(X - \\mu_X)(Y - \\mu_Y)]\\]\n\nStep 2: Expand the algebraic product inside the expectation. \nWhy? To break the expression into individual terms so we can apply the rules of expectation [1].\n\\[Cov(X,Y) = E[XY - X\\mu_Y - Y\\mu_X + \\mu_X\\mu_Y]\\]\n\nStep 3: Apply the linearity of expectation. \nWhy? The expectation of a sum is the sum of expectations, and constant means (\\(\\mu_X\\), \\(\\mu_Y\\)) can be pulled out [6, 7].\n\\[Cov(X,Y) = E[XY] - \\mu_Y E[X] - \\mu_X E[Y] + E[\\mu_X\\mu_Y]\\]\n\nStep 4: Substitute \\(E[X] = \\mu_X\\) and \\(E[Y] = \\mu_Y\\), then simplify. \nWhy? To group terms and arrive at the final, streamlined formula [1].\n\\[Cov(X,Y) = E[XY] - \\mu_X\\mu_Y - \\mu_X\\mu_Y + \\mu_X\\mu_Y\\]\n\\[Cov(X,Y) = E[XY] - E[X]E[Y]\\]\n\nKEY INSIGHT\nCovariance is simply the \"expectation of the product minus the product of the expectations\" [1]. This directly mirrors the standard variance shortcut \\(Var(X) = E[X^2] - (E[X])^2\\) [8].\n\nWORKED EXAMPLE\nSuppose you have an equally weighted two-asset portfolio, so \\(w_1 = 0.5\\) and \\(w_2 = 0.5\\). The portfolio return is \\(R_p = w_1 R_1 + w_2 R_2\\) [9]. To find the portfolio's variance (risk), we apply the covariance relationship across all assets [10]:\n\\[Var(R_p) = w_1^2 Var(R_1) + w_2^2 Var(R_2) + 2 w_1 w_2 Cov(R_1, R_2)\\]\nIf \\(Var(R_1) = 0.04\\), \\(Var(R_2) = 0.09\\), and \\(Cov(R_1, R_2) = 0.02\\):\n\\[Var(R_p) = (0.25)(0.04) + (0.25)(0.09) + 2(0.25)(0.02) = 0.01 + 0.0225 + 0.01 = 0.0425\\]\n\nPITFALLS\nA critical mistake is assuming that a covariance of zero implies the two random variables are independent. Independence guarantees a covariance of zero, but a covariance of zero only means there is no *linear* relationship; the variables could still be perfectly, non-linearly dependent (for instance, \\(Y = X^2\\)) [11-13].\n\nWould you like to explore the Central Limit Theorem next, or look closer at continuous probability distributions?",
+      "ts": "2026-05-17T14:46:21.157789+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 265,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 266,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 267,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 268,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 269,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 270,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 271,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 272,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 273,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 274,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 275,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 276,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 277,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 278,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 279,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 280,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 281,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 282,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 283,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 284,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 285,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 286,
+          "cited_text": "times y minus its mean.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 287,
+          "cited_text": "by the square root of the variance of x",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 288,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 289,
+          "cited_text": "Sigma i squared is the variance of R_i.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 290,
+          "cited_text": null,
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 291,
+          "cited_text": "Think of it as a kind of Taylor's theorem.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 292,
+          "cited_text": "first, the expectation of any scalar, c, times any function",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 293,
+          "cited_text": "So this is minus 2mu squared plus minus square, gives me",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 294,
+          "cited_text": "Let's let r sub i be the return on that asset.",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 295,
+          "cited_text": "times the expectation of R_i minus mu_i quantity squared",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 296,
+          "cited_text": "minus mu over sigma, where the mu and the sigma",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 297,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 298,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        }
+      ]
+    }
+  ]
+}

@@ -86,3 +86,7 @@ notebooks:
       source_globs: []
       hull_source_id: 4b12a22c-7606-4f0a-9f25-5e6da24866bc
       wilmott_source_id: e0a835e1-ec33-43da-93ee-eec73d4ad5bd
+  chapters:
+    hull:
+      ch03_hedging_futures:
+        notebook_id: 67c4b151-f59a-4b14-a7e0-5b195d83b001
