@@ -1,0 +1,190 @@
+
+PROFESSOR: The Poisson distribution
+shows up in looking typically at the arrival of events
+or at jump processes.
+So we look for the arrival of a jump,
+maybe in a market price, or the arrival of an event,
+such as a credit default or customers
+arriving or customers departing, for orders
+arriving at an exchange.
+So we often apply it where we're thinking
+of continuous time and discrete events arriving
+at some unknown interval.
+And we use a Poisson distribution
+to model those intervals.
+So mathematically, the Poisson distribution
+has two parameters, two values.
+And sometimes it's convenient to think of it as a function
+of one or the other.
+But we have k, which is an integer, and lambda, which
+is a real valued variable.
+And the probability is e to the minus lambda, lambda
+to the k over k factorial.
+So when we're looking at arrivals,
+we apply that by thinking of lambda
+as being an arrival rate.
+And we replace lambda by lambda t
+as being the number of events that
+might arrive during a particular time interval, t.
+And we would use this probability distribution.
+What are its properties?
+Well, the mean value we just compute.
+We sum over k, over all the possible k's times
+the probability of observing each k.
+And we find the expectation of X, the average value of k,
+is just equal to lambda.
+And if we do the calculation for the second moment,
+we do the math and we compute this sum.
+And we find that it's lambda plus lambda squared.
+If we then go and compute the variance--
+remember that the variance is the expectation of the square,
+lambda plus lambda squared, minus the square
+of the variance, which is lambda quantity squared.
+And what we get is that sigma squared
+is equal to the lambda, which is actually
+the same thing as the mean, interestingly.
+Now, the Poisson distribution is also a special case.
+It's the limiting distribution when n goes to infinity,
+of the binomial distribution, in this special case where
+we let n go to infinity and the probability go to 0,
+holding their product fixed.
+So in that case, we can show that we recovered the parcel
+distribution.
+And an example of where we could apply it numerically
+as a useful distribution-- because the binomial
+distribution is pretty hard to compute
+with all those factorial when n gets large.
+So this is an easy thing to compute.
+Remember the k is typically going to be a small number.
+But n going to infinity going to 0
+or n very large, p very small, we can just take their product,
+hold it fixed, and get a good calculation,
+a good approximation from the Poisson distribution.
+For example, if we have a classroom that has,
+let's say 65 students and we ask who has a birthday on a given
+day, if we assume birthdays are equally likely to be
+on any day of the year, an approximation, 1/365,
+65 students, we would compute lambda as n times p.
+We could ask is 65 close to infinity.
+Well, let's take a look.
+If we compute n times p for this particular values,
+we get the lambda is 0.178.
+And if we compute the exact Poisson probability
+and compare it to what we would get
+from the exact binomial formula, we compare it
+to the Poisson approximation, we find out
+for 0, 1, and 2, that these approximations are pretty good.
+They're good to three decimal places at least.
+And that's only for an n of 65.
+The Poisson distribution does have different qualitative
+behaviors depending on the value of lambda.
+So when lambda is small, the values
+are always decreasing in k.
+When lambda gets to be above 1--
+and here, I've taken this upper graph
+is the value that we used in our previous birthday example--
+down below, I multiplied it by a factor of 10.
+And now we see that when lambda is greater than 1,
+it's a skewed distribution with the long tail off to the right.
+And here is our mean value, is lambda.
+And we notice that we said that our mean value was
+going to be lambda.
+If lambda is less than 1, then that's
+why the whole distribution is bunched up
+on the left-hand side.
+When lambda is greater than 1--
+in this case, lambda is 2.
+And we see that the p value is around 2.
+
+There are a bunch of combinatorial formulas
+if you want to play around with those.
+I've just put these in here for completeness.
+And you can check.
+But as I said, we've got a couple of tricks
+up our sleeve that will save us from doing
+a lot of combinatorics for computing moments in a bit.
+Finally, I want to say that when it
+comes to looking at distributions,
+that not all distributions are as well behaved.
+And some of them are going to be exceptions to our rule
+about being able to only look at moments.
+And the problem is, the thing that
+happens that's interesting, is that sometimes those moments
+don't exist.
+And I mentioned before, that we could try to compute the mean
+and have the integral diverge.
+Well, here's another example of that.
+Here's a very nice looking probability distribution
+from a distance or at a low resolution monitor.
+You might think this looks like a bell curve.
+But it's not.
+So this distribution is given by this function.
+It's a constant times that constant squared plus x
+squared.
+And asymptotically, as x gets large,
+it doesn't behave like a Gaussian that
+falls like e minus x squared.
+It falls off much more slowly with a power.
+So asymptotically as x goes to plus or minus infinity,
+this function decreases as 1 over x squared.
+And you can see what the problem is right away.
+If we want to compute the expectation of x squared,
+the integral won't converge.
+If we want to compute even the expectation of x
+or of x the fourth and x to the eighth,
+the integral is going to diverge wildly.
+So the probability distribution is fine.
+It sums to 1.
+There's no problem.
+We can compute the probability of being in a given area.
+But none of the moments exist.
+If we were to see things like this in data,
+if we were to look at observations like let's say,
+stock returns that were drawn from a distribution,
+such as this that had power-law tails.
+What would we see?
+Well, qualitatively, like a normal distribution,
+most of the event, we'd see a single peak.
+Most of the events are near the center.
+But fat tails means that extreme events
+occur quite likely, much, much more often than
+under a Gaussian distribution.
+They don't occur that often.
+After all, the tails that values out
+there are smaller than the central values.
+But the area under the curve going out from any given point
+is divergent.
+The weighted averages are divergent so
+that the power-law tails are giving us
+more and more of the contributions
+to analytical quantities of interest.
+And if we were to try to estimate the volatility using
+our standard metrics, we would get finite numbers
+for any finite number of observations.
+But as we increase the number of observations,
+rather than having convergence, we
+would see divergence in the results.
+So quick summary-- some common probability
+distributions that you've seen before in your probability
+and statistics classes.
+These are the main ones that are important in finance--
+uniform distribution, binomial, Poisson, normal, and Lognormal.
+These all have well-defined moments,
+or some interesting limits where we can go from one of them
+to another.
+And they appear in all kinds of applications-- option pricing,
+credit defaults, jump processes, lots
+of models of asset pricing, and a forecast in future returns.
+The Gaussian distribution is the most special
+of all because of the Central Limit Theorem,
+which we'll see the Gaussian distributions is universal.
+It shows up in places, even where we might not normally
+expect them.
+Picking which distribution to use for modeling a given
+problem partly depends on the theory and motivation
+behind the problem that we're looking at,
+but it always depends on the empirical behavior.
+So we can't just postulate that things are normal
+and that they are log normally distributed
+and assume that all will go well.
+We'll need to check that that's how the real world behaves.

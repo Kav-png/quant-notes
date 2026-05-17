@@ -1,0 +1,184 @@
+# Single source of truth for the course. Update here first; everything else derives from this.
+course:
+  id: 15.455x
+  title: Mathematical Methods for Quantitative Finance
+  program: MITx MicroMasters in Finance
+  instructor: Paul Mende
+  related_mit_courses: [15.455, 15.456]
+  enrollment_date: 2025-12-22
+  final_exam_date: 2026-06-23
+  final_exam_time: "22:03 GMT+1"
+  grading:
+    problem_sets: 0.50
+    final_exam: 0.50
+  lecture_video_hours: 15
+  software:
+    primary: R
+    ide: RStudio
+    notes: "user may use preferred language but course demos are in R"
+  textbooks:
+    - citation: "Tsay, Analysis of Financial Time Series (3e), Wiley"
+      short: Tsay
+      covers: [time_series]
+    - citation: "Capinski and Zastawniak, Mathematics for Finance, Springer"
+      short: CZ
+      covers: [probability, stochastic_processes, finance_math]
+
+prerequisites:
+  - area: multivariable_calculus
+    mit_course: 18.02
+    lectures: [8, 9, 10, 11, 12, 13, 14, 15]
+    source: MIT OCW
+  - area: probability_and_statistics
+    mit_course: 6.041
+    probability_lectures: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 19, 20]
+    classical_stats_lectures: [23, 24, 25]
+    source: MIT OCW
+  - area: linear_algebra
+    mit_course: 18.06
+    lectures: [1, 3, 6, 9, 10, 25, 27, 30, 33]
+    source: MIT OCW
+  - area: r_programming
+    resource: "Short R Intro (provided in course Prerequisites & Resources)"
+
+# Problem-set due dates (converted to ISO for calendar sync). All times GMT+1.
+problem_sets:
+  - number: 1
+    due: 2026-04-23T07:39:00+01:00
+    module: 1
+  - number: 2
+    due: 2026-04-28T22:03:00+01:00
+    module: 2
+  - number: 3
+    due: 2026-05-04T12:27:00+01:00
+    module: 3
+  - number: 4
+    due: 2026-05-10T02:51:00+01:00
+    module: 4
+  - number: 5
+    due: 2026-05-15T17:15:00+01:00
+    module: 5
+  - number: 6
+    due: 2026-05-21T07:39:00+01:00
+    module: 6
+  - number: 7
+    due: 2026-05-26T22:03:00+01:00
+    module: 7
+  - number: 8
+    due: 2026-06-01T12:27:00+01:00
+    module: 8
+
+modules:
+  - id: 0
+    title: Introduction
+    topics:
+      - Course Introduction and How to Take this Course
+    problem_set: null
+
+  - id: 1
+    title: Probability
+    topics:
+      - Review of basic concepts for random variables
+      - Probability distributions common in finance
+      - Expectation, variance, and covariance
+      - Sums of random variables
+      - Central Limit Theorem
+    prereq_focus: [probability_and_statistics]
+    textbook_refs: [CZ]
+    problem_set: 1
+
+  - id: 2
+    title: Introduction to Discrete-Time Stochastic Processes
+    topics:
+      - The random walk and generalizations
+      - Structure and solution of linear time series models
+      - Monte Carlo methods, simulation
+      - Testing the Random Walk Hypothesis
+    prereq_focus: [probability_and_statistics, r_programming]
+    textbook_refs: [Tsay, CZ]
+    problem_set: 2
+
+  - id: 3
+    title: Time Series Models
+    topics:
+      - Model identification and estimation
+      - Alternatives to the random walk
+      - AR, MA, ARMA, RW generalizations
+      - Order determination
+      - Boundary value problems
+      - "Applications: forecasting, gambling, dynamic trading strategies"
+    prereq_focus: [probability_and_statistics, r_programming]
+    textbook_refs: [Tsay]
+    problem_set: 3
+
+  - id: 4
+    title: Introduction to Continuous-Time Stochastic Processes
+    topics:
+      - Limits of discrete-time processes
+      - Scaling behavior
+      - Brownian motion
+      - Itô processes
+      - Itô's lemma
+    prereq_focus: [multivariable_calculus, probability_and_statistics]
+    textbook_refs: [CZ]
+    problem_set: 4
+
+  - id: 5
+    title: Itô Calculus
+    topics:
+      - Itô processes in finance
+      - Dynamic hedging and risk management
+      - The Black-Scholes-Merton equation
+    prereq_focus: [multivariable_calculus]
+    textbook_refs: [CZ]
+    problem_set: 5
+
+  - id: 6
+    title: Continuous-Time Finance
+    topics:
+      - From SDE to PDE
+      - Solving partial differential equations of finance
+      - Boundary value problems and Green functions
+      - Applications to derivative pricing and credit default risk
+    prereq_focus: [multivariable_calculus]
+    textbook_refs: [CZ]
+    problem_set: 6
+
+  - id: 7
+    title: Linear Algebra of Asset Pricing
+    topics:
+      - Review of linear algebra
+      - "One-period model: prices, payoffs, and probabilities"
+      - Dual spaces and the FTAP
+      - Linear algebra of portfolio space
+    prereq_focus: [linear_algebra]
+    textbook_refs: [CZ]
+    problem_set: 7
+
+  - id: 8
+    title: Optimization
+    topics:
+      - Review of high-dimension critical points
+      - Lagrange multipliers and constrained optimization
+      - Quadratic programming solutions
+      - Applications to portfolio optimization
+    prereq_focus: [multivariable_calculus, linear_algebra]
+    textbook_refs: [CZ]
+    problem_set: 8
+
+  - id: 9
+    title: Optimal Decision Making and Optimal Strategies
+    topics:
+      - Dynamic programming
+      - Variational methods
+      - Extensions
+      - "Applications: optimal execution and trading"
+    prereq_focus: [linear_algebra, multivariable_calculus]
+    textbook_refs: [CZ]
+    problem_set: null  # no PS listed; covered on final
+
+  - id: 10
+    title: Review Period
+    topics:
+      - No new content — review for final exam
+    problem_set: null

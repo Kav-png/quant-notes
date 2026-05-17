@@ -1,0 +1,147 @@
+{
+  "mind_map": {
+    "name": "Mechanics of Futures Markets",
+    "children": [
+      {
+        "name": "Specification of a Futures Contract",
+        "children": [
+          {
+            "name": "Asset and Contract Size",
+            "children": []
+          },
+          {
+            "name": "Delivery Arrangements and Months",
+            "children": []
+          },
+          {
+            "name": "Price Quotes and Limits",
+            "children": []
+          },
+          {
+            "name": "Position Limits",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Margins and Clearing",
+        "children": [
+          {
+            "name": "Daily Settlement and Marking to Market",
+            "children": []
+          },
+          {
+            "name": "Initial and Maintenance Margins",
+            "children": []
+          },
+          {
+            "name": "Clearing House Operations",
+            "children": []
+          },
+          {
+            "name": "OTC Collateralization",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Convergence of Prices",
+        "children": [
+          {
+            "name": "Convergence to Spot Price at Maturity",
+            "children": []
+          },
+          {
+            "name": "Arbitrage if Futures Above Spot",
+            "children": []
+          },
+          {
+            "name": "Arbitrage if Futures Below Spot",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Market Quotes and Delivery",
+        "children": [
+          {
+            "name": "Trading Volume and Open Interest",
+            "children": []
+          },
+          {
+            "name": "Settlement Price",
+            "children": []
+          },
+          {
+            "name": "Normal vs. Inverted Markets",
+            "children": []
+          },
+          {
+            "name": "Physical Delivery vs. Cash Settlement",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Traders and Orders",
+        "children": [
+          {
+            "name": "Futures Commission Merchants and Locals",
+            "children": []
+          },
+          {
+            "name": "Market, Limit, and Stop Orders",
+            "children": []
+          },
+          {
+            "name": "Stop-Limit and Market-if-Touched Orders",
+            "children": []
+          },
+          {
+            "name": "Time-Conditioned Orders",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Regulation, Accounting, and Tax",
+        "children": [
+          {
+            "name": "CFTC and NFA Regulation",
+            "children": []
+          },
+          {
+            "name": "Trading Irregularities and Market Corners",
+            "children": []
+          },
+          {
+            "name": "Hedge Accounting Standards",
+            "children": []
+          },
+          {
+            "name": "Capital Gains and 60/40 Tax Rule",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Forward vs. Futures Contracts",
+        "children": [
+          {
+            "name": "Standardized vs. Private Agreements",
+            "children": []
+          },
+          {
+            "name": "Daily Settlement vs. Contract End Settlement",
+            "children": []
+          },
+          {
+            "name": "Credit Risk Differences",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

@@ -1,0 +1,172 @@
+
+PROFESSOR: Now let's look at sums of random variables.
+And this is going to open the door
+to our construction of discrete time stochastic processes.
+We're going to use a basic property for probability,
+that if we have random variables,
+we can add them together to get new random variables.
+We'll see that we'll do everything
+in terms of the expectations, which
+are going to be easy to compute using linearity.
+And you're going to have really interesting behavior
+as a function of the number of items in our sum.
+So when we have several random variables,
+we construct a new one just by adding them together.
+So imagine I've got a collection of n random variables--
+xyz, X1, X2, X3, X4 to the Xn, and I define their sum.
+There are lots of other functions we could talk about.
+We could take products.
+We could do all kinds of polynomials
+or transcendental functions, but we're
+going to only be talking about the sum
+of basic random variables.
+Now in certain cases, we could ask what the full probability
+distribution is S, in terms of the probability
+distributions for X1, X2, X3 and up through Xn.
+They have a definite probability distribution.
+So that determines what happens with S.
+But in many cases, we don't need to know
+everything about S. We just need to know about its moments.
+And those are easy.
+They're easy because we can use linearity.
+What we do is we apply the expectation operator
+to the sum, and we see that the expectation of the sum is
+the sum of the expectations of the individual X's.
+So the full probability distribution
+can be quite complicated.
+But what we need to do is to get the mean value,
+we just add the means of the individual variables.
+Now due to the Central Limit Theorem,
+this is actually often all we need,
+because we get a tremendous amount out of this.
+If we n is a large number, then the sum of random variables
+is going to converge on a Gaussian random variable.
+That's the distribution of S will approach a Gaussian
+distribution, regardless of what the X initial distributions
+are.
+And we'll see that in just a moment in pictures,
+and then in a subsequent video, I'll
+show you how you can derive that.
+
+But let's take a look first, at where
+we might apply this sum of random variables
+in financial terms.
+So one case is when we look at portfolios.
+So suppose we have a portfolio that consists of N assets.
+And let's let w represent the weight of asset,
+i, within a portfolio.
+So i runs 1, 2, 3, 4 through the number of assets we have.
+Suppose we have stocks in the Dow Jones Industrial
+average-- i would run from 1 through 30
+and would be equal to 30.
+Let's let r sub i be the return on that asset.
+And let's think of it as being a random variable.
+So each of the stocks is going to have
+an independent probability distribution.
+And each probability distribution
+has a mu_i which is the expectation of R.
+And it's got a variance, sigma i squared, which
+is just a variance of the random variable, R_i
+So what's a portfolio?
+A portfolio is a weighted average of stocks.
+So here our weights are not probabilities,
+they're capital allocations to a portfolio so the rule
+and this is just arithmetic that the return
+on a portfolio the simple return on a portfolio in a given
+period is the weighted average of the returns
+on the individual assets.
+So we've got this bilinear form.
+We've got a linear combination of the returns--
+w1R1 plus w2R2 and so on.
+So we have a linear combination of random variables.
+So it's not just a sum, it's a weighted average.
+What's the expectation of R?
+Well, that's the portfolio, mean return.
+And the expectation of R using linearity,
+is the weighted average of the expectations
+of the individual stock returns.
+No surprise-- the expected return on the portfolio
+is the weighted average of the expected return
+of the individual stocks.
+So that's a case where we don't know what the full return
+distribution is.
+But we've related the mean of the portfolio
+to the mean of the individual stocks.
+What about the variance?
+Well, if the variables were uncorrelated,
+that would be one thing.
+But that is not the case with most financial variables.
+And certainly, it's not the case for asset returns.
+So let's take a look at what happens
+when we compute the variance.
+What we'll see as we define the variance of our portfolio,
+R_p Remember that R_p is just this weighted average.
+So when we take a look at R_p minus mu_p
+we can expand that out in terms of our individual stocks
+in this way.
+And if we expand out the quadratics--
+so this is a quadratic.
+We expand out all the terms and we
+group them together, we get two kinds of terms.
+We get diagonal terms.
+We get an i with itself gives a set of n terms, w_i squared
+times the expectation of R_i minus mu_i quantity squared
+plus all the cross terms that come from i not equal to j.
+These terms, you'll notice, are a weighting factor,
+w_i squared, times the variance of stock, i.
+And the cross terms give us for each i not equal to j or twice
+for each i less than j, wiwj times the covariance
+of R_i and R_j.
+And that just comes from expanding
+out the polynomial inside the expectation
+here, and grouping the terms together.
+We can rewrite these two terms in terms of sigma squared.
+Sigma i squared is the variance of R_i.
+And using our formula for the correlation,
+we can relate the covariance to the correlation by noting that
+the covariance is just sigma_i sigma_j ,
+times the correlation of i with j,
+which I've denoted here by rho_ij .
+So you notice the structure of the formula that we have.
+The return on the portfolio is quadratic.
+Excuse me, the variance of the portfolio
+is quadratic in the weights.
+It has a term in w_i squared times the sigma is squared
+for each of the stocks, plus twice w_iw_j, sigma_i sigma_j ,
+rho_ij .
+So if the stocks were uncorrelated,
+we'd only have the first term.
+And if the w's were 0, of course, this would vanish.
+A couple of special cases of this are worth keeping in mind.
+One of them is if the correlations
+rho_ij were equal to 0, then we see we have the first term.
+But notice that it becomes the sum of a bunch of squares.
+On the other hand, if rho_ij in this expression,
+if these were all equal to 1, then you
+notice that this becomes an expression
+for a perfect square.
+If rho_ij is equal to 1, then the variance of the portfolio
+is the weighted average squared.
+So it's the square of the sum instead
+of the sum of the squares.
+Finally if the correlation were 0
+and everything were the same-- all the stocks were the same.
+They all had the same volatility.
+They all had the same variance.
+And the portfolio were equal weighted, what would we see?
+Well, if the portfolio is equal weighted,
+each stock will have weight 1/n.
+If the sigmas are all equal, we can give them the name.
+If the sigma i's are all equal, let's call it sigma 0.
+And now, this formula here, if we bring it down and substitute
+those in, we see it as a portfolio value becomes
+sigma 0 squared divided by n.
+That is we've got 1 over n squared.
+But there are n identical terms in the sum.
+So we get sigma 0 squared over n,
+which means that the volatility of the portfolio
+is proportional to 1 over square root of n.
+That means that as n gets large, the volatility in the portfolio
+goes down.
+And this is the basic idea behind portfolio
+diversification.

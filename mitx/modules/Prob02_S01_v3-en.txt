@@ -1,0 +1,142 @@
+
+PROFESSOR: Let's take a quick look
+at some of the common distributions
+that we see in finance.
+First, uniform probability distribution
+is always our starting test case.
+The probability density p of x is equal to 1
+if x is in the interval between 0 and 1, and 0 otherwise.
+We compute the probability for X to lie between two values
+a and b by computing the interval.
+So this one is obviously just b minus a.
+How do we get the cumulative distribution function
+from minus infinity to x?
+Assuming that we're inside the interval where
+x is between 0 and 1, this is just the function x itself.
+What about moments?
+Well, we do the integrals The mean is the integral
+of x p of x dx, and that's 1/2.
+We can obviously do these integrals
+in closed form for any value.
+So for x to the l, we get the l-th moment is 1 over l plus 1.
+And for the variance, for sigma squared, we use our definition.
+It's the integral of p of x, which is 1,
+times x minus the mean, so x minus 1/2 quantity squared.
+Do the integral, and we get 1/12.
+The binomial distribution is very important
+since it describes random walks and it's
+used in the binomial tree model for option pricing.
+So the binomial distribution provides a model for anything
+that has two possible outcomes-- success or failure,
+they're typically called.
+But we could be thinking of heads or tails,
+we could be thinking of something going up or down,
+or left or right, or two possible outcomes, win or lose.
+But they don't need to be symmetric.
+So for example, if we put our money on 19 in roulette,
+it could be 19 is one state and not-19 is the other state.
+So lots of possible examples where we
+have two states of the world.
+What we do is we define the probability for one state
+to be-- we'll call it p-- the probability
+for the complementary state to be 1 minus p,
+and then we'll imagine that we repeat
+this a certain number of times.
+And we want to know-- our question for the binomial
+distribution is--
+how many successes and failures do we
+have out of the given number of experiments,
+out of the given number of trials?
+So imagine that we do the experiment n times.
+And we want to know, what's the probability, if I do this n
+times, of observing k successes and n minus k failures?
+So if I flip a coin 10 times in a row, n is equal to 10.
+If I want to know the probability
+of getting 5 heads and 5 tails, I would take k equals 5.
+If I want to know about getting 2 heads and 8 tails,
+I would take k equals 2.
+So how do we compute the probability?
+Well, it depends.
+Probability is a function that depends on k.
+But it has two parameters, n and p, that are held fixed.
+So n could be 10, p could be 1/2,
+for the example of flipping a fair coin.
+But actually, n can be any integer,
+and p can be any number between 0 and 1.
+So we can see that if we want all possible ways
+that in n trials we could have k successes,
+the number of ways of doing that is n
+choose k-- n factorial over k factorial n minus k factorial.
+And by properties of combinatorics and factorials,
+that's the same as n choose n minus k, of course.
+Now, we're going to weight that by the probability of success
+to the k-th power.
+Because these are independent events happening separately,
+the probability of having it happen k times are it
+needed to happen each of k times.
+So the probabilities multiply.
+So in the case where I have k successes and n minus k
+failures, I'm going to have p raised to the k,
+q raised to the n minus k will be that probability
+of a particular event, and the multiplicity
+will be n choose k.
+Now, what's the mean of that expectation?
+Well, we could compute it.
+And let me just show you how it's done the hard way.
+And very shortly, we'll find a much easier way
+to do it, which will generalize.
+And that's what we'll be doing for the rest
+of our calculations.
+It's both easier to compute and it opens doors
+to some other properties of stochastic processes.
+So the hard way is we use the definition.
+So the definition is that we take
+the mean is defined as the expectation of X.
+So we take the value of X, we sum over all possibilities.
+We take the value times the probability
+of finding that value.
+So we could have k could be 0 successes up through infinity,
+theoretically, and we would compute this sum.
+Of course, it can't really go to infinity.
+If we have n trials, k can either be 0 through n--
+so we can cut off our sum at n on the upper end of the limit.
+And if k is equal to 0, that term
+is not going to show up either, because k
+equals 0 would just drop out because of this factor here.
+So let's write our sum from k equals 1 to n
+and then plug in our definition.
+So we've got our factorial, k factorial n minus k factorial
+on the bottom, n factorial in the numerator times the k
+prefactor here, p to the k, q to the n minus k.
+I can rearrange the terms a little bit.
+I can cancel a k in the numerator and the denominator
+here.
+
+See if my magic screen will cooperate.
+Here and here, we can cancel out a k to get k minus 1 factorial.
+And now to neaten things up, I'd like to write this as n minus 1
+factorial times n.
+That's the same thing as n factorial.
+So written in this way, I'm getting
+ready to shift the variables.
+So I've written this in terms of n minus 1 choose k minus 1.
+And I've pulled a factor of n out in front,
+and I'm also going to go ahead and pull a factor of p
+out in front as well, so that the coefficient up here is
+k minus 1.
+I can then redefine my variables, k prime and n prime.
+I notice this whole expression right here
+is the same thing as my function f, just
+in terms of new variables k prime and n prime,
+where k prime is k minus 1, n prime is n minus 1.
+And then that entire summation is just equal to 1.
+So after going through all the combinatorics, all
+the shifting around of variables,
+I get a very simple result--
+that the mean value is n times p.
+And if you think about it, of course it is.
+We have probability p of seeing a success.
+Let's say the probability is 1/10.
+We maybe do the experiment 100 times.
+What would we expect to see?
+Probably about 1/10 of 100 mean value of n times p.

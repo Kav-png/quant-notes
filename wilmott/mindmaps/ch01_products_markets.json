@@ -1,0 +1,84 @@
+{
+  "mind_map": {
+    "name": "Products and Markets",
+    "children": [
+      {
+        "name": "Equities and Indices",
+        "children": [
+          {
+            "name": "Dividends and Stock Splits",
+            "children": []
+          },
+          {
+            "name": "Lognormal and Arithmetic Random Walks",
+            "children": []
+          },
+          {
+            "name": "Stock Market Indices",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Commodities and Currencies",
+        "children": [
+          {
+            "name": "Raw Products and Scarcity",
+            "children": []
+          },
+          {
+            "name": "Foreign Exchange Rates",
+            "children": []
+          },
+          {
+            "name": "Link Between Exchange and Interest Rates",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Time Value of Money and Bonds",
+        "children": [
+          {
+            "name": "Simple vs Compound Interest",
+            "children": []
+          },
+          {
+            "name": "Continuous Compounding Formula",
+            "children": []
+          },
+          {
+            "name": "Fixed-Income Securities",
+            "children": []
+          },
+          {
+            "name": "Inflation-Proof Bonds",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Forwards and Futures",
+        "children": [
+          {
+            "name": "Contract Obligations and Delivery Date",
+            "children": []
+          },
+          {
+            "name": "No-Arbitrage Principle",
+            "children": []
+          },
+          {
+            "name": "Forward Price Formula Relationship",
+            "children": []
+          },
+          {
+            "name": "Asset Specifics for Futures",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

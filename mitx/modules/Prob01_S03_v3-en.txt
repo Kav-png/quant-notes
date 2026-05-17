@@ -1,0 +1,185 @@
+
+PROFESSOR: We use probabilities to serve
+as weights for computing weighted averages.
+And these, we call expectations.
+These expectations are going to be
+very important for what we do.
+In fact, our next slide, our next proposition
+is going to give us a shortcut through a lot
+of complex mathematics to get straight to the analytics we
+want in terms of using expectation values instead
+of full probability distributions.
+So the important thing is that an expectation value
+can be thought of as a kind of a weighted average.
+In the discrete case for any function,
+f of x, the expectation that I write with E and brackets
+around it, is a weighted average over the possible states,
+the possible allowed values of the random variable, x
+sub k, however many there are.
+And it's the value of f at each of the possible values
+of the random variable, weighted by the probability of observing
+that variable.
+So it's a weighted average.
+If f is 1, identically, then, the expectation of 1
+has to be equal to 1, because the probabilities sum to 1.
+In the continuous case, it's even more elegant.
+This just becomes an integral.
+So we integrate f of x times p of x dx.
+And again, if f is just 1, then the integral of p of x dx
+has to be equal to 1, the normalization of probability,
+and we get 1.
+So expectations are weighted averages of functions
+with probability numbers.
+But the important thing is that they're numbers,
+they're not functions.
+We do a definite integral.
+We do a definite sum.
+So p of x is a function.
+The expectation of some function of x, though, is just a number.
+The classic example is the mean of the distribution,
+which is just the expectation of the random variable itself.
+And we have lots of different notations for expectations,
+and I'll just give you a few of them.
+One of them, for the mean in particular,
+is often denoted by mu.
+And that's going to be our definition for E of x.
+Sometimes this is written as x-bar.
+Sometimes it's also written is x inside angle brackets.
+All of these things mean the expectation
+of x for the mean value.
+And we'll use the angle brackets a little bit more just when we
+want to simplify the notation.
+Generally, we'll be using the E notation.
+So in this case, in the case of the discrete,
+it means the sum of x times p of x.
+In the integral case, it just means x p of x dx.
+So in the case of a discrete sum--
+if there are a finite number of states,
+we're always going to get a finite result.
+When we have integrals, even though we require
+that p of x be an integrable function,
+it's possible that x p of x might not
+have a convergent integral.
+So it is possible to have a perfectly well-behaved
+probability distribution where the mean doesn't necessarily
+exist.
+Similarly, we can generalize to the moments of a distribution.
+And those might not exist in the case
+of a continuous distribution.
+So the moments just generalize.
+Instead of e of x, we take the expectation of x to a power--
+in this case, x to the lth power.
+So this is our definition of the lth moment.
+And you might not be surprised to know
+that if we know all of the moments,
+then we can read to reconstruct the full probability
+distribution itself.
+Think of it as a kind of Taylor's theorem.
+And we'll see that when we look at generating functionals.
+So we can go back and forth from moments
+to the full distribution.
+But if we're interested in a particular moment,
+here's the formula for how we compute it.
+So expectation of x to any power is
+for the continuous case, integral
+of x to the l p of x dx.
+Now, the most important property of the expectation operator--
+because it's either a sum or an integral,
+is that it obeys linearity.
+And linearity means we have the following two properties--
+first, the expectation of any scalar, c, times any function
+f, is just the scalar times the expectation.
+And if we have the sum of any two functions, f and g,
+the expectation of the sum is the sum of the expectations.
+That's simple property, that the sum of that expectation
+is the expectation of the sum, will
+let us bypass a lot of complicated calculations
+that we'd rather cut through.
+Now, there are some moments and algebraic functions
+of moments that are particularly interesting.
+And maybe the most important one in finance
+is the variance or its square root,
+which is a standard deviation.
+So the variance is related to the expectation
+of x squared by the expectation of x
+squared minus the square of the expectation.
+But to get there, let's look at how we formally define it.
+The variance of x is the expectation
+of x minus its mean, the whole quantity squared.
+So if x were not random at all and were equal to m,
+this would be equal to 0.
+We look at x minus mu to measure how much x
+deviates from its mean value.
+We take the square so that we don't
+have positive and negative fluctuations canceling
+each other out.
+Once we have this definition, the rest of this
+is just algebra.
+So what we do is we expand out the quantity in parentheses--
+x minus quantity squared.
+We expand it out it's a quadratic.
+We use our rule for linearity, that the expectation of the sum
+is the sum of an expectation.
+So we get the expectation of x squared
+minus 2mu times the expectation of x plus mu squared.
+This is just a constant.
+Expectation of x squared minus--
+now, I have minus 2mu, you but e of x is mu.
+So this is minus 2mu squared plus minus square, gives me
+a minus mu squared.
+And of course, mu squared is the same thing as the expectation
+of x squared.
+So this is a good rule for calculation.
+The variance is the expectation of the square minus the square
+of the expectation.
+And we often use the square root of the variance, which
+plays the role of the volatility in looking
+at financial processes.
+And one reason we do that is that the square root
+has the same units.
+It has the same dimensions.
+We measure it the same way as we do the random variable itself.
+So if x is in dollars, sigma is in dollars.
+If x is annualized return, then the standard deviation
+is also in the same units.
+So we might say, for example, that a given stock has
+an expected return, a mean return in a probability
+distribution of 10% per year, with a sigma or standard
+deviation of 30% per year, which is a little bit easier
+than the square of 30% for the variance.
+
+Now the moments and particular combinations,
+linear combinations, of them, help
+us characterize some of the properties of a probability
+distribution.
+And we're going to see that we're
+going to get quite far using only a few
+of the lower moments.
+And we won't need all the details
+of the full function, p of x.
+There's a lot of universality in low moments.
+So in addition to the variance and the mean,
+the next two moments of interest are the main ones.
+Then we can kind of stop.
+The third moment gives us what's called the skewness.
+And the skewness is an asymmetry parameter.
+It tells us whether we're more or less
+likely to see things above the mean versus below the mean.
+So a skewness of 0 is what we'll find if a probability
+distribution is symmetric.
+And that's because it depends on an odd power of x minus mu.
+Notice that after the variance, the skewness
+is defined in a way that's dimensionless.
+That is if x is in units of dollars or of return,
+sigma has the same units of 3 powers in the numerator, 3
+in the denominator.
+So s is a pure number.
+Similarly, the kurtosis involves the fourth power.
+And to make it dimensionless, I divide by four powers of sigma.
+Sometimes you'll see this called the excess kurtosis,
+with the minus 3 subtract it off,
+and the non-excess kurtosis, just without the minus 3.
+We like this definition because as we'll, see,
+for Gaussian distributions, for a normal distribution,
+the skewness and the kurtosis measured in this way
+are both equal to 0.

@@ -1,0 +1,106 @@
+
+PROFESSOR: What if we've got more than one random variable,
+as we often do?
+Well, if we have two random variables,
+they could be independent, but they might not be independent.
+And one of the measures we have for how
+two different random variables might be related to each other
+is to look at an expectation, as well.
+It's to look at the expectation of a bilinear product.
+So the covariance of two random variables x and y,
+which I sometimes write in this notation, covariance
+of x and y, is the expectation of x minus its mean,
+times y minus its mean.
+Now if you expand this out and do the same trick
+that we did for the variance, you
+find that this can be simplified to be
+the expectation of the product minus the product
+of the expectations for two variables, x and y.
+This has units, unsurprisingly, the units
+of x times units of y.
+So if x is in dollars and y is in yen,
+the product is going to be in dollars times yen.
+We often like to have things in dimensionless units.
+So we define the correlation to be the covariance divided
+by the square root of the variance of x
+and the square root of the variance of y.
+That makes the correlation a dimensionless number.
+And in fact, it's bounded between minus 1 and plus 1
+for the correlation of two random variables.
+Notice that we can rewrite this by taking
+the square root of the variances,
+writing that as sigma x, sigma y.
+Because those are constants, I can bring them
+inside the expectation.
+And I can write the correlation as an expectation
+in this interesting way.
+It's the expectation of x minus mu over sigma times y
+minus mu over sigma, where the mu and the sigma
+are for the y distribution.
+And each of these quantities in parentheses,
+you'll notice has 0 mean, because I've subtracted off
+its mean.
+And it has unit variance, because I've
+divided by the variance.
+Now if the random variables are independent of each other,
+then these expectations factorize, and we'll get 0.
+So if the variables, x and y, are independent,
+then they're covariance and correlation are 0.
+What about the other way around?
+Well, the other way around is different.
+So it is possible to have vanishing covariance,
+but not have the variables be independent. .
+Let's take a look at a quick example.
+If we have x to be a function that takes,
+let's say, plus or minus a with probability p1,
+and it takes plus or minus b with probability p2,
+then we can see that it's mean has to be 0,
+simply because it's symmetric.
+It's equally likely to have a positive number
+and a negative number.
+Now what if we define y to be x squared?
+So if y is a function of x, it's not independent.
+It's completely dependent.
+If we know what x is, then we know what y is.
+It's the square the value of x.
+So in this case, this would be a squared with probability 2pi1,
+because whether it's plus or minus a, each
+with probability pi, y is going to have value a squared--
+and similarly for b.
+So its mean is not going to be 0 because y
+is a positive function, and we can compute its mean.
+And now if we go and compute the covariance,
+and we put in the numbers, we take the probability
+weighted average of the functions,
+we find that the covariance of x and y is 0.
+So if the covariance vanishes, it does not imply independence.
+Independence implies vanishing covariance, but not
+the other way around.
+So let's summarize-- random variables are functions
+that assign probability to events or outcomes
+in the sample space.
+They can be discrete.
+They can be continuous.
+They can be a mix of both.
+We describe the probabilities by a probability distribution,
+which could be discrete.
+It can be continuous, but either way, it's sums
+or it integrates to 1, and the values are always positive.
+Expected values or expectations-- and I'll
+use those interchangeably-- are weighted averages, where
+the weights are taken from the probabilities.
+The moment of a distribution are the expectation,
+not of some general function, but in particular, of powers
+of the random variable.
+The first power, x to the 1, gives us the mean.
+X squared minus the constant gives us the variance.
+We can do x cubed, x to the fourth, and so on.
+
+So the variance, skewness, and kurtosis
+are simple functions of the moments that are used,
+the second, third, and fourth moments of the distribution,
+and they help us characterize the shape of the distribution.
+And if there are multiple random variables,
+we define using expectations again, the covariance
+and the correlation.
+And for independent random variables, those vanish.

@@ -1,0 +1,1797 @@
+{
+  "conversation_id": "62ba084d-9e54-4a48-8b7d-27dbc18ca69b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Derive Geometric Distribution step by step in detail explaining all computations that are taken and the intuition behind it",
+      "ts": "2026-05-15T19:25:35.842418+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\n\nThe Geometric Distribution answers a very specific, practical question: If I repeatedly attempt a binary experiment (where each trial is a success or a failure), how long will I have to wait until I see the very first success? [1]\n\nIn quantitative finance, you can think of each \"trial\" as a time period (like a day or a month) and a \"success\" as a specific event, such as a company defaulting on its debt or an asset price hitting a certain threshold. The distribution models the waiting time until that first event occurs [1]. Because each trial is independent, the process has no memory of the past [2].\n\nDERIVATION\n\nHere, we will derive both the Probability Mass Function (PMF) and the Expected Value (mean) of the Geometric Distribution. Let \\(X\\) be the random variable representing the number of trials required to achieve the first success, and let \\(p\\) be the probability of success on any single trial [1, 3].\n\n**Part 1: Deriving the Probability Mass Function (PMF)**\n\nStep 1: Identify the sequence of necessary outcomes for \\(X = k\\). \nIn order for the first success to occur exactly on the \\(k\\)-th trial, we absolutely must observe exactly \\(k-1\\) consecutive failures, followed by exactly 1 success [3].\n\nStep 2: Calculate the joint probability of this sequence.\nBecause the trials are statistically independent, we find the joint probability by multiplying the individual probabilities of each trial [3]. The probability of a single failure is \\((1-p)\\), and the probability of a success is \\(p\\). \n\nStep 3: Combine the terms into the final PMF.\nMultiplying the probability of \\(k-1\\) failures by the probability of 1 success yields the geometric PMF [4]:\n\\[P(X = k) = (1-p)^{k-1}p\\]\n\n**Part 2: Deriving the Expected Value (Mean)**\n\nStep 1: Apply the Law of Total Expectation.\nWe can break the calculation of the expected value, \\(E[X]\\), into two possible scenarios for the first trial: it is either a success or a failure [5].\n\\[E[X] = P(\\text{Success}) \\cdot E[X \\mid \\text{Success}] + P(\\text{Failure}) \\cdot E[X \\mid \\text{Failure}]\\]\n\nStep 2: Evaluate the expectation if the first trial is a success.\nIf we achieve success on the very first try, the number of trials is exactly 1. Therefore, \\(E[X \\mid \\text{Success}] = 1\\) [6].\n\nStep 3: Evaluate the expectation if the first trial is a failure.\nIf the first trial is a failure, we have \"wasted\" 1 trial [7]. However, because the trials are independent, the remaining number of trials needed to achieve success is exactly the same as if we were starting from scratch [8]. Thus, the expected total number of trials is the 1 wasted trial plus the original expectation \\(E[X]\\) [8]. \n\\[E[X \\mid \\text{Failure}] = 1 + E[X]\\]\n\nStep 4: Substitute and solve algebraically for \\(E[X]\\).\nSubstitute the known probabilities and conditional expectations back into the equation from Step 1 [9]:\n\\[E[X] = p(1) + (1-p)(1 + E[X])\\]\n\\[E[X] = p + 1 - p + (1-p)E[X]\\]\n\\[E[X] = 1 + E[X] - pE[X]\\]\nSubtract \\(E[X]\\) from both sides and add \\(pE[X]\\) to both sides:\n\\[pE[X] = 1\\]\n\\[E[X] = \\frac{1}{p}\\]\nThis proves that the average waiting time is simply the reciprocal of the success probability [9].\n\nKEY INSIGHT\n\nThe geometric distribution is strictly \"memoryless,\" meaning that the fact you have already waited through 100 failures conveys absolutely zero information about how many more trials you will need to wait for the next success [2, 10]. The expected number of remaining trials from any point in time is always exactly \\(1/p\\).\n\nWORKED EXAMPLE\n\nSuppose you are tracking a distressed bond, and you model its chance of defaulting in any given month as independent, with a probability \\(p = 0.05\\) (5%). \n\nWhat is the probability it defaults in exactly the 3rd month (\\(k=3\\))?\n\\[P(X=3) = (1 - 0.05)^{3-1}(0.05) = (0.95)^2(0.05) = 0.9025 \\cdot 0.05 = 0.045125\\]\nThere is a ~4.51% chance it defaults in exactly month 3.\n\nWhen do we *expect* it to default?\n\\[E[X] = \\frac{1}{0.05} = 20 \\text{ months}\\]\n\nPITFALLS\n\nA very common mistake is the \"Gambler's Fallacy.\" If an analyst sees that the bond has survived for 40 months without defaulting, they might instinctively feel that a default is \"overdue\" [11]. Because the process is memoryless, the expected time until default, *viewed from month 40*, is still exactly 20 months [10]. \n\nDoes this intuitive breakdown of the derivation make sense, or would you like to explore how this discrete model transitions into the continuous Exponential Distribution?",
+      "ts": "2026-05-15T19:25:35.842418+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 265,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 266,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 267,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 268,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 269,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 270,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 271,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 272,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 273,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 274,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 275,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 276,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 277,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 278,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 279,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 280,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 281,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 282,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 283,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 284,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 285,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 286,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 287,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 288,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 289,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 290,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 291,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 292,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 293,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 294,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 295,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 296,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 297,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 298,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 299,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 300,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 301,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 302,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 303,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 304,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 305,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 306,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 307,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 308,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 309,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 310,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 311,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 312,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 313,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 314,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 315,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 316,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 317,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 318,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 319,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 320,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 321,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 322,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 323,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 324,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 325,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 326,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 327,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 328,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 329,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 330,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 331,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 332,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 333,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 334,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 335,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 336,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 337,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 338,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 339,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 340,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 341,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 342,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 343,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 344,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 345,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 346,
+          "cited_text": "Consider the experiment where\nI start with a coin and I",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 347,
+          "cited_text": "So the PMF of this random\nvariable, which is X minus 2,",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 348,
+          "cited_text": "Px of k is, by definition, the\nprobability that our random",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 349,
+          "cited_text": "So to find the probability\nof this event, we need to",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 350,
+          "cited_text": "It's a very useful way for\ncalculating expectations using",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 351,
+          "cited_text": "the other case where the\nfirst toss was tails.",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 352,
+          "cited_text": "Essentially, what it's saying is\nthat, if I tell you that X",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 353,
+          "cited_text": "Given that the first coin flip\nwas tails doesn't tell me",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 354,
+          "cited_text": "So the fact that they I had a\ncoin flip yesterday doesn't",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 355,
+          "cited_text": "Whatever happened in the past,\nit happened, but has no",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        },
+        {
+          "citation_number": 356,
+          "cited_text": "Is one more likely\nthan the other?",
+          "source_id": "b62a71c0-936b-42af-b1e9-8f9cffe8b4ab"
+        }
+      ]
+    }
+  ]
+}

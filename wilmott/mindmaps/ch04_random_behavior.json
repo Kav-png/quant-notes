@@ -1,0 +1,101 @@
+{
+  "mind_map": {
+    "name": "The Random Behavior of Assets",
+    "children": [
+      {
+        "name": "Forms of Market Analysis",
+        "children": [
+          {
+            "name": "Fundamental Analysis",
+            "children": []
+          },
+          {
+            "name": "Technical Analysis",
+            "children": []
+          },
+          {
+            "name": "Quantitative Analysis",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Returns and Randomness",
+        "children": [
+          {
+            "name": "Jensen's Inequality",
+            "children": []
+          },
+          {
+            "name": "Convexity and Variance Impact",
+            "children": []
+          },
+          {
+            "name": "Asset Returns Calculation",
+            "children": []
+          },
+          {
+            "name": "Normal Approximation of Returns",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Timescales and Scaling",
+        "children": [
+          {
+            "name": "Mean Scales with Time Step",
+            "children": []
+          },
+          {
+            "name": "Std Dev Scales with Square Root of Time",
+            "children": []
+          },
+          {
+            "name": "Volatility Dominance over Short Timescales",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Model Parameters",
+        "children": [
+          {
+            "name": "Drift Rate (Expected Return)",
+            "children": []
+          },
+          {
+            "name": "Volatility (Randomness Measure)",
+            "children": []
+          },
+          {
+            "name": "Historical Estimation Techniques",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Random Walk and Stochastic Models",
+        "children": [
+          {
+            "name": "Discrete Random Walk Equation",
+            "children": []
+          },
+          {
+            "name": "Spreadsheet Simulation",
+            "children": []
+          },
+          {
+            "name": "The Wiener Process",
+            "children": []
+          },
+          {
+            "name": "Lognormal Stochastic Differential Equation",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

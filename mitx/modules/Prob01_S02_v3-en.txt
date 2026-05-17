@@ -1,0 +1,105 @@
+
+PROFESSOR: We have continuous random variables that
+don't have discrete outcomes.
+They can take an uncountably infinite number of variables.
+The classic case is a uniform distribution.
+For example, we might think of the interval between 0 and 1
+with all values being equally likely.
+Because they're uncountably infinite,
+the probability of finding any one point,
+which is equal likelihood for any other point,
+is proportional to 1 over the number
+of points, which is infinite.
+So the probability of any particular observation is 0.
+We say that if a given point has "measure 0", that doesn't mean
+it can't be observed.
+What it means is that we really should ask a better question.
+Rather than asking about the chance
+of finding an exact value, an exact real number,
+we can ask about the probability that it lies within a range.
+And there, for that, we have a probability density function,
+p of x, that describes the probability of finding
+a value, the particular value x, in an interval with dx.
+And in the case of the uniform distribution, p of x
+is just a constant.
+It's equal to 1.
+But more generally, we define the probability
+that the random variable x, is observed between two values
+a and b, when x is continuous, by taking
+the integral between a and b.
+
+Probability distributions need to satisfy two properties.
+First, probabilities need to be positive.
+Second, they need to sum to 1.
+So we don't have a definition of negative probabilities.
+But we do require that the probabilities sum to 1.
+And we think of that as saying that our sample space is
+appropriately designated, and our probability function
+is a reasonable description.
+If we assign a probability to everything and probability
+equals 1, it means that something happens.
+So in the case of a discrete distribution,
+the probabilities sum to 1.
+In the case of the continuous distribution,
+they integrate to 1.
+We sometimes think about the cumulative distribution
+function, which is the partial integral
+of a continuous function or a partial sum
+of the discrete function.
+It's the probability of observing
+the random variable, big X, taking
+a value less than some particular value, little x.
+So we can think of that in the case of a distribution
+as integrating in the continuous case,
+from minus infinity up to the value x of interest.
+And if we let x go to infinity, that then
+covers the entire support of the probability density.
+And it should be equal to 1.
+Obviously, this is closely related to p of x.
+And we can go backwards just by differentiating.
+So because f is the integral of p,
+we have the p is the derivative of f.
+Now that's trivial from the definition.
+But there are certain cases where
+it's easier to construct f than p,
+and this formula lets us recover p by differentiating
+the formula for f.
+Also, just from the fundamental theorem of calculus,
+there's a convenient formula for the probability.
+If we know what big F is, if we know
+what the CDF, the cumulative distribution function
+is for a given distribution, then we can just
+take f of b minus f of a.
+That computes the value between the two limits of integration.
+It's the same value that we would
+have for doing the definite integral from a to b.
+Sometimes we'll want to change variables.
+And if we do that, we need to be aware that the probability
+density is the density in the sense
+that we need to integrate it.
+So we need to change not only the x in p of x,
+but we need to change x in the differential that
+accompanies it.
+So the rule for change of variables is very simple--
+that if we change variables, if we replace
+x by y, which is some function of x, then
+we define a new probability distribution for y
+simply by saying that g of y dy, whatever g of y is,
+had better capture the same thing as p of x dx.
+So that means that p of x is of why do
+y we divide both sides by dy.
+And we can write this saying g of y
+is p of x divided by dy/dx.
+Now, if we're given a function y of x,
+we can compute the derivative.
+We take its absolute value in the event
+that y is a decreasing function of x.
+So probabilities, remember, need to be positive.
+If our change of variables goes in the opposite direction,
+if it decreases as a function of x,
+the absolute value makes sure that we get a positive sign.
+And we need to take special care and break things up piecewise,
+in the event the y of x changes sign,
+that there are places where the derivative vanishes.
+But that's not really going to happen
+in the financial application.

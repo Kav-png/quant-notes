@@ -1,0 +1,1375 @@
+{
+  "conversation_id": "71c257e9-d368-4229-a9e2-b8a605890bd5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What's the hardest topic to understand here? ",
+      "ts": "2026-05-09T08:18:58.741572+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "While Chapter 1 is largely a qualitative introduction to derivatives, the most conceptually rigorous and challenging topic it introduces is the **No-Arbitrage Principle** and how it mathematically enforces the relationship between spot prices and forward prices [1, 2]. \n\nFor a beginner, the hardest transition is realizing that derivative prices are not determined by \"guessing\" where the market will go, but by absolute mathematical replication to prevent riskless profit.\n\n**1. The No-Arbitrage Derivation for Forward Prices**\nHull previews the core concept of forward pricing by asking what the 1-year forward price of a non-dividend-paying stock should be if the current spot price \\(S_0\\) is $60 and the 1-year interest rate \\(r\\) is 5% [1].\n\nLet's map out the derivation steps rigorously to see how arbitrageurs force the market price. Suppose the forward price in the market is \\(F_0\\), and maturity is \\(T\\).\n*   **Step 1:** Borrow \\(S_0\\) (which is $60) today at the risk-free rate \\(r\\) (which is 0.05) for \\(T = 1\\) year.\n*   **Step 2:** Buy one share of the stock in the spot market for \\(S_0\\).\n*   **Step 3:** Simultaneously take a short position in a forward contract, obligating you to sell the stock at \\(T\\) for \\(F_0\\).\n\nAt time \\(T\\), you deliver the stock and receive \\(F_0\\). You must also repay the loan with interest, which requires:\n\\[ \\text{Loan Repayment} = S_0 (1 + r)^T \\]\nIn this specific example, the repayment is \\(60 \\times 1.05 = 63\\). \n\nIf the market priced the forward contract such that \\(F_0 > 63\\), you would make a guaranteed, risk-free profit of \\(F_0 - 63\\) without using any of your own money. If \\(F_0 < 63\\), an arbitrageur would do the exact reverse\u2014short sell the stock, lend the cash, and take a long forward position\u2014to lock in a riskless profit [1-3]. \n\nThus, the *only* forward price that prevents an arbitrage opportunity is exactly $63. In the continuous-time mathematics that you will use later in the text, this no-arbitrage condition is generalized as:\n\\[ F_0 = S_0 e^{rT} \\]\n\n**2. Asymmetric vs. Symmetric Payoffs**\nThe second hardest conceptual leap is understanding the mathematical differences in payoffs and leverage between forwards/futures and options [4, 5]. \n\n*   **Forward Contracts (Symmetric):** The payoff for a long forward contract with a delivery price \\(K\\) when the final spot price is \\(S_T\\) is strictly linear [6]:\n    \\[ \\text{Payoff}_{\\text{long forward}} = S_T - K \\]\n    The short position payoff is simply the inverse:\n    \\[ \\text{Payoff}_{\\text{short forward}} = K - S_T \\]\n\n*   **Options (Asymmetric):** An option provides the *right*, but not the obligation, to execute the trade [7]. The payoff for a long call option introduces a non-linear boundary:\n    \\[ \\text{Payoff}_{\\text{long call}} = \\max(S_T - K, 0) \\]\n\n**Common Pitfalls to Flag:**\n1. **Confusing \"Value\" and \"Price\" at Inception:** Because the payoff of a forward is linear and symmetric, it costs $0 to enter into a forward or futures contract; therefore, its initial *value* is zero [7]. However, the forward *price* (\\(K\\) or \\(F_0\\)) is a strictly positive number (like the $63 derived above). Students constantly confuse the $0 contract value with the delivery price. Because an option has an asymmetric payoff that limits downside, it cannot have a zero initial value; it requires an upfront cost (the premium) [7].\n2. **Misunderstanding Leverage Risk:** Both futures and options provide leverage for speculators [8, 9]. A major pitfall is assuming the risk profiles are similar. With a futures contract, a speculator's potential loss is theoretically unlimited, demanding careful margin account management [8]. With a long option, no matter how adverse the market outcome \\(S_T\\) becomes, the loss is mathematically floored at the initial premium paid [2, 5].",
+      "ts": "2026-05-09T08:18:58.741572+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "In the example just considered, K = 1.4422 and the corporation has a long contract. When ST = 1.5000, the payoff is $0.0578 per \u00a31; when ST = 1.3500, it is -$0.0922 per \u00a31.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "1. Buyers of calls",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Table 1.4 Speculation using spot and futures contracts. One futures contract is on \u00a362,500. Initial margin on four futures contracts = $20,000.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "Payoffs from Forward Contracts",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "2 Note that the terms American and European do not refer to the location of the <lption or the exchange.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "What then is the difference between the two alternatives? The first alternative. of buying sterling requires an up-front investment of $361,750 (= 250,000 x 1.4470). In contrast, the second alternative requires only a small amount of cash tb be deposited by the speculator in what is termed a \"margin account\". (The operation of margin accounts is explained in Chapter 2.) In Table 1.4, the initial margin requirement is assumed to be $5,000 per contract, or $20,000 in total. The futures market allows the speculator to obtain leverage. With a relatively small initial outlay, the investor is able to take a large speculative position.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "by December. The first alternative of buying stock yields a loss of",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Can you expand and give an example?",
+      "ts": "2026-05-09T08:48:11.707613+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "I am sorry, but I do not have the context of a previous conversation to know which topic you are referring to. Could you please clarify which specific concept from the sources you would like me to expand on and provide an example for? \n\nThe provided material covers a wide range of financial derivatives and risk management topics, including:\n*   **Forward and Futures Contracts:** Mechanics, pricing, and how they are used for hedging or speculation.\n*   **Options (Calls and Puts):** Profit patterns, trading strategies (like bull spreads or straddles), and valuation models (such as Black-Scholes-Merton and binomial trees).\n*   **Hedging Strategies:** Delta hedging, cross hedging, or using duration to hedge interest rate risk.\n*   **Value at Risk (VaR):** Measuring market or credit risk.\n\nPlease let me know which area you would like to explore, and I would be happy to explain it in detail and walk you through an example!",
+      "ts": "2026-05-09T08:48:11.707613+00:00",
+      "references": []
+    },
+    {
+      "role": "user",
+      "content": "Difference between payoff and profile",
+      "ts": "2026-05-09T12:41:36.964903+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "The provided sources do not explicitly define or use the term **profile**. However, they do draw a clear distinction between a **payoff** and a **profit** (often illustrated as a **profit pattern**), which likely addresses the core of your query:\n\n*   **Payoff**: This is the **cash realized by the holder of an option or other derivative at the end of its life** . When calculating a payoff, the initial cost of acquiring the derivative is deliberately excluded [1]. For instance, the payoff from a long position in a European call option is \\(\\max(S_T - K, 0)\\), which solely reflects the cash generated upon exercise if the final asset price (\\(S_T\\)) exceeds the strike price (\\(K\\)) [2].\n*   **Profit**: The profit is calculated as the **final payoff minus the initial cost** of the position, typically calculated without discounting [3, 4]. The sources frequently use diagrams to plot a **profit pattern** for various trading strategies, illustrating how an investor's overall net gain or loss changes depending on the underlying asset's price at expiration [4, 5]. \n\nThis distinction is especially important when comparing different types of derivatives:\n*   **Forward Contracts**: Because it costs nothing to enter into a standard forward contract, the **payoff from the contract is equal to the trader's total profit or loss** [6]. \n*   **Options**: Because options require the payment of an up-front fee, **an investor can receive a positive payoff from exercising the option but still suffer a net profit loss overall** if that payoff does not cover the initial cost of the premium [7, 8].",
+      "ts": "2026-05-09T12:41:36.964903+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Figure 9.1 shows how the investor's net profit or loss on an option to purchase one share varies with the final stock price in the example. It is important to realize that an investor sometimes exercises an option and makes a loss overall. Suppose that, in the example, the stock price is $102 at the expiration of the option. The investor would exercise the option contract for a gain of 100 x ($102 - $100) = $200 and realize a loss overall of $300 when the initial cost of the option is taken into account. It is tempting to argue that the investor should not exercise the option in these circumstances. However, not exercising would lead to an overall loss of $500, which is worse than the $300 loss when the investor exercises. In general, call options should always be exercised at the expiration date if the stock price is above the strike price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "Figure 9.1 shows how the investor's net profit or loss on an option to purchase one share varies with the final stock price in the example. It is important to realize that an investor sometimes exercises an option and makes a loss overall. Suppose that, in the example, the stock price is $102 at the expiration of the option. The investor would exercise the option contract for a gain of 100 x ($102 - $100) = $200 and realize a loss overall of $300 when the initial cost of the option is taken into account. It is tempting to argue that the investor should not exercise the option in these circumstances. However, not exercising would lead to an overall loss of $500, which is worse than the $300 loss when the investor exercises. In general, call options should always be exercised at the expiration date if the stock price is above the strike price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "Figure 9.1 shows how the investor's net profit or loss on an option to purchase one share varies with the final stock price in the example. It is important to realize that an investor sometimes exercises an option and makes a loss overall. Suppose that, in the example, the stock price is $102 at the expiration of the option. The investor would exercise the option contract for a gain of 100 x ($102 - $100) = $200 and realize a loss overall of $300 when the initial cost of the option is taken into account. It is tempting to argue that the investor should not exercise the option in these circumstances. However, not exercising would lead to an overall loss of $500, which is worse than the $300 loss when the investor exercises. In general, call options should always be exercised at the expiration date if the stock price is above the strike price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": null,
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "Figure 9.4 Profit from writing a European put option on one share of a stock. Option price = $7; strike price = $70.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "Options are fundamentally different from forward and futures contracts. An option gives the holder of the option the right to do something, but the holder does not have to exercise this right. By contrast, in a forward or futures contract, the two parties have committed themselves to some action. It costs a trader nothing (except for the margin requirements) to enter into a forward or futures contract, whereas the purchase of an option requires an up-front payment.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "11.2 TRADING AN OPTION AND THE UNDERLYING ASSET",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "The profit patterns in Figures ll.la, b, c, d have the same general shape as the profit patterns discussed in Chapter 9 for short put, long put, long can, and short call, respectively. Put-call parity provides a way of understanding why this is so. From Chapter 10, the put-{;all parity relationship is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "In general, the payoff from a long position in a forward contract on one unit of an asset is",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "A Comparison",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "Figure 9.1 shows how the investor's net profit or loss on an option to purchase one share varies with the final stock price in the example. It is important to realize that an investor sometimes exercises an option and makes a loss overall. Suppose that, in the example, the stock price is $102 at the expiration of the option. The investor would exercise the option contract for a gain of 100 x ($102 - $100) = $200 and realize a loss overall of $300 when the initial cost of the option is taken into account. It is tempting to argue that the investor should not exercise the option in these circumstances. However, not exercising would lead to an overall loss of $500, which is worse than the $300 loss when the investor exercises. In general, call options should always be exercised at the expiration date if the stock price is above the strike price.",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    }
+  ]
+}

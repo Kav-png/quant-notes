@@ -1,0 +1,123 @@
+
+PROFESSOR: Let's look at a little bit more detail
+at generating functions and central limit theorem.
+We'll be doing this using Fourier transforms.
+So if you've never seen a Fourier transform
+with a complex analysis, you can either skip this part
+or just watch and take a look at it.
+This is background material, it's
+not essential for what we're going to be doing.
+But for people who have done this math and who
+are familiar with it, it's an interesting way
+to see how the central limit theorem emerges
+from some simple calculations.
+So you may have seen in a statistics or probability
+course, the moment generating function, that's
+the expectation of e to the X. And here, we're
+going to do a slight variation of it.
+We're going to introduce i, the square root of minus 1.
+So this is going to look like complex analysis.
+But don't worry, there won't really
+be any imaginary numbers in our financial market.
+The only imagination is, maybe, the riches
+that we would like to be thinking about getting.
+But everything else is going to be brutally real.
+Nevertheless, it's a good mathematical trick
+because Fourier transforms, as we'll see,
+have some nice properties.
+So the characteristic function serves the same role
+as the moment generating function.
+That is, it lets us summarize all
+of the moments of a distribution.
+So the idea is that we can describe the function
+by-- if we look at the expectation of e
+to the itX, where X is our random variable,
+and we expand out that exponential in a Taylor series,
+we get 1 plus itX plus 1/2 i squared t squared X squared,
+and so on.
+And then we apply linearity, and we
+can see we're going to get a term with expectation of X,
+one with expectation of X squared, one
+with expectation of X cubed.
+And each of those has a coefficient, t, t squared,
+t cubed, and so on.
+And by differentiating with respect to the t's, we
+can recover the individual coefficients
+or the individual moments of the distribution.
+So this is the same thing as a moment generating function,
+just with these extra powers of i tucked in.
+So this is especially useful if we can do it in closed form.
+So for example, in the case of the binomial distribution,
+where we can write down the probability distribution here
+for each value of k, then we can sum over k equals 0 to n.
+It gets cut off, we don't need to go all the way to infinity.
+And we can actually do this some in closed form.
+Because, notice, that the e to the itk is e to the it
+raised to the k-th power.
+I just regroup those together over here and do the sum.
+And that's where the binomial distribution gets its name.
+It's the expansion of this binomial, this quantity p
+e to the it plus q raised to the n-th power.
+So that's it.
+That's in closed form.
+That's the characteristic function
+of the binomial distribution.
+So if I want to get the moments from it, I take derivatives.
+So the first moment--
+so if I look up here up top, if I pick a value of l. l
+equals 0, 1, or 2.
+I come down here and I take zero derivatives or I
+take one derivative times a minus i.
+And that gives me np.
+I take two derivatives with a minus i squared,
+which gives me a minus 1.
+All you need to know is that i is
+the square root of negative 1.
+And here, I get npq plus n squared p squared, which is
+what we saw earlier, and so on.
+So this is just a nice way of encoding all
+of the moments in one place.
+And then we recover them by taking derivatives,
+if we can compute that in closed form.
+In the case of continuous distributions,
+the expectation of e to the itX takes the form of an integral.
+And this intergral over here on the left
+is known as a Fourier transform, up to some constants
+that we sometimes normalize with.
+This integral from minus infinity to infinity of e
+to the itx p of x dx is the Fourier transfer of p of x.
+And it's denoted by this function p tilde of t.
+And of course, doing the same rule as before,
+where we expand out this e to the itx in this Taylor series,
+interchanged the order of the summation and the integration,
+we see that this can be written as an infinite sum
+of expectations.
+And if we want to invert or if we
+want to identify a particular expectation,
+second the expectation of X squared,
+it's the coefficient of t squared.
+The way we get it is we take two derivatives
+and then set t equal 0.
+And then we've got these extra i's that are out in front.
+OK?
+So that's just an ordinary moment generating function
+for discrete and continuous examples.
+Why is it useful?
+Well, it's really useful for sums of random variables.
+And the reason is that when we have
+the sum of random variables, say, x plus y,
+that the full probability distribution is
+a convolution of the two probability distributions.
+So if x_1 and x_2 are arbitrary variables, the probability
+density function for y is going to be the integral of p
+of x_1 times p_2 of y minus x_1, where
+I integrate dx_1 to get a function of y.
+And that's a complicated interval to do.
+And then I do that for more and more sums.
+But these Fourier transforms have a marvelous property,
+which is that the Fourier transform of a convolution
+is the product of the Fourier transforms.
+So the Fourier transform for p of y
+is just p_1 tilde times p_2 tilde.
+We just multiply them together.
+And that makes it easy.

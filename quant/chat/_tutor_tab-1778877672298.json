@@ -1,0 +1,2722 @@
+{
+  "conversation_id": "d0a24cb1-dcf5-4e40-95b6-69561809a49f",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how to solve /sum infinity to k=0 for q^k where q < 1",
+      "ts": "2026-05-15T20:43:36.789649+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\nThe geometric series sum represents the accumulation of infinitely many terms that shrink progressively smaller at a constant rate. In quantitative finance and probability, this exact infinite sum is the foundational building block for calculating expected waiting times\u2014such as how many poker hands it takes to get dealt pocket aces\u2014or for valuing infinite streams of discounted cash flows, like perpetuities [1, 2].\n\nDERIVATION\nStep 1: Define the partial sum \\(S_N\\) of the series up to an arbitrary finite integer \\(N\\). This allows us to manipulate the series algebraically before dealing with infinity.\n\\[S_N = 1 + q + q^2 + q^3 + \\dots + q^N\\]\n\nStep 2: Multiply the entire equation by \\(q\\). This shifts every term up by one power, which sets us up to cancel out the bulk of the series.\n\\[q S_N = q + q^2 + q^3 + q^4 + \\dots + q^{N+1}\\]\n\nStep 3: Subtract the second equation from the first. Notice how almost all terms perfectly cancel each other out (this is called a telescoping effect).\n\\[S_N - q S_N = 1 - q^{N+1}\\]\n\nStep 4: Factor out \\(S_N\\) on the left side and solve for the finite partial sum.\n\\[S_N(1 - q) = 1 - q^{N+1}\\]\n\\[S_N = \\frac{1 - q^{N+1}}{1 - q}\\]\n\nStep 5: Take the limit as \\(N \\to \\infty\\). Because we are given that the absolute value of \\(q\\) is strictly less than 1 (\\(|q| < 1\\)), the term \\(q^{N+1}\\) shrinks to exactly 0 [2]. \n\\[\\sum_{k=0}^{\\infty} q^k = \\frac{1}{1-q}\\]\n\nKEY INSIGHT\nBy multiplying the series by its common ratio and subtracting it from itself, an infinite sum collapses into a simple, finite algebraic fraction, provided the series actually converges [2].\n\nWORKED EXAMPLE\nIn probability, this sum is used to find the mean waiting time in a Bernoulli trial, which is the expected number of trials until the first success [1]. The expected waiting time \\(E[T]\\) evaluates to taking the derivative of this exact geometric sum, yielding \\(E[T] = \\frac{1}{p}\\) [2]. \n\nIf you are waiting to be dealt pocket aces in Texas Hold'em, the probability of success is \\(p = \\frac{12}{2652}\\) [1]. Because \\(q = 1 - p < 1\\), the infinite series converges, and your expected waiting time is exactly \\(\\frac{2652}{12} = 221\\) hands [2].\n\nPITFALLS\nA critical hidden assumption is that this formula only works if \\(|q| < 1\\) [2]. If you apply the formula \\(\\frac{1}{1-q}\\) to a series where \\(q \\ge 1\\) (like \\(q = 2\\)), the formula will output a negative number (e.g., \\(-1\\)) for a sum of strictly positive, growing numbers, which is a catastrophic error.\n\nWould you like to see how we apply the derivative to this geometric sum to calculate the variance of the waiting time next?",
+      "ts": "2026-05-15T20:43:36.789649+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "A biased coin has probability  of landing heads and probability  of landing tails.\n\nThe coin is flipped until the very next occurrence that matches the initial flip. What is the number of flips required, on average? (That is, what is the expected number of flips, including the first, as a function of ?)",
+      "ts": "2026-05-15T20:47:04.358159+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nWe want to find the total number of coin flips needed to see a matching outcome (e.g., flipping until we see Heads...Heads or Tails...Tails). Because the very first flip defines our \"target\" outcome, the rest of the problem simply becomes calculating the expected waiting time to see that specific outcome appear again.\n\n**DERIVATION**\nStep 1: Define the total number of flips \\(N\\). We can split this into the first flip plus the additional flips \\(X\\) required to find a match, making \\(N = 1 + X\\).\n\nStep 2: Condition the expectation of \\(X\\) on the result of the first flip. The first flip is Heads with probability \\(p\\) and Tails with probability \\(q\\), where \\(p + q = 1\\) [1].\n\\[E[X] = p \\cdot E[X \\mid \\text{First is Heads}] + q \\cdot E[X \\mid \\text{First is Tails}]\\]\n\nStep 3: Apply the mean waiting time for a Bernoulli trial. If the first flip is Heads, we are waiting for another Head. The expected number of trials to get a success with probability \\(p\\) is \\(1/p\\) [2]. If the first flip is Tails, the expected wait for another Tail is \\(1/q\\) [2]. \n\nStep 4: Substitute these waiting times back into the expectation for the additional flips \\(X\\).\n\\[E[X] = p \\left(\\frac{1}{p}\\right) + q \\left(\\frac{1}{q}\\right) = 1 + 1 = 2\\]\n\nStep 5: Add the initial flip to find the total expected flips.\n\\[E[N] = 1 + E[X] = 1 + 2 = 3\\]\n\n**KEY INSIGHT**\nThe expected total number of flips is exactly 3, which is entirely independent of the coin's bias \\(p\\) (provided \\(0 < p < 1\\)).\n\n**WORKED EXAMPLE**\nConsider a heavily biased coin where \\(p = 0.99\\) (Heads) and \\(q = 0.01\\) (Tails).\nMost of the time (99%), you flip a Head, and the expected wait for the next Head is \\(1/0.99 \\approx 1.01\\) flips. \nRarely (1%), you flip a Tail, and you must wait for another Tail, which takes \\(1/0.01 = 100\\) flips on average.\nTotal expected flips: \\(0.99 \\cdot (1 + 1.01) + 0.01 \\cdot (1 + 100) = 1.99 + 1.01 = 3\\).\n\n**PITFALLS**\nA common trap is forgetting to add the very first flip back into your final tally, which would mistakenly give you an expected value of 2 instead of 3. Another is overcomplicating the sequence histories instead of leveraging the Markov property, which tells us that the expected waiting time from any point forward depends only on our current target, ignoring the specific sequence of past failures [3].\n\nWould you like to explore how this changes if we change the target to a specific sequence (like Heads-Tails) instead?",
+      "ts": "2026-05-15T20:47:04.358159+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "How did you break down this problem and what previous information did you use to or axioms to derive and go step by step",
+      "ts": "2026-05-15T20:51:11.974290+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nTo find the expected waiting time to see a repeat of the first flip, we must recognize that the problem fundamentally shifts once that first flip occurs. Once the initial outcome is locked in, we are simply waiting for a specific event to happen again. This is a classic \"waiting time\" or Bernoulli trial problem [1]. We break the complex scenario into two independent paths (starting with Heads vs. starting with Tails) and rely on the Markov property\u2014the fact that future coin flips have no memory of the past [2].\n\n**DERIVATION**\n**Step 1: Identify the starting states and their probabilities.**\nThe very first flip dictates our target. It lands Heads with probability \\(p\\) or Tails with probability \\(q\\).\n\n**Step 2: Model the waiting time for each path.**\nIf the first flip is Heads, we now need to calculate the expected number of *additional* flips to get another Heads. Let \\(T_H\\) be this additional waiting time. The probability of getting the next Heads on exactly the \\(n\\)-th additional flip is \\(q^{n-1}p\\) [3]. \n\n**Step 3: Apply the geometric series axiom to find the expectation.**\nTo find the expected waiting time \\(\\mathbb{E}[T_H]\\), we sum the product of the number of flips and their probabilities: \\(\\sum_{n=0}^{\\infty} n q^{n-1} p\\) [3]. By pulling \\(p\\) out and recognizing \\(n q^{n-1}\\) as the derivative of \\(q^n\\) with respect to \\(q\\), we interchange the summation and derivative [3]:\n\\[\\mathbb{E}[T_H] = p \\frac{d}{dq} \\left( \\sum_{n=0}^{\\infty} q^n \\right) = p \\frac{d}{dq} \\left( \\frac{1}{1-q} \\right) = \\frac{p}{(1-q)^2}\\]\nSince \\(1-q = p\\), this simplifies to \\(\\mathbb{E}[T_H] = \\frac{1}{p}\\) [3].\n\n**Step 4: Repeat for the alternate path.**\nSymmetrically, if the first flip is Tails, the expected additional flips to see another Tails is \\(\\mathbb{E}[T_T] = \\frac{1}{q}\\).\n\n**Step 5: Apply the Law of Total Expectation.**\nWe multiply the total expected flips (the 1st flip + the additional waiting time) for each scenario by the probability of that scenario occurring:\n\\[\\mathbb{E}[\\text{Total}] = p \\cdot (1 + \\mathbb{E}[T_H]) + q \\cdot (1 + \\mathbb{E}[T_T])\\]\n\n**Step 6: Substitute and simplify.**\n\\[\\mathbb{E}[\\text{Total}] = p \\left(1 + \\frac{1}{p}\\right) + q \\left(1 + \\frac{1}{q}\\right)\\]\n\\[\\mathbb{E}[\\text{Total}] = (p + 1) + (q + 1) = p + q + 2\\]\nBecause \\(p + q = 1\\) [4], the final expectation is exactly 3.\n\n**KEY INSIGHT**\nBy conditioning the expected value on the first outcome, a complex sequence of random events collapses into two standard waiting-time problems. Astonishingly, the expected number of total flips is always exactly 3, completely independent of the coin's bias!\n\n**WORKED EXAMPLE**\nAssume a highly biased coin where \\(p = 0.9\\) and \\(q = 0.1\\).\nIf we roll Heads first (90% probability), we expect to wait \\(\\frac{1}{0.9} \\approx 1.11\\) additional flips. The expected total flips for this path is \\(1 + 1.11 = 2.11\\).\nIf we roll Tails first (10% probability), we expect to wait \\(\\frac{1}{0.1} = 10\\) additional flips. The expected total flips for this path is \\(1 + 10 = 11\\).\nThe total expectation is:\n\\[0.9(2.11) + 0.1(11) = 1.9 + 1.1 = 3\\]\n\n**PITFALLS**\nA common mistake is forgetting to add the very first flip to the total waiting time. The formula \\(\\frac{1}{p}\\) only accounts for the *additional* trials needed after the target is established [3]. \n\nDoes this breakdown make sense? We can look at how to calculate the variance of this waiting time next, if you're ready.",
+      "ts": "2026-05-15T20:51:11.974290+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "X =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Why is the first flip have an expected value of",
+      "ts": "2026-05-15T20:56:40.223760+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nIf we assign a numerical value to a single coin flip\u2014typically \\(1\\) for a \"success\" (like Heads) and \\(0\\) for a \"failure\" (like Tails)\u2014the expected value represents the probability-weighted average of these outcomes over many trials [1, 2]. For a single flip, the expected value is simply the probability of success, \\(p\\) [3]. \n\nWhen we shift our perspective to ask *how many* flips it takes to get that first success, we are dealing with the expected waiting time. Because the probability of success on any given flip is \\(p\\), it intuitively makes sense that we would need to flip the coin \\(\\frac{1}{p}\\) times to expect exactly one success [4].\n\n**DERIVATION**\nLet's derive the expected waiting time, \\(T\\), for the first success. This builds directly on the infinite geometric series of \\(q^k\\) you asked about previously.\n\nStep 1: Define the random variable and its probabilities.\nLet \\(T\\) be the trial number of the first success. The probability that the first success occurs on the \\(n\\)-th trial requires \\(n-1\\) consecutive failures followed by \\(1\\) success. Thus, \\(\\text{Prob}(T=n) = q^{n-1}p\\) [4, 5].\n\nStep 2: Set up the expected value formula.\nThe expected value is the sum of each outcome multiplied by its probability:\n\\[\\mathbb{E}[T] = \\sum_{n=1}^{\\infty} n q^{n-1} p\\] [4]\n\nStep 3: Recognize the derivative.\nNotice that \\(n q^{n-1}\\) is the exact derivative of \\(q^n\\) with respect to \\(q\\). We can rewrite the sum:\n\\[\\mathbb{E}[T] = p \\sum_{n=1}^{\\infty} \\frac{d}{dq} (q^n)\\] [4]\n\nStep 4: Interchange the sum and the derivative.\nBecause \\(q < 1\\), the series converges, allowing us to swap the order of operations:\n\\[\\mathbb{E}[T] = p \\frac{d}{dq} \\left( \\sum_{n=0}^{\\infty} q^n \\right)\\] [4]\n\nStep 5: Apply the infinite series formula and differentiate.\nUsing the sum of an infinite geometric series \\(\\frac{1}{1-q}\\):\n\\[\\mathbb{E}[T] = p \\frac{d}{dq} \\left( \\frac{1}{1-q} \\right)\\] [4]\n\\[\\mathbb{E}[T] = p \\left( \\frac{1}{(1-q)^2} \\right)\\] [4]\n\nStep 6: Simplify using the axiom \\(p = 1-q\\).\n\\[\\mathbb{E}[T] = p \\left( \\frac{1}{p^2} \\right) = \\frac{1}{p}\\] [4]\n\n**KEY INSIGHT**\nThe expected waiting time for an event with probability \\(p\\) is exactly \\(\\frac{1}{p}\\) [4]. This elegantly connects the static probability of a single isolated event to the long-term frequency of its occurrence.\n\n**WORKED EXAMPLE**\nSuppose you are playing Texas Hold'em and waiting to be dealt a specific pair, like pocket aces. The probability of this happening on any single hand is \\(p = \\frac{12}{2652}\\) [5]. The expected number of hands you must play to see this event is simply the reciprocal: \\(\\mathbb{E}[T] = \\frac{2652}{12} = 221\\) hands [4].\n\n**PITFALLS**\nA common mathematical and psychological mistake is assuming that past failures change the expected waiting time moving forward (often called the Gambler's Fallacy). Because these are independent Bernoulli trials, they possess the Markov property: the process has no memory [6]. Whether you have waited 2 hands or 220 hands, your expected waiting time from that exact moment forward remains exactly \\(\\frac{1}{p}\\) [6].\n\nDoes this clarify how we transition from the expected value of a single flip to the expected waiting time? We can move on to how variance is calculated for this waiting time next, if you are ready.",
+      "ts": "2026-05-15T20:56:40.223760+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "\u00a7 Examples: \u00a7 Coin toss:  Heads vs. Tails \u00a7 Roulette: 19 vs. {all other numbers} \u00a7 Bond default prior to time T vs. no default \u00a7 One-day trading loss > $100M vs. (P/L > -$100M)",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "Let S = X1 +X2 + . . .+Xn.",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "Example: mean waiting time in a Bernoulli trial. Suppose we keep doing new trials and drawing new random variables until we succeed. That is, we are interested in finding the n that corresponds to having one \u201csuccess\u201d after a string of n \u2212 1 consecutive \u201cfailures.\u201d How long does it take, on average, to roll a seven (p = 6/36) with a pair of dice? How many hands of Texas Hold\u2019em does it take to get dealt a pair of aces (p = 12/2652)?",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "why do we multiply by the probability after working out the expected values",
+      "ts": "2026-05-15T21:11:54.924510+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nExpected value is simply a mathematical way of calculating a weighted average [1]. If you just added up the numerical values of all possible outcomes and divided by the number of outcomes, you would be falsely assuming every outcome is equally likely. Multiplying each outcome by its probability \"weights\" that outcome based on exactly how often it actually occurs in the real world [1].\n\n**DERIVATION**\n1. **Step 1: State the formula for a basic average.** If you run an experiment \\(N\\) times and record every single outcome, the true average is the sum of all results divided by \\(N\\). \n2. **Step 2: Group identical outcomes.** Instead of adding individually, you can group them. If a specific outcome \\(x_k\\) happens \\(N_k\\) times, the average is \\[\\sum x_k \\frac{N_k}{N}\\]\n3. **Step 3: Relate frequencies to probabilities.** As the total number of trials \\(N\\) gets infinitely large, the observed frequency of an outcome \\(\\frac{N_k}{N}\\) becomes its theoretical probability \\(p(x_k)\\).\n4. **Step 4: Define Expected Value.** Substituting the probability into our grouped average gives us the standard formula for expected value for a discrete random variable: \\[\\mathbb{E}[X] = \\sum x_k p(x_k)\\] [2].\n\n**KEY INSIGHT**\nMultiplying by the probability doesn't change the outcome itself; it determines how heavily that specific outcome pulls the long-term mathematical average toward its own value [1]. \n\n**WORKED EXAMPLE**\nImagine a game with a biased coin where you win 10 for Heads (80% chance) and lose 5 for Tails (20% chance). \n\nIf you ignored the probabilities, you might guess the expected result is a simple average: \n\\[\\frac{10 + (-5)}{2} = 2.5\\]\n\nHowever, by multiplying by the probabilities to weight the outcomes, we find the true expected value:\n\\[ \\mathbb{E}[X] = 10(0.80) + (-5)(0.20) = 8 - 1 = 7 \\]\nYou expect to win 7 per flip, which makes sense because the game is heavily weighted toward the winning outcome.\n\n**PITFALLS**\nA common mistake in quantitative models is simply listing out possible scenarios (e.g., \"market goes up\", \"market goes down\", \"market stays flat\") and treating them as equally likely just because there are three discrete options. You must always multiply by the assigned probability to find the true expected value.\n\n***\n\nDoes this clarify why probabilities act as weights, or would you like to see how this exact same logic applies to continuous variables using integrals?",
+      "ts": "2026-05-15T21:11:54.924510+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "11",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "` \u21e4 \u2318 hX`i =",
+          "source_id": "b9b7d40f-9254-403a-a32c-cd8bc87347b1"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "so why p(1 + 1/p)",
+      "ts": "2026-05-15T21:13:53.057579+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\n\nTo understand why we write \\(p(1 + 1/p)\\), think of the expected value as a probability-weighted average of all possible futures. \n\nWhen you flip that very first coin, the timeline splits into two distinct \"universes\":\n1. The universe where you flipped Heads (which happens with probability \\(p\\)).\n2. The universe where you flipped Tails (which happens with probability \\(q\\)).\n\nThe expression \\(p(1 + 1/p)\\) is simply the mathematical translation of asking: *\"What is the chance I end up in the Heads universe, and if I do, how many total flips will I be making?\"*\n\n**DERIVATION**\n\nHere is exactly how that expression is built.\n\n**Step 1: Identify the probability of the branch.**\n*What:* We state the probability that the first flip is Heads.\n*Why:* To find a total expected value across multiple scenarios, we must weight each scenario by how likely it is to occur. The probability of the \"Heads first\" scenario is \\(p\\).\n\n**Step 2: Account for the first flip.**\n*What:* We write down \\(1\\) to represent the very first flip.\n*Why:* We have already flipped the coin once to enter this universe. This flip must be counted in our total number of flips.\n\n**Step 3: Add the expected waiting time for the matching flip.**\n*What:* We add \\(1/p\\) to the \\(1\\) from Step 2, resulting in \\((1 + 1/p)\\).\n*Why:* The expected waiting time for a specific outcome in a Bernoulli trial (like waiting for a Head) is the inverse of its probability, or \\(1/p\\) [1]. Because coin flips have no memory (the Markov property), the expected number of additional flips needed to see another Head is exactly \\(1/p\\) [2]. \n\n**Step 4: Multiply the probability by the conditional expectation.**\n*What:* We multiply the probability from Step 1 by the total flips from Step 3 to get \\[p(1 + 1/p)\\]\n*Why:* This calculates the weighted contribution of the \"Heads first\" universe to our overall expected value.\n\n**KEY INSIGHT**\n\nThe formula \\(p(1 + 1/p)\\) isolates just one branch of reality\u2014the \"Heads first\" branch\u2014by multiplying the probability of taking that path (\\(p\\)) by the total expected steps required to finish the game on that path \\((1 + 1/p)\\).\n\n**WORKED EXAMPLE**\n\nImagine a heavily biased coin where the chance of rolling Heads is \\(p = 0.2\\). \n\n1. The probability you roll Heads first is \\(0.2\\).\n2. If you do roll Heads, you have made \\(1\\) flip.\n3. You now need to roll another Heads. Since \\(p = 0.2\\), the expected wait time for another Heads is \\(1 / 0.2 = 5\\) additional flips [1].\n4. Total expected flips in this universe: \\(1 + 5 = 6\\) flips.\n5. Weighted contribution to the grand total: \\(0.2 \\times 6 = 1.2\\) flips.\n\nThis means the \"Heads first\" scenario contributes exactly 1.2 flips to the overall expected number of flips.\n\n**PITFALLS**\n\nA common mistake is assuming the \\(1/p\\) includes that very first flip. It does not! The \\(1/p\\) calculates the expected waiting time *starting from flip 2*. If you forget to add the \\(1\\) for the initial flip, your formula becomes \\(p(1/p)\\), which incorrectly suggests that if you roll Heads first, your total game length is just the waiting time for the *second* Heads, ignoring the flip that started the game.\n\n***\n\nWould you like to write out the expression for the \"Tails first\" universe and add them together to solve for the final, total expected number of flips?",
+      "ts": "2026-05-15T21:13:53.057579+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "15.455x Page 1 of 3",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "Notice that there is no memory of previous events. Whether you have been waiting 2 hands or 220, the expected waiting time from that point forward remains the same. This is known as the Markov property: the future expectations depend only on the current state, not on what happened in the past to get us there.",
+          "source_id": "baa62d2e-8108-468c-9cf4-c24fc08b6295"
+        }
+      ]
+    }
+  ]
+}

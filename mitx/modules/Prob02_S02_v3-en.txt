@@ -1,0 +1,124 @@
+PROFESSOR: The next distribution that's common everywhere
+in finance and statistics and in many other areas
+of applied mathematics is the Gaussian distribution
+or the normal distribution.
+And I'll use the two terms interchangeably.
+So the normal distribution is the famous bell curve
+that we see over here, OK?
+So the bell curve is symmetric around 0.
+It has a width like, goes all the way out
+to minus infinity and plus infinity.
+So it's unbounded.
+But most of its support--
+99% of its support lies between plus and minus 3.
+And the tails get short very quickly.
+What's the functional form of it?
+Well, it's e to the minus x squared.
+Specifically, we can write this as e to the minus x
+minus mu quantity squared over 2 sigma squared.
+And mu and sigma have a particular meaning.
+If we set mu to 0 and sigma equal to 1,
+we would have this standardized form, which
+I've written in terms of z.
+And generally, I'll try to reserve z for this special form
+for this standardized random variable where in terms of z,
+this is peaked at 0.
+And its width-- its standard deviation,
+which we can compute, is equal to 1.
+
+If I replace z by x minus mu divided by sigma,
+I can recover this form here.
+And if I remember to use my change of variables formula,
+that's where this sigma squared under the square root
+in the denominator comes from.
+But there's a good physical interpretation of mu and sigma.
+So the mu is the center of the distribution.
+Because exponential will decrease as its argument
+increases, the largest value the exponential takes
+is when either z vanishes down here or when x is equal to mu.
+And that corresponds to the peak of the distribution here.
+Or at the peak of these different distributions,
+each of which is computed for a different value of mu,
+mu tells you where the center of the distribution is.
+So if we want to shift the distribution left or right,
+we change mu.
+If we want to change the width of the distribution,
+we change sigma.
+A small sigma is a narrow distribution.
+A large sigma is a wide distribution
+because the area under the curve needs
+to equal 1, the curve if it's wide,
+it's going to be lower down.
+And if the sigma is narrow, then it's going to be peaked.
+And the center will be higher.
+There are a couple of handy formulas
+for checking the normalization of the Gaussian.
+And you should get familiar with doing small scale integrals.
+We'll be doing them a bit.
+But handy formula for getting the normalization
+are a definite integral with this generating function.
+There's a trick for doing this using polar coordinates.
+But for right now, you just need to know the result
+because you can get everything you need from this that if you
+look at the integral of e to the minus ax squared,
+we notice that this is a definite integral.
+But it contains a as a constant under the integral.
+So the integral is a function of a.
+And the function is square root of pi over a.
+And that's what gives us that normalization factor,
+the 1 over square root of 2 pi sigma squared.
+And so that when we integrate the probability density,
+it integrates to one the way it has to.
+And if we need to get higher moments,
+we can do it by differentiating.
+So, for example, you notice that if I differentiate the integral
+with respect to the parameter, if I compute dI da--
+or actually minus dI da, OK, I can move the derivative
+inside the integral.
+The coefficient of a in the exponential is x squared.
+And that gives me the integral of a squared
+e to the minus ax squared.
+And that we recognize as the expectation of x squared.
+So I can get moments by taking derivatives.
+And we'll see how to generalize this as well.
+What about the cumulative distribution function?
+Well, F of z in this case, which is sometimes known as capital
+phi--
+in some places, you'll see it written with the letter N
+and sometimes related to a function known
+as the error function-- is a definite integral.
+We integrate from minus infinity to infinity [correction: z]
+of e to the minus z' squared over 2.
+And that gives us this distribution function.
+You notice that if we differentiate the integral
+we get back our probability density.
+So this gives us the probability that the random variable
+will be between any two points.
+Or for F of z itself that it will be
+equal to the given z or less.
+The log-normal distribution shows up in finance as well.
+We often look at logarithmic returns.
+And our standard model for return distributions on assets
+is a starting point to see if the logarithmic returns might
+be normally distributed.
+And that distribution is called the log-normal distribution.
+The way it's defined mathematically
+is simply to define X to be log of Y.
+And we can compute x is log of y here
+for a probability density and substitution,
+apply change of variable formula.
+And we see that we get this form right here.
+Now, computationally, this is just to change the variable.
+So if we're going to compute moments,
+we can use whichever variables we prefer.
+And the usual application of this is in looking at returns.
+So we often have a relationship between the simple returns
+that we designate by R, simple returns on an asset.
+And the logarithmic returns are defined
+to be e to the little r minus 1 is big R.
+We'll see in more detail how that works with pricing.
+But we can compute with respect to either distribution.
+Remember that the moments are just numbers.
+And whichever way we choose to do the integral-- whatever
+changes the variables we make in the integral--
+it isn't going to change the final result.

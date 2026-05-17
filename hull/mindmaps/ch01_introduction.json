@@ -1,0 +1,89 @@
+{
+  "mind_map": {
+    "name": "Hull Ch 1 - Introduction",
+    "children": [
+      {
+        "name": "Derivatives Markets",
+        "children": [
+          {
+            "name": "Exchange-Traded Markets",
+            "children": []
+          },
+          {
+            "name": "Over-the-Counter (OTC) Markets",
+            "children": []
+          },
+          {
+            "name": "Market Size Comparisons",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Forward and Futures Contracts",
+        "children": [
+          {
+            "name": "Forward Contracts",
+            "children": []
+          },
+          {
+            "name": "Forward Payoff Formulas",
+            "children": []
+          },
+          {
+            "name": "Futures Contracts",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Options",
+        "children": [
+          {
+            "name": "Call Options",
+            "children": []
+          },
+          {
+            "name": "Put Options",
+            "children": []
+          },
+          {
+            "name": "American vs. European Styles",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Types of Traders",
+        "children": [
+          {
+            "name": "Hedgers",
+            "children": []
+          },
+          {
+            "name": "Speculators",
+            "children": []
+          },
+          {
+            "name": "Arbitrageurs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Dangers in Derivatives",
+        "children": [
+          {
+            "name": "Rogue Traders",
+            "children": []
+          },
+          {
+            "name": "Risk Limits and Monitoring",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

@@ -1,0 +1,157 @@
+
+PROFESSOR: Now, that's for a special case of a portfolio.
+And I said we'd look at a large number.
+If we take a look at two random variables
+and we want to compute the full distribution,
+I said that we could do that, rather than just computing
+the mean and the variance.
+But it does get complicated pretty quickly.
+Let's start with the simplest case.
+The simplest case would be two random variables.
+And two is not a big number.
+And let's let them both be uniformly distributed.
+So to compute the probability function--
+which is going to have this shape down here by the time
+we're done, this is our result--
+what I do is I compute the cumulative distribution
+function.
+I have to do a double integral in dx and dy.
+I have to pick particular regions of integration.
+And I have to do this complicated integral, which
+is known as a convolution.
+But I can do it in closed form for two variables.
+I get this result here.
+And it looks the probability distribution
+has this triangular shape.
+And it's done.
+So we've got it.
+So it can be done in this case.
+But now imagine doing this for three,
+four, five, six variables.
+Each one is going to look different.
+So that's more work than we want to do,
+and it's not going to be necessary.
+It's both more work and less intuition.
+However, if we just want to check our intuition
+and run a quick numerical simulation to take
+a look at this, we can do this here,
+with this command in the R programming language.
+And I'd encourage you to setup and install R and RStudio
+and to run this.
+The function that we want here that we'll
+be seeing when we discuss Montecarlo
+is, pick a random variable from a uniform distribution.
+So this looks like it says "run if,"
+but it's "r unif," from uniform distribution.
+So here, I've picked 10,000, excuse me,
+100,000 random numbers for X_1 I picked 100,000 random numbers
+for X_2 And I'm looking at a histogram that gives me
+a discrete approximation to the probability
+distribution for their sum.
+And you can see that it looks approximately
+like the triangular distribution that we
+solved for in closed form.
+Now, let's come back to the binomial distribution
+that I talked about earlier where
+we computed the mean value doing a lot of combinatorics
+and shifting around the variables in some kind
+of mysterious ways.
+If we want the mean and the variance
+in the binomial distribution the easy way,
+we just apply linearity to a sum.
+So how do we think of the sum?
+We said that we wanted to compute successes
+as positive successful outcomes.
+And we wanted to count them up versus the number of failures.
+So one way we can do that is by having the variable X_1 X_2
+X_3 represent the outcome of the first, second, or third
+experiment.
+And we'll let a plus 1 designate a success,
+zero designates a failure.
+And then adding together all the axes
+is a variable, S, that counts the number of successes.
+And notice it doesn't matter in what order they occur.
+If I get success, success, fail, fail, fail, fail, fail,
+it doesn't matter where those two successes come.
+It could be fail, fail, fail, fail, fail, success, success.
+Anywhere they are, they get the same value of S
+So what's the expectation of S?
+What's our mean value?
+Expectation of the sum is the sum of the expectations.
+And each of these is equal to p, because I
+have probability p of getting a 1, probability 1 minus
+p of getting a 0.
+So the expectation of X_1 is p.
+The expectation of X_2 is p.
+Each of the expectations is p.
+I've got n of them, n times p.
+We're done.
+OK?
+So I've shown that down here.
+So the expectation of X_1 is p.
+And we're going to do the variance in a moment.
+So let's continue the expectation of X_1 squared.
+How do we compute it?
+We use our rule that the expectation
+is the probability-weighted average of the thing
+inside the expectation.
+So with probability p, I get a 1.
+1 squared is 1.
+Probability q, I get 0 squared, and that gives me a p.
+OK?
+So the expectation of any of the X's is p.
+The probability of any of the X squareds is p.
+And if I take two different X's, the expectation of X_1
+times X_2, well, now they're independent random variables.
+So they could both be 1, with probability p squared.
+p that the the first one is a success, p
+that the second one's a success, is p squared.
+And then I would multiply that times X_1 being 1 and X_2
+being 1.
+And then everything else here, success
+fail, fail success, and fail fail,
+those all have 0's in them.
+So those all drop out.
+So the only term that survives is this one,
+and that gives me this result.
+So because these X's are independent of each other,
+and because they're identically distributed--
+any one of the X_1 is the same as X_2 Or X_3 or X_7--
+I have these results and I can apply them.
+So now let's apply this for the calculation of the variance.
+We're just going to do a little bit of algebra.
+It's almost as easy, no combinatorics involved.
+Well, a little bit of combinatorics.
+But no factorials, not like we had before.
+So the definition of our variance
+is that the expectation of the random variable
+minus its mean quantity squared.
+Or it's the expectation of the variable
+squared minus the mean squared.
+So that's what we use here.
+We can expand out this sum into n terms with an X squared.
+So these are all going to be identical.
+They're going to be n terms.
+I'm going to have X_1 squared, X_2 squared, X_3 squared.
+I'm going to have n of them.
+So let me just take n times the first one.
+And then I'm going to have the cross terms.
+I'm going to have n choose two possibilities.
+But actually, I'm going to get X_1 X_2 and X_2 X_1.
+So I'm going to have twice n choose two, which just gives me
+n times n minus 1 cross terms.
+OK?
+And each of the cross terms is going to be the same as 1 2.
+So 1 2 is the same as 2 3 is the same as 4 6.
+They're all the same.
+So I'm going to get n times p plus n n minus 1 times p
+squared.
+And then I'm going to subtract off my previous result squared,
+which is np quantity squared.
+And when I combine the terms, I get my final result, npq,
+or our final, final result that the standard deviation
+is the square root of n, square root of n times p times q.
+Remember that p and q, q is 1 minus p. p and q are constant.
+So this says that the variance is proportional to n
+and that the standard deviation is
+proportional to the square root of n.

@@ -1,0 +1,122 @@
+{
+  "mind_map": {
+    "name": "Wiener Processes and It\u00f4's Lemma",
+    "children": [
+      {
+        "name": "Stochastic Processes Basics",
+        "children": [
+          {
+            "name": "Markov Property",
+            "children": []
+          },
+          {
+            "name": "Continuous-time vs discrete-time processes",
+            "children": []
+          },
+          {
+            "name": "Variances are additive across time periods",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Wiener Processes",
+        "children": [
+          {
+            "name": "Standard Wiener Process",
+            "children": []
+          },
+          {
+            "name": "Mean change of zero and variance of 1",
+            "children": []
+          },
+          {
+            "name": "Generalized Wiener Process",
+            "children": []
+          },
+          {
+            "name": "Ito Process with variable parameters",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Process for a Stock Price",
+        "children": [
+          {
+            "name": "Assumption of constant expected return",
+            "children": []
+          },
+          {
+            "name": "Geometric Brownian Motion",
+            "children": []
+          },
+          {
+            "name": "Discrete-Time Model",
+            "children": []
+          },
+          {
+            "name": "Expected Return and Volatility parameters",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "It\u00f4's Lemma",
+        "children": [
+          {
+            "name": "Functions of stochastic variables and time",
+            "children": []
+          },
+          {
+            "name": "Extension of Taylor series expansion",
+            "children": []
+          },
+          {
+            "name": "It\u00f4's Lemma Equation",
+            "children": []
+          },
+          {
+            "name": "Application to Forward Contracts",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Lognormal Property of Stock Prices",
+        "children": [
+          {
+            "name": "Process for natural logarithm of stock price",
+            "children": []
+          },
+          {
+            "name": "Constant drift and variance rate",
+            "children": []
+          },
+          {
+            "name": "Lognormal distribution of future asset prices",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Simulation and Correlation",
+        "children": [
+          {
+            "name": "Monte Carlo Simulation of stock price paths",
+            "children": []
+          },
+          {
+            "name": "Correlated Stochastic Processes",
+            "children": []
+          },
+          {
+            "name": "Bivariate normal distributions for correlated variables",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

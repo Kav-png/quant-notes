@@ -1,0 +1,248 @@
+
+PROFESSOR: Now, in expanding n, we'll
+often want to take a look at what happens as n increases.
+And I'd like to show you that in pictures right now
+on the computer, doing a simulation in R.
+And for the full binomial distribution,
+we run into a problem when we put it
+on the computer, which is that if we write out
+all the factorials, the factorials quickly
+overrun the machine limit.
+But the combinations are usually well behaved,
+so we use a function that's built for this purpose.
+We'll use the function in R called choose.
+So choose(n,k) is what you would expect.
+It's n choose k in a way that doesn't blow up
+for moderate values.
+And dbinom is the distribution function
+for the binomial of k, n, p using the same definitions
+that we had here.
+So what I'm going to do is I'm going to pick
+a particular set of values.
+I'm going to get n equal 1, 2, and then we're
+going to keep going.
+I'm going to jump.
+We're not going to every single value of n.
+But I want to start at n equals 1, 2, 5,
+and quickly get to 1,000, and I'd
+like to see what happens to the binomial distribution
+as n gets large, holding p and q fixed.
+And the values I'm going to pick, we'll let p equal 10%
+and we'll let q, therefore, equal 90%.
+So we have a 10% chance of success.
+And remember, the binomial distribution tells us
+if I've got a 10% chance of success per trial,
+if I do n trials, what's the probability of getting 0
+through n successes?
+So if I've got 1--
+if I run n equals 1, I could either have 0 or 1.
+And if it's a 10% chance of success,
+I have a 90% chance of failure.
+And here they are.
+So this is a 90% failure.
+Probability of 0.
+And here's a 10% chance of getting 1.
+For n equals 2, I still have 81% chance of failure.
+I have a 1% chance of two successes,
+and the rest of the probability distribution
+is here that I have one success and one failure.
+This is for n equals 5.
+n equals 10.
+And notice that when we've gotten--
+once we get to n equals 10, the largest value
+now is not the smallest value.
+So instead of the whole probability distribution
+being bunched up to the left-hand side,
+where's the mean value?
+n times p.
+p is 10%, n is 10, it's at 1.
+That's right here at the largest value in the distribution.
+Let's keep going.
+This is for 20, 50, 100.
+And now by the time we get to 100, take a look at there's
+this large tail off to the right-hand side, which
+isn't even visible because these are
+less than 1 pixel high with the resolution of your screen.
+So it's possible in 100 trials, in this case for n equals 100,
+that you might get more than 24 trials.
+But the probability is so small that we
+can't see it on this scale.
+Notice something else interesting is going on.
+This distribution, where it is active, first of all,
+it's peaked around where?
+It's around 10.
+p times n is 10, and that's about where the peak is.
+But notice the distribution for the part of it
+that's noticeably non-zero is looking much more symmetric
+between the values less than 10 and the values above 10
+if we don't pay attention to this big right tail over here.
+And this is for 1,000, where we have things centered on 100.
+And again, the distribution is getting
+very tall and very narrow.
+So for fixed p, the distribution initially decreases.
+As n increases, the distribution stays
+centered near np, which is consistent with what
+we computed analytically for the mean value.
+The distribution gets narrower and more symmetric.
+And this is an illustration of two important limit theorems,
+just done in pictures.
+We haven't done a mathematical derivation by any means.
+The first one is known as the law of large numbers.
+The law of large numbers says that as the number of trials
+gets large, you're going to see the mean value of the number
+of the realizations in experiments
+is going to approach a theoretical mean.
+Another way to say that is that the probability of observing
+the mean deviating from--
+the average value deviating from the mean value,
+the expectation of the probability distribution
+goes to 0.
+And that's why the probability distribution is narrowing
+around that mean value.
+The other one is the central limit theorem.
+The central limit theorem says that as we
+add more and more variables, the shape of the distribution
+approaches a Gaussian distribution,
+or a normal distribution.
+Now, to see that a little bit more clearly,
+let's change variables to what I'll call a scaling variable.
+And what I'm going to do is because as n gets large,
+the interesting value of k is going to be the one near np,
+near the mean, let's pick a value that's centered
+right around where we want it.
+So I'm going to define this scaling variable z to be--
+I'm going to use this to replace k.
+So what I'm going to do is I'm going
+to subtract off the mean value.
+So the numerator, k minus np, says
+how far my k is away from the expected
+value, which is n times p.
+And then I'm going to divide it by the standard deviation.
+So that gives me kind of units as to how far away I am so
+that that also scales with n.
+And let's see what happens if I do that.
+And the code is here, which you can take and copy and paste
+from the website, or you can retype it--
+it's just a couple of lines of code-- and run it yourself.
+Or I'm sure you can write better code than mine.
+So give it a try.
+Let's look in pictures at what happens now.
+So starting out, we see the same picture--
+n equals 1, n equals 2, n equals 5, n equals 10.
+And now what's happening is we've recentered things
+so that the whole distribution is staying
+on a similar kind of scale.
+As we keep going, n equals 20, n equals 50, 100, and 1,000.
+And now we've got something that looks symmetric.
+It looks Gaussian.
+It's our favorite bell curve.
+Now, it's not exactly the bell curve, to be sure.
+It doesn't go to minus infinity or plus infinity.
+It only goes to 0 on the left and the most
+we could be is 1,000 on the right.
+So the midpoint is centered where we'd expect,
+at n times p around 100, but it is not the exact Gaussian
+distribution.
+It looks like it just because of the scale on the computer.
+We don't see the behavior of the tails.
+We need different graphics, transfer it--
+different plots with different transformations,
+such as qqPlot to see the behavior of the tails
+or to look more carefully and analytically.
+But in the bulk of the distribution
+we've recovered, we see the central limit
+theorem in action, where adding together
+a bunch of non-Gaussian random variables,
+non-normal variables, each of the variables
+also is very skewed.
+It's 10-90%, so it's not equally likely up or down.
+Nevertheless, when we add 1,000 of them together,
+we get something that looks Gaussian.
+So this is what's going on with the central limit theorem.
+So the distribution, if we wanted
+to write down an approximation for what
+the limiting distribution is, we could approximate our function
+f of k and n, p by introducing the scaling variable z sub
+k as I've defined it.
+And in terms of z sub k--
+so we could substitute in those values--
+this function is approximated by a standard Gaussian
+distribution, 1 over square root of 2pi, e
+to the minus z squared over 2.
+We can see that this is a good approximation in lots
+of practical examples.
+Here's one that we took a look at it at Sloan
+when we were trying to figure out
+if there were enough Bloomberg terminals for the students,
+back when we used to show up in the building
+before the pandemic.
+And the class size for a master of finance program
+was about 120 students.
+We had nine Bloomberg terminals at the time.
+I think we may have more now.
+And suppose that they independently
+wanted to use a terminal with probability 7 and 1/2%.
+So we'd want to know, what's the cumulative probability
+that nine or fewer students would
+want to use it at the same time, if there
+were independent demand?
+We could have 120 students all show up at once,
+but that's very unlikely.
+So the binomial distribution lets
+us compute, what's the probability of 0, 1, 2, 3,
+up through 120, and we can sum that up and get an exact answer
+from the binomial distribution.
+But in fact, we get an almost exactly
+the same answer by using the normal distribution to plug in,
+and you can see on this plot where
+I've shown in red sort of the integral
+up to the point of interest that the distribution looks
+Gaussian, and we get a very good result from the Gaussian
+distribution.
+So let's summarize what we've said
+in discussing random variables, because this is our jumping off
+point for looking at random processes that describe lots
+and lots of behavior in financial markets,
+and help us think about financial decision making.
+Any set of random variables can be
+used to construct a new random variable, their sum,
+just by adding them together.
+We could ask about the distribution of this S.
+If we want to compute it, we need
+to do convolutions of the probability
+distributions of each of the axes,
+and that means n fold multiple intervals
+in n dimensional space, which is hard.
+But for most of our applications,
+we only need the moments, like the mean and the variance,
+and that we can compute just from what we're
+looking at in terms of the mean and the variance
+of the individual random variables.
+And that's easy.
+So the moments of the new random variable
+are computed by linearity.
+And if the variables are IID, if they're
+independent and identically distributed, that is,
+this collection of n variables are not just
+n variables from completely different corners of the world
+but they're the same kind of variable
+repeatedly, then as n gets large,
+this sum S is going to have a full distribution that's
+going to in limit approach a Gaussian distribution.
+So we will know its full distribution in that case.
+We still get the moments, of course, but in special cases,
+we get the full distribution.
+The application we're going to be looking at in our next unit
+is the construction of stochastic processes,
+and those have exactly the structure we've looked at,
+but where the variables are ordered
+and they correspond to information
+being revealed over time.
+So X_1 would be an information that was available on day one,
+X_2 would be new information that arrived on day two,
+and so on.
+So we'll be interested in using this structure, the behavior
+of sums of random variables, to see
+how information evolves in time to see how valuation
+is done when the dynamics of these processes
+can be fully described.

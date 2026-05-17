@@ -1,0 +1,53 @@
+
+PROFESSOR: Let's look at some of the basic objects
+and terminology in probability.
+A random variable is really a function.
+We could really call it a random-valued function
+on the sample space.
+So the sample space is a set of all events,
+or possible outcomes of experiments,
+or possible observations that we might have.
+And we want to assign numbers to them
+so that we can do some math, so that we can do some analytics.
+So for example, if we have the abstract outcomes of success
+or failure in an experiment, or we flip coins,
+and we have heads and tails, or we roll dice,
+and we get one of sides to come up,
+we are used to assigning numbers to those.
+And those numbers are the random variables.
+So I've given a couple of examples right here.
+In the case of heads and tails, we
+might assign them 1 or minus 1.
+But there's nothing special about that.
+You could pick a different random variable w
+and pick different values, 12 and minus 3, if you'd like.
+Z is also a common random variable
+that we see where we have two outcomes,
+and we think of them as being success or failure
+of an experiment.
+They might be gains or losses on an investment.
+Again, two states, we map the two possible states
+to two possible numbers.
+We could have a large number of states,
+and we could combine different kinds of outcome.
+We could add two dice together, we
+could add a coin flip and a die, and we might also
+have continuous outcomes.
+So they don't need to be discrete.
+What's the probability?
+Well, we describe the probability
+of an outcome as a number that we
+assign to a random variable taking a particular value.
+So for example, in the case of a fair coin,
+the probability of observing X equals 1 would be 1/2.
+For the case of Y equals 2, in the case of our dice,
+we know that we would only see that in 1
+out of 36 times when both the dice come up
+with 1 on one side.
+We can compute functions of a random variable as well,
+and we'll have more to say about this later on.
+But for example, if we take X squared,
+the probability of observing X squared equals 1
+is 1 because X could be plus 1 or minus 1
+with equal probability.
+And either way, X squared is equal to 1 and so on.

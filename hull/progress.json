@@ -1,0 +1,16 @@
+{
+  "track": "hull",
+  "title": "Options, Futures, and Other Derivatives",
+  "author": "John C. Hull",
+  "edition": "11th",
+  "total_pages": 896,
+  "current_page": 43,
+  "chapters": {
+    "ch01_introduction": {
+      "done": true
+    },
+    "ch02_futures_markets": {
+      "done": true
+    }
+  }
+}

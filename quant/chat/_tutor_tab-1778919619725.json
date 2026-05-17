@@ -1,0 +1,3348 @@
+{
+  "conversation_id": "29c06c75-11e4-4f44-85b0-dd88112a1660",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How to derieve complete step by step summation of q^n infinity to n=1 and what other cheatsheets or formulas that are there in this space and how does this change with n increasing n=2 and beyond",
+      "ts": "2026-05-16T08:21:21.899214+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\nIn quantitative finance, we constantly need to sum infinite streams of shrinking values. This appears everywhere, from pricing a perpetuity (a bond that pays a fixed dividend forever) to calculating probabilities of waiting times (like how long it takes for an asset price to jump or a coin to land heads). A geometric series solves the problem of adding an infinite number of terms by exploiting the fact that each term is a constant fraction, \\(q\\), of the previous one. If that fraction is strictly between -1 and 1, the pieces eventually shrink to zero, making an infinite sum evaluate to a clean, finite number.\n\nDERIVATION\nHere is the rigorous proof for the infinite sum \\(\\sum_{n=1}^{\\infty} q^n\\). \n\nStep 1: Define the finite sum up to \\(N\\) terms. We do this because we cannot perform arithmetic directly on infinity. \n\\[S_N = q + q^2 + q^3 + \\dots + q^N\\]\n\nStep 2: Multiply the entire equation by the common ratio \\(q\\). We do this to create a shifted version of the series where most terms match the original sum.\n\\[q S_N = q^2 + q^3 + q^4 + \\dots + q^{N+1}\\]\n\nStep 3: Subtract the new equation (Step 2) from the original one (Step 1). We do this because it beautifully cancels out all the terms in the middle, leaving only the very first and very last terms.\n\\[S_N - q S_N = q - q^{N+1}\\]\n\nStep 4: Factor out \\(S_N\\) on the left side to isolate the sum we care about.\n\\[S_N (1 - q) = q(1 - q^N)\\]\n\nStep 5: Divide by \\((1 - q)\\) to get the explicit formula for the sum of the first \\(N\\) terms.\n\\[S_N = \\frac{q(1 - q^N)}{1 - q}\\]\n\nStep 6: Take the limit as \\(N \\to \\infty\\). Assuming \\(|q| < 1\\), the term \\(q^N\\) shrinks to exactly 0. \n\\[\\sum_{n=1}^{\\infty} q^n = \\frac{q}{1 - q}\\]\n\nKEY INSIGHT\nEvery infinite converging geometric series evaluates to a single, universal rule: the very first term of your series divided by \\((1 - q)\\). \n\nThis instantly answers your question about how the sum changes for \\(n=2\\) and beyond. If your sum starts at \\(n=2\\), the first term is \\(q^2\\). Therefore:\n\\[\\sum_{n=2}^{\\infty} q^n = \\frac{q^2}{1 - q}\\]\nFor any starting index \\(k\\), your \"cheatsheet\" formula is always just:\n\\[\\sum_{n=k}^{\\infty} q^n = \\frac{q^k}{1 - q}\\]\n\nWORKED EXAMPLE\nLet's look at an actual probability scenario covered in MIT's probability lectures [1, 2]. Suppose you flip a coin repeatedly, and the probability that the first \"heads\" appears on flip \\(n\\) is \\(2^{-n}\\). What is the probability that the first heads appears on an *even* number of flips?\n\nYou need to sum the probabilities for \\(n = 2, 4, 6, \\dots\\):\n\\[P(\\text{even}) = 2^{-2} + 2^{-4} + 2^{-6} + \\dots\\]\n\\[P(\\text{even}) = \\frac{1}{4} + \\frac{1}{16} + \\frac{1}{64} + \\dots\\]\n\nThis is a geometric series where the first term is \\(\\frac{1}{4}\\) and the common ratio \\(q\\) is \\(\\frac{1}{4}\\). Using our rule (First Term / (1 - ratio)):\n\\[P(\\text{even}) = \\frac{1/4}{1 - 1/4} = \\frac{1/4}{3/4} = \\frac{1}{3}\\]\n\nPITFALLS\nA critical mistake is mechanically applying the formula \\(\\frac{\\text{First Term}}{1-q}\\) without verifying that \\(|q| < 1\\). If \\(q \\geq 1\\) (e.g., an investment growing at 5% where you aren't discounting it), the sum diverges to infinity, and applying the formula will give you a completely nonsensical negative number. \n\nDoes the \"First Term / (1 - ratio)\" rule make sense for quickly building any geometric sum you might need on the fly?",
+      "ts": "2026-05-16T08:21:21.899214+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "is equal to two to the minus n.",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "well the probability of\nobtaining an outcome that's",
+          "source_id": "01833cde-8de6-4110-891a-223ad9c642cc"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "what are other summations techniques I need to know -> provide a cheatsheet",
+      "ts": "2026-05-16T08:39:29.409939+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is your essential summation cheatsheet for quantitative finance, focusing on the techniques you will use repeatedly alongside the geometric series. \n\nINTUITION\nIn quantitative finance, we constantly deal with discrete events\u2014such as counting the number of bond defaults in a portfolio, building a binomial tree for option pricing, or modeling the arrival of trade orders on an exchange [1, 2]. To find the expected payoff or risk of these assets, we must multiply the probability of every possible state by its payoff and sum them all together [3]. Doing this manually for thousands of states is impossible. Summation techniques act as mathematical \"cheat codes\" that allow us to collapse infinitely long, messy additions into simple, closed-form expressions.\n\nDERIVATION\nHere is your cheatsheet of the two most critical summation techniques you must know beyond the geometric series, and how we derive their usefulness.\n\n**Step 1: The Exponential Series (Taylor Expansion)**\nThis series is the backbone of continuous compounding, Poisson processes (jump models), and moment-generating functions [4, 5]. \nWe expand the exponential function \\(e^x\\) as an infinite sum:\n\\[ \\sum_{k=0}^{\\infty} \\frac{x^k}{k!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\dots = e^x \\]\n\n**Step 2: The Binomial Theorem**\nThis is the foundation of the Binomial Options Pricing Model and modeling binary outcomes (like a stock going up or down) over \\(n\\) periods [6].\n\\[ \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n-k} = (x+y)^n \\]\nNotice that if \\(x\\) is the probability of an \"up\" move (\\(p\\)) and \\(y\\) is the probability of a \"down\" move (\\(q\\)), and \\(p+q=1\\), the entire sum perfectly equals \\(1^n = 1\\).\n\n**Step 3: The Moment Generating Function (The Ultimate Cheat Code)**\nInstead of summing complex polynomials to find the mean or variance of a distribution, we sum the exponential of the random variable. By expanding \\(e^{itX}\\) using the Taylor series from Step 1, we get:\n\\[ \\mathbb{E}[e^{itX}] = \\sum \\left( 1 + itX + \\frac{(itX)^2}{2!} + \\dots \\right) P(X) \\]\nThis allows us to encode all the moments (mean, variance, skewness) of a distribution into a single function. We can then recover the exact sum for any moment simply by taking derivatives of this function instead of calculating the raw summation [5, 7].\n\nKEY INSIGHT\nThe true power of these summation techniques is that they allow us to bypass brutal combinatorics; instead of calculating massive discrete sums manually, we map them to continuous functions like \\(e^x\\) or \\((x+y)^n\\) and use basic calculus (like taking a derivative) to find exact answers for pricing and risk [7].\n\nWORKED EXAMPLE\nLet's prove that all probabilities in a Poisson distribution (used to model random jumps or default arrivals) sum to 1 [4]. The probability of exactly \\(k\\) arrivals is given by:\n\\[ P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!} \\]\nTo find the sum of all probabilities from \\(k=0\\) to \\(\\infty\\):\n\\[ \\sum_{k=0}^{\\infty} \\frac{\\lambda^k e^{-\\lambda}}{k!} \\]\nWe pull the constant \\(e^{-\\lambda}\\) out of the sum:\n\\[ e^{-\\lambda} \\sum_{k=0}^{\\infty} \\frac{\\lambda^k}{k!} \\]\nUsing our Exponential Series rule from Step 1, we instantly recognize the remaining sum as \\(e^\\lambda\\):\n\\[ e^{-\\lambda} \\times e^\\lambda = e^0 = 1 \\]\n\nPITFALLS\nA common mistake when programming these sums (especially the Binomial sum) into pricing models is that the factorials\u2014such as \\(n!\\)\u2014grow so massively that they cause a computer to suffer from \"overflow\" errors, meaning they exceed the machine's memory limit [8]. In practice, quants avoid summing raw factorials for large \\(n\\) and instead use logarithmic approximations or built-in combination functions.\n\nHow comfortable are you feeling with these series? Should we apply the Binomial sum to construct a basic option pricing tree next?",
+      "ts": "2026-05-16T08:39:29.409939+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "and then in a subsequent video, I'll",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "So for example, in the case of the binomial distribution,",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "e to the it plus q raised to the n-th power.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": null,
+          "source_id": "8da21d5e-4752-4a6b-a9f3-c16539548f4f"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "how is expectation of E(X) Calculated",
+      "ts": "2026-05-16T08:50:53.071668+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "INTUITION\nIn probability and quantitative finance, the expected value, denoted as \\(\\mathbb{E}[X]\\), represents the probability-weighted average of all possible outcomes [1]. You can visualize it as the \"center of gravity\" or the balancing point of a probability distribution [2]. It solves the problem of summarizing a complex, random set of possibilities into a single, best-guess numerical value\u2014such as predicting the long-run average return of a stock portfolio over time [3].\n\nDERIVATION\nStep 1: Determine if your random variable \\(X\\) is discrete (takes specific, distinct values) or continuous (takes values over a smooth range) [4].\n\nStep 2: For a discrete random variable, calculate the sum of each possible numerical outcome \\(x\\) multiplied by its probability of occurring, \\(p(x)\\) [5]. We are explicitly weighting each outcome by its likelihood [6].\n\\[\\mathbb{E}[X] = \\sum_{x} x \\cdot p(x)\\]\n\nStep 3: For a continuous random variable, replace the summation with a definite integral. You multiply the value \\(x\\) by the probability density function \\(p(x)\\) and integrate over all possible values [7], [8]. \n\\[\\mathbb{E}[X] = \\int_{-\\infty}^{\\infty} x \\cdot p(x) dx\\]\n\nKEY INSIGHT\nThe expected value is always a single, deterministic number\u2014not a function or a random variable\u2014that provides the average result if you were to repeat the random experiment an infinite number of times [9], [8].\n\nWORKED EXAMPLE\nSuppose you play a game where your payouts are 1 dollar with a probability of \\(1/6\\), 2 dollars with a probability of \\(1/2\\), and 4 dollars with a probability of \\(1/3\\) [10]. \n\nUsing the discrete formula:\n\\(\\mathbb{E}[X] = (1 \\cdot \\frac{1}{6}) + (2 \\cdot \\frac{1}{2}) + (4 \\cdot \\frac{1}{3})\\)\n\n\\(\\mathbb{E}[X] = \\frac{1}{6} + 1 + \\frac{4}{3} = \\frac{1}{6} + \\frac{6}{6} + \\frac{8}{6} = \\frac{15}{6} = 2.5\\)\n\nYour expected payout from this game is 2.5 dollars [11]. \n\nPITFALLS\nA major pitfall is assuming you can \"reason on the average\" for non-linear functions. In general, the expectation of a function of a random variable is not equal to the function of the expectation: \\(\\mathbb{E}[g(X)] \\neq g(\\mathbb{E}[X])\\) [12], [13]. Additionally, for some continuous distributions with \"fat tails,\" the integral might diverge, meaning the expected value mathematically does not exist [14], [15].\n\nAre you ready to see how we apply this expectation operator to calculate higher moments like variance, or would you prefer to look at the expected return of a specific financial portfolio?",
+      "ts": "2026-05-16T08:50:53.071668+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "want to simplify the notation.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "want to simplify the notation.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "want to simplify the notation.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "want to simplify the notation.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": null,
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": "gravity of an object\nof this kind.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": "and this is just arithmetic that the return",
+          "source_id": "fb7e2ecf-711f-44f1-a413-10b4188064ea"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "to the nearest inch.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "probabilities as frequencies\nwhen you try to make sense of",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": "One can start with a\nmathematical definition.",
+          "source_id": "f712fa9f-18c4-488c-9b6e-83f6280bab6f"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "In the continuous case, it's even more elegant.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "So this formula just captures\nthe calculation that we did.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "something like an average,\nwhere you interpret",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "Well, you can think\nas follows--",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "Or could it be that it's\nequal to this number?",
+          "source_id": "d252f666-679e-4750-a411-dfaa059cd381"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "having to find the PMF\nof that function.",
+          "source_id": "1a7a4ba0-3c9c-4df0-9ddf-ec2f6bee76c4"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": "want to simplify the notation.",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "E[X] for possion distribution",
+      "ts": "2026-05-16T08:54:42.796862+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**INTUITION**\nThe Poisson distribution models the number of discrete events occurring in a fixed interval of time or space, such as the arrival of credit defaults or market orders [1]. It is defined by a single parameter, \\(\\lambda\\), which represents the constant arrival rate of these events [2]. Intuitively, if events arrive at an average rate of \\(\\lambda\\), the expected number of events we actually observe should be exactly that rate. \n\n**DERIVATION**\nHere is how we prove that the expectation of a Poisson distribution is \\(\\lambda\\), utilizing the Taylor series math we reviewed previously. \n\n**Step 1: Write the general definition of expectation.**\nFor any discrete random variable, the expectation is the probability-weighted average of all possible states [3].\n\\[E[X] = \\sum_{k=0}^{\\infty} k \\cdot P(X=k)\\]\n\n**Step 2: Substitute the Poisson probability mass function.**\nWe insert the specific formula for Poisson probabilities, \\(P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}{k!}\\) [2].\n\\[E[X] = \\sum_{k=0}^{\\infty} k \\cdot \\frac{e^{-\\lambda} \\lambda^k}{k!}\\]\n\n**Step 3: Drop the zero term.**\nWhen \\(k=0\\), the entire term multiplies to zero. We can simply start our summation at \\(k=1\\).\n\\[E[X] = \\sum_{k=1}^{\\infty} k \\cdot \\frac{e^{-\\lambda} \\lambda^k}{k!}\\]\n\n**Step 4: Cancel \\(k\\) from the factorial.**\nBecause \\(k! = k \\cdot (k-1)!\\), the \\(k\\) in the numerator cancels with the \\(k\\) in the denominator.\n\\[E[X] = \\sum_{k=1}^{\\infty} \\frac{e^{-\\lambda} \\lambda^k}{(k-1)!}\\]\n\n**Step 5: Factor out one \\(\\lambda\\).**\nWe want the exponent of \\(\\lambda\\) to match the factorial \\((k-1)!\\) in the denominator, so we pull one \\(\\lambda\\) out to the front [4].\n\\[E[X] = \\lambda e^{-\\lambda} \\sum_{k=1}^{\\infty} \\frac{\\lambda^{k-1}}{(k-1)!}\\]\n\n**Step 6: Shift the index.**\nLet \\(j = k - 1\\). As \\(k\\) goes from 1 to \\(\\infty\\), our new index \\(j\\) goes from 0 to \\(\\infty\\).\n\\[E[X] = \\lambda e^{-\\lambda} \\sum_{j=0}^{\\infty} \\frac{\\lambda^j}{j!}\\]\n\n**Step 7: Recognize the Taylor series and simplify.**\nThe summation perfectly matches the Maclaurin series expansion for \\(e^\\lambda\\). We substitute \\(e^\\lambda\\) back in, which cancels out the \\(e^{-\\lambda}\\) term [4].\n\\[E[X] = \\lambda e^{-\\lambda} e^{\\lambda} = \\lambda\\]\n\n**KEY INSIGHT**\nFor a Poisson distribution, the expected value is exactly equal to its defining rate parameter, \\(\\lambda\\) [4]. \n\n**WORKED EXAMPLE**\nSuppose you are analyzing market microstructure, and large block trades arrive at a given exchange at a rate of \\(\\lambda = 2.5\\) trades per minute. The number of trades arriving in any single minute follows a Poisson distribution. Based on our derivation, the expected number of block trades you will see in the next minute is simply \\(E[X] = 2.5\\).\n\n**PITFALLS**\nA common conceptual mistake is being bothered by a fractional expectation. While the expected value \\(\\lambda\\) can be a continuous real number (like 2.5), the actual random variable \\(X\\) can *only* take discrete, non-negative integer values like 0, 1, 2, or 3 [1, 2]. You will never observe exactly 2.5 trades!\n\nDoes this mathematical trick of shifting the index make sense? If you are comfortable with this, we can easily use a very similar trick to prove what the variance of the Poisson distribution is. Shall we tackle the variance next?",
+      "ts": "2026-05-16T08:54:42.796862+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": null,
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "has two parameters, two values.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "In the discrete case for any function,",
+          "source_id": "a3cab088-30db-4a8b-98da-9cb3eb0257ca"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "What are its properties?",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        }
+      ]
+    }
+  ]
+}

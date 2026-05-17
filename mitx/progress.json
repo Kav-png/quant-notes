@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-04-19",
+  "course_id": "15.455x",
+  "target_score": 1.0,
+  "final_exam_date": "2026-06-23",
+  "modules": {
+    "0": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "1": {
+      "status": "in_progress",
+      "topics": {
+        "Probability distributions": false
+      },
+      "confidence": null
+    },
+    "2": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "3": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "4": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "5": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "6": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "7": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "8": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    },
+    "9": {
+      "status": "not_started",
+      "topics": {},
+      "confidence": null
+    }
+  },
+  "prerequisites": {
+    "multivariable_calculus": {
+      "lectures_watched": [],
+      "confidence": null
+    },
+    "probability_and_statistics": {
+      "lectures_watched": [],
+      "confidence": null
+    },
+    "linear_algebra": {
+      "lectures_watched": [],
+      "confidence": null
+    },
+    "r_programming": {
+      "completed_short_intro": false,
+      "confidence": null
+    }
+  },
+  "problem_sets": {
+    "1": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-04-23T07:39:00+01:00"
+    },
+    "2": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-04-28T22:03:00+01:00"
+    },
+    "3": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-05-04T12:27:00+01:00"
+    },
+    "4": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-05-10T02:51:00+01:00"
+    },
+    "5": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-05-15T17:15:00+01:00"
+    },
+    "6": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-05-21T07:39:00+01:00"
+    },
+    "7": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-05-26T22:03:00+01:00"
+    },
+    "8": {
+      "status": "not_started",
+      "submitted": false,
+      "score": null,
+      "due": "2026-06-01T12:27:00+01:00"
+    }
+  },
+  "flashcards": {
+    "total": 0,
+    "reviewed_today": 0,
+    "weak_cards": []
+  },
+  "sessions": []
+}

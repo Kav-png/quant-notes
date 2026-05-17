@@ -1,0 +1,88 @@
+notebooks:
+  prerequisites:
+    probability_statistics:
+      notebook_id: 5e6f7673-f080-4e48-94b8-949a73311402
+      label: MIT 6.041 — Probability & Statistics
+      source_urls:
+      - https://www.youtube.com/watch?v=j9WZyLZCBzs
+      - https://www.youtube.com/watch?v=TluTv5V0RmE
+      - https://www.youtube.com/watch?v=19Ql_Q3l0GA
+      - https://www.youtube.com/watch?v=6oV3pKLgW2I
+      - https://www.youtube.com/watch?v=3MOahpLxj6A
+      - https://www.youtube.com/watch?v=-qCEoqpwjf4
+      - https://www.youtube.com/watch?v=EObHWIEKGjA
+      - https://www.youtube.com/watch?v=mHfn_7ym6to
+      - https://www.youtube.com/watch?v=CadZXGNauY0
+      - https://www.youtube.com/watch?v=H_k1w3cfny8
+      - https://www.youtube.com/watch?v=l4NoMKEHQwM
+      - https://www.youtube.com/watch?v=P7a4bjE6Crk
+      - https://www.youtube.com/watch?v=gMTiAeE0NCw
+      - https://www.youtube.com/watch?v=jsqSScywvMc
+      - https://www.youtube.com/watch?v=XsYXACeIklU
+      - https://www.youtube.com/watch?v=IkbkEtOOC1Y
+      - https://www.youtube.com/watch?v=ZulMqrvP-Pk
+      - https://www.youtube.com/watch?v=HIMxdWDLEK8
+      - https://www.youtube.com/watch?v=3eiio3Tw7UQ
+      - https://www.youtube.com/watch?v=Tx7zzD4aeiA
+      - https://www.youtube.com/watch?v=1jDBM9UM9xk
+      - https://www.youtube.com/watch?v=XtNXQJkgkhI
+      - https://www.youtube.com/watch?v=4UJc0S8APm4
+      - https://www.youtube.com/watch?v=tBUHRpFZy0s
+      - https://www.youtube.com/watch?v=rYefUsYuEp0
+      source_globs:
+      - mitx/modules/Prob*.txt
+    multivariable_calculus:
+      notebook_id: ''
+      label: MIT 18.02 — Multivariable Calculus
+      source_globs: []
+    linear_algebra:
+      notebook_id: ''
+      label: MIT 18.06 — Linear Algebra
+      source_globs: []
+  modules:
+    m01:
+      notebook_id: c6d5282d-b6ea-44c2-8333-54e5ec1cef86
+      label: M01 — Probability
+      source_globs:
+      - mitx/modules/Prob*.txt
+      - mitx/modules/recitation-week01v1.pdf
+      - mitx/modules/handouts-week01.pdf
+    m02:
+      notebook_id: ''
+      label: M02 — Discrete-Time Stochastic Processes
+      source_globs: []
+    m03:
+      notebook_id: ''
+      label: M03 — Time Series Models
+      source_globs: []
+    m04:
+      notebook_id: ''
+      label: M04 — Continuous-Time Stochastic Processes
+      source_globs: []
+    m05:
+      notebook_id: ''
+      label: M05 — Itô Calculus
+      source_globs: []
+    m06:
+      notebook_id: ''
+      label: M06 — Continuous-Time Finance
+      source_globs: []
+    m07:
+      notebook_id: ''
+      label: M07 — Linear Algebra of Asset Pricing
+      source_globs: []
+    m08:
+      notebook_id: ''
+      label: M08 — Optimization
+      source_globs: []
+    m09:
+      notebook_id: ''
+      label: M09 — Optimal Decision Making
+      source_globs: []
+  quant:
+    quant:
+      notebook_id: 961e6f43-699c-4bca-8d1f-4498021bb664
+      label: Quant — Hull & Wilmott
+      source_globs: []
+      hull_source_id: 4b12a22c-7606-4f0a-9f25-5e6da24866bc
+      wilmott_source_id: e0a835e1-ec33-43da-93ee-eec73d4ad5bd

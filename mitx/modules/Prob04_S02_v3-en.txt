@@ -1,0 +1,217 @@
+
+PROFESSOR: Gaussians are very special,
+because the Fourier transform of the Gaussian
+is actually also a Gaussian.
+And you can check that by doing out the intervals
+or taking a look at your favorite table book.
+Notice that if this is our usual friend on the left,
+the Gaussian distribution-- notice where the sigma appears.
+It appears in the denominator of the exponent.
+The Fourier transform over here, is a function of t.
+So it's e to the minus t squared times something.
+But the sigma squared is in the numerator of the Fourier
+transform, not the denominator.
+And they both have a 1/2.
+So the first one is x minus mu quantity
+squared over 2 sigma squared.
+This one is t squared sigma squared over 2
+in the numerator plus i.
+There's our complex value--
+i times mu times t for the case mu is non-zero.
+But basically, it's a Gaussian form.
+It's of the form e to the minus t squared.
+What that means is that if we have
+a sum of n random variables, what's
+the probability distribution of the sum?
+Well, the p-tilde is going to be the product of all the p's.
+Those are each Gaussians.
+So for 1, 2, 3, 4 up through n, I multiply together,
+the Fourier transforms, exponential with sigma 1
+squared t plus sigma 1 squared t squared over 2, plus i mu 1t.
+And the same thing with 2 and the same thing with 3 and so
+on--
+the product of exponentials the exponential
+of the sum of the exponents.
+So we can combine these things up in the exponent here.
+And these simplify-- you notice that they
+take the form of the exponential of minus 1/2 something
+times t squared, plus something else times t.
+The coefficient of t squared is the sum of the sigma squared.
+So we could define a new thing, we
+could call sigma hat squared, to be
+the sum of the sigma squares.
+And we could define mu hat to be the sum of the individual mus.
+But the important thing is that we can rewrite p-tilde
+in the form of any one of those individual p-tildes.
+That is it's a Fourier transform of the Gaussian.
+So this shows that the sum of Gaussian random variables
+itself, has a Gaussian distribution.
+It also tells us what the parameters
+of that new distribution are.
+If they're identical random variables,
+if all of the mu's and sigma were equal for 1, 2,
+3 4, 5 6, 7, then when we add together
+n identical Gaussian random variables that are all
+independent, their mean is N times the mean
+of an individual one.
+Their variance is N times the sigma
+squared for an individual one.
+And therefore, their volatility, their sigma,
+is the square root of N times the sigma of one
+of the individual random variables.
+Now because the Fourier transforms multiply,
+their logarithms add.
+So we define something called the cumulant expansion, which
+is convenient when we're taking logarithms.
+And here, p-tilde is the exponential.
+So before we expanded, that we had
+an exponential the other way, this
+is the exponential of a sum.
+And these C coefficients are particular linear combinations
+of expectations.
+They just group together in a very convenient way
+for certain applications.
+And this one you'll see right here.
+So here are some examples of where we would apply this
+if I want to get the--
+so to extract the C's, what I do is I compute p-tilde.
+That's just a Gaussian, for example--
+in the case of the Gaussian, it could
+be any of our other examples.
+We take n derivatives of the logarithm of p.
+And then we have our pre-factor of the i's.
+So the first few terms are C1 is just the expectation of X. C2
+Is the variance.
+It's the expectation of X squared
+minus the square of the expectation of X.
+C3 is a bit more complicated.
+It's the expectation of X cubed minus 3 times the expectation
+of X times the expectation of X squared, plus twice
+the mean of X, the expectation of X quantity cubed.
+And for C4, we have this other complicated algebraic
+expression.
+But it's a particular linear combination.
+Now, what's nice about these combinations,
+is that they take a very simple form for Gaussians--
+namely, they're all 0 after the second one.
+So in the case of a Gaussian, all of these higher cumulant,
+C3, C4, C5, C6 are all 0, whereas the individual moments
+take some values that we could compute.
+So in this particular grouping, for a Gaussian distribution,
+we have C1 and C2 are non-zero.
+For a general function, It could be--
+these are just some numbers we could
+compute using the formulas on the top of our screen.
+Now, here's a way to see the Central Limit
+Theorem and how it comes about.
+If we take a look at the cumulants for sum of N IID
+random variables, because they're identically distributed
+and because the cumulants add, the nth
+cumulant it's going to be N times one
+of the individual ones.
+So they just add.
+So we just multiply times N and that's it.
+OK so if we know the C sub n's for one of the variables,
+we know what it is for a sum of N of them, big N of them.
+We just multiply times the number of random variables
+that we have.
+Now we can normalize these.
+These are going to have dimensions-- remember,
+they depended on powers of X. So let's turn them
+into pure numbers by dividing by powers of sigma,
+same way we did in defining the skewness
+and the kurtosis, originally.
+But now when we do this, if we want
+to relate these dimensionless numbers for our sum,
+to the corresponding dimensionless numbers for one
+of the individual random variables,
+there's a pre-factor that comes from all these powers of n that
+are over here and from our sigma.
+And it goes as 1 over big N to the n over 2 minus 1.
+And when the cumulant is greater than 2, for n greater than 2,
+these are positive powers in the denominator.
+And that means that as big N goes to infinity,
+all of these scaled cumulants vanish.
+And that's how we can see that the distribution has
+to become Gaussian.
+If we had done this in terms of the moments,
+it would have been much more complex.
+The cumulants group things together very nicely,
+so that everything above 2, everything that doesn't
+look like a Gaussian goes away.
+So in this way, we can see that the cumulant expansion
+uniquely defines the probability distribution.
+When big N goes to infinity, there's a universal behavior.
+And everything greater than C2 vanishes,
+and therefore, whatever the original distribution was,
+it looks like a Gaussian distribution.
+Now there are a whole bunch of caveats.
+And let me just mention two--
+one of them is that this just tells you
+that if N is sufficiently large, the distribution will
+approach a Gaussian.
+But it doesn't tell you how large and needs to be.
+And the convergence isn't uniform.
+So for large values of the random variable away
+from the mean value, the convergence is much slower.
+And it's much faster in the center.
+So the rate of convergence is uniform,
+and we don't know how big N needs to be for that.
+Also, this is subject to the cumulants existing.
+So if we have things like the fat-tail distribution
+we looked at earlier, then all bets are off.
+This scaling argument won't work.
+So for nicely behaved functions where the moments exist,
+the cumulants will exist.
+And the Central Limit Theorem gives us that important result.
+Here's an example of a bunch of random variables.
+And how large does n need to be close to infinity?
+I don't know.
+How about 6?
+This used to be a poor man's random number generator.
+Add together six uniform random variables,
+and see what the distribution looks like.
+Here's some R code to do that.
+And I overlain the results with a exact Gaussian function.
+Not bad-- certainly for eyeballing.
+Again, there's the caveat that any finite distribution
+is going to be bounded.
+In this case, if I have six uniform random variables,
+values can't be smaller than 0, can't be bigger than 6.
+But in the places in the center of the distribution,
+we're actually getting close to the shape that we would expect.
+So here, I've done 100,000 simulations of adding together
+six uniform random variables.
+And the distribution we get is anything but uniform.
+It looks quite Gaussian.
+So let's just summarize.
+The characteristic function of a probability distribution
+gives a compact formula for generating
+all of the moments of the distribution
+by taking derivatives.
+For continuous random variables, if we computed in closed form,
+we find that we're in the domain of Fourier transforms
+and complex analysis.
+So if that's something that you've seen before,
+you know how to do these calculations.
+And you know when these integrals converge
+and how to compute them.
+Gaussians are special in a lot of ways.
+First, the Fourier transform of the Gaussian
+is also a Gaussian.
+And that means that the sum of Gaussian random variables
+is always a Gaussian, not just for an infinite number
+of terms, but for any number of terms.
+The Central Limit Theorem tells us
+that if we add together a large number of any IID
+random variables, that will get something
+that will approach a Gaussian.
+So Gaussians really are universal.
+When we look at adding together a large number of influences,
+such as economic factors and drivers, behavior
+of lots of market participants-- when we add together
+a very large number of random shocks and influences
+from independent sources, there's a good chance
+that we might see Gaussians start to emerge,
+even if the underlying behaviors have
+no connection with the Gaussian distribution at all.

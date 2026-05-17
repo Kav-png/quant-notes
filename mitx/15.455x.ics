@@ -1,0 +1,588 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Study//15.455x//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:MIT 15.455x Study Schedule
+X-WR-CALDESC:Mathematical Methods for Quantitative Finance — full study plan
+BEGIN:VEVENT
+UID:15455x-m1-review-20260505@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260505T090000Z
+DTEND:20260505T110000Z
+SUMMARY:15.455x M1 — Review notes: distributions + CLT
+DESCRIPTION:Go through M01 notes. Key items: fat tails\, cov ≠ independence\, CLT caveats\, characteristic functions. Run R demos. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m1-ps1-20260505@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260505T120000Z
+DTEND:20260505T140000Z
+SUMMARY:15.455x M1 — PS1 work + submit (late)
+DESCRIPTION:Complete and submit PS1. Module 1: Probability. Check MITx late penalty first. 2h.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:PS1 session starting in 30 min
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m2-lec-20260506@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260506T090000Z
+DTEND:20260506T103000Z
+SUMMARY:15.455x M2 — Lectures: random walk + time series structure
+DESCRIPTION:Watch M2 lectures. Pause and derive. Topics: random walk\, linear time series models\, Monte Carlo\, RW hypothesis. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m2-notes-20260506@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260506T110000Z
+DTEND:20260506T130000Z
+SUMMARY:15.455x M2 — Notes + worked examples
+DESCRIPTION:Write M02 note. Cover random walk moments\, MA(1) structure\, Monte Carlo variance reduction. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m2-r-20260507@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260507T090000Z
+DTEND:20260507T103000Z
+SUMMARY:15.455x M2 — R: random walk simulation + Monte Carlo
+DESCRIPTION:r/m2/: simulate random walk\, CLT demo for path sums\, basic Monte Carlo price paths. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m2-rec-20260507@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260507T103000Z
+DTEND:20260507T113000Z
+SUMMARY:15.455x M2 — Recitation (pause before solutions)
+DESCRIPTION:Work through recitation problems before watching solutions. Testing the Random Walk Hypothesis. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m2-ps2-20260507@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260507T123000Z
+DTEND:20260507T150000Z
+SUMMARY:15.455x M2 — PS2 work + submit (late)
+DESCRIPTION:Complete and submit PS2. Module 2: discrete-time stochastic processes. 2.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m3-lec-20260508@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260508T090000Z
+DTEND:20260508T110000Z
+SUMMARY:15.455x M3 — Lectures: AR + MA + ARMA + order determination
+DESCRIPTION:Watch M3 lectures. Topics: model ID and estimation\, AR/MA/ARMA\, RW generalisations\, order determination\, boundary value problems. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m3-notes-20260508@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260508T120000Z
+DTEND:20260508T143000Z
+SUMMARY:15.455x M3 — Notes: model structure + forecasting applications
+DESCRIPTION:Write M03 note. Key items: ACF/PACF interpretation\, invertibility\, AR(1) forecast formula\, trading strategy applications. 2.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m3-r-20260509@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260509T090000Z
+DTEND:20260509T110000Z
+SUMMARY:15.455x M3 — R: arima() + forecast + ACF/PACF plots
+DESCRIPTION:r/m3/: fit AR/MA/ARMA with arima()\, plot ACF/PACF\, generate forecasts\, simulate trading strategy. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m3-rec-20260509@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260509T110000Z
+DTEND:20260509T120000Z
+SUMMARY:15.455x M3 — Recitation
+DESCRIPTION:Work recitation before watching solutions. Focus: identifying AR/MA order from ACF/PACF. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m3-ps3-20260509@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260509T130000Z
+DTEND:20260509T160000Z
+SUMMARY:15.455x M3 — PS3 work + submit (late)
+DESCRIPTION:Complete and submit PS3. Module 3: time series models. 3h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m4-lec-20260510@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260510T090000Z
+DTEND:20260510T103000Z
+SUMMARY:15.455x M4 — Lectures: Brownian motion + Ito processes
+DESCRIPTION:Watch M4 lectures. Pause and derive. Topics: limits of discrete processes\, scaling\, Brownian motion\, Ito processes\, Ito lemma. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m4-notes-20260510@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260510T110000Z
+DTEND:20260510T140000Z
+SUMMARY:15.455x M4 — Notes: BM construction + Ito lemma derivation
+DESCRIPTION:Deep note session. BM as random walk limit\, quadratic variation\, dX*dX=dt rule\, Ito lemma full derivation. Do not rush. 3h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m4-ito-20260511@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260511T090000Z
+DTEND:20260511T110000Z
+SUMMARY:15.455x M4 — Ito lemma practice + R: BM simulation
+DESCRIPTION:Apply Ito lemma to f=X^2 and f=e^X and GBM by hand. r/m4/: simulate BM and GBM\, verify quadratic variation. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m4-rec-20260511@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260511T110000Z
+DTEND:20260511T120000Z
+SUMMARY:15.455x M4 — Recitation
+DESCRIPTION:Work recitation before solutions. Focus: applying Ito lemma to finance SDEs. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m4-ps4-20260511@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260511T130000Z
+DTEND:20260511T163000Z
+SUMMARY:15.455x M4 — PS4 work + submit (1 day late)
+DESCRIPTION:Complete and submit PS4. Module 4: continuous-time stochastic processes. 3.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps4@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260510T015100Z
+DTEND:20260510T025100Z
+SUMMARY:15.455x — PS4 DUE: Continuous-Time Stochastic Processes
+DESCRIPTION:Module 4 deadline.
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:PS4 due in 24h
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-lec-20260512@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260512T090000Z
+DTEND:20260512T103000Z
+SUMMARY:15.455x M5 — Lectures: Ito processes in finance + BSM
+DESCRIPTION:Watch M5 lectures. Topics: Ito processes in finance\, dynamic hedging\, Black-Scholes-Merton equation. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-notes-20260512@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260512T110000Z
+DTEND:20260512T140000Z
+SUMMARY:15.455x M5 — Notes: BSM derivation + replication portfolio
+DESCRIPTION:Write M05 note. Replicating portfolio\, BSM PDE derivation step by step\, risk-neutral pricing\, delta hedging. 3h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-r-20260513@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260513T090000Z
+DTEND:20260513T100000Z
+SUMMARY:15.455x M5 — R: BSM formula + Greeks
+DESCRIPTION:r/m5/: implement BSM call/put pricing\, compute Greeks analytically and numerically\, plot delta/gamma vs spot. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-rec-20260513@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260513T100000Z
+DTEND:20260513T110000Z
+SUMMARY:15.455x M5 — Recitation
+DESCRIPTION:Work recitation before solutions. Focus: BSM derivation steps and hedging arguments. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-ps5-20260513@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260513T120000Z
+DTEND:20260513T153000Z
+SUMMARY:15.455x M5 — PS5 work (session 1)
+DESCRIPTION:Begin PS5. Module 5: Ito calculus. 3h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m5-ps5-submit-20260514@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260514T090000Z
+DTEND:20260514T093000Z
+SUMMARY:15.455x M5 — PS5 finalise + submit (due today)
+DESCRIPTION:Finish and submit PS5 before 17:15 GMT+1. 30 min cleanup.
+BEGIN:VALARM
+TRIGGER:-PT60M
+ACTION:DISPLAY
+DESCRIPTION:PS5 due today — submit before 17:15 GMT+1
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps5@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260515T161500Z
+DTEND:20260515T171500Z
+SUMMARY:15.455x — PS5 DUE: Ito Calculus
+DESCRIPTION:Module 5 deadline.
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:PS5 due in 24h
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-lec-20260515@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260515T090000Z
+DTEND:20260515T110000Z
+SUMMARY:15.455x M6 — Lectures: SDE to PDE + boundary value problems
+DESCRIPTION:Watch M6 lectures. Topics: from SDE to PDE\, solving finance PDEs\, boundary value problems\, Green functions\, derivative pricing\, credit default risk. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-notes-20260516@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260516T090000Z
+DTEND:20260516T123000Z
+SUMMARY:15.455x M6 — Notes: PDEs of finance + Green functions
+DESCRIPTION:Write M06 note. Feynman-Kac formula\, heat equation analogy\, Green function method\, barrier options\, credit default pricing. Heaviest note session in course. 3.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-r-20260517@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260517T090000Z
+DTEND:20260517T100000Z
+SUMMARY:15.455x M6 — R: finite-difference PDE + MC barrier option
+DESCRIPTION:r/m6/: finite-difference BSM PDE\, MC pricing for barrier option\, compare to analytical solution. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-rec-20260517@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260517T100000Z
+DTEND:20260517T110000Z
+SUMMARY:15.455x M6 — Recitation
+DESCRIPTION:Work recitation before solutions. Focus: setting boundary conditions for finance PDEs. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-ps6-d1-20260518@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260518T090000Z
+DTEND:20260518T110000Z
+SUMMARY:15.455x M6 — PS6 work (session 1 of 2)
+DESCRIPTION:Begin PS6. Module 6: continuous-time finance. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m6-ps6-d2-20260520@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260520T090000Z
+DTEND:20260520T110000Z
+SUMMARY:15.455x M6 — PS6 finish + submit (due tomorrow)
+DESCRIPTION:Complete and submit PS6 by 08:39 GMT+1 on May 21. 2h.
+BEGIN:VALARM
+TRIGGER:-PT60M
+ACTION:DISPLAY
+DESCRIPTION:PS6 due tomorrow morning — submit today
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps6@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260521T063900Z
+DTEND:20260521T073900Z
+SUMMARY:15.455x — PS6 DUE: Continuous-Time Finance
+DESCRIPTION:Module 6 deadline.
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:PS6 due in 24h
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m7-lec-20260521@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260521T090000Z
+DTEND:20260521T103000Z
+SUMMARY:15.455x M7 — Lectures: LA review + one-period model + FTAP
+DESCRIPTION:Watch M7 lectures. Topics: linear algebra review\, one-period model\, dual spaces\, FTAP\, portfolio space. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m7-notes-20260522@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260522T090000Z
+DTEND:20260522T110000Z
+SUMMARY:15.455x M7 — Notes: no-arbitrage + risk-neutral measure
+DESCRIPTION:Write M07 note. State-price vector\, FTAP proof sketch\, risk-neutral probability construction\, payoff matrix. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m7-rec-20260523@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260523T090000Z
+DTEND:20260523T100000Z
+SUMMARY:15.455x M7 — Recitation + R: payoff matrices
+DESCRIPTION:Recitation: no-arbitrage problems. R: construct payoff matrix\, solve for state prices. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m7-ps7-20260524@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260524T090000Z
+DTEND:20260524T113000Z
+SUMMARY:15.455x M7 — PS7 work + submit (due May 26)
+DESCRIPTION:Complete and submit PS7. Module 7: linear algebra of asset pricing. 2.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps7@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260526T210300Z
+DTEND:20260526T220300Z
+SUMMARY:15.455x — PS7 DUE: Linear Algebra of Asset Pricing
+DESCRIPTION:Module 7 deadline.
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:PS7 due in 24h
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m8-lec-20260526@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260526T090000Z
+DTEND:20260526T103000Z
+SUMMARY:15.455x M8 — Lectures: critical points + Lagrange + QP
+DESCRIPTION:Watch M8 lectures. Topics: high-dimension critical points\, Lagrange multipliers\, QP solutions\, portfolio optimisation. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m8-notes-20260527@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260527T090000Z
+DTEND:20260527T110000Z
+SUMMARY:15.455x M8 — Notes: mean-variance frontier + Lagrangian derivation
+DESCRIPTION:Write M08 note. Derive mean-variance efficient frontier\, KKT conditions\, matrix form of QP. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m8-r-20260528@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260528T090000Z
+DTEND:20260528T103000Z
+SUMMARY:15.455x M8 — R: quadprog + efficient frontier
+DESCRIPTION:r/m8/: quadprog to solve mean-variance optimisation\, plot efficient frontier\, add risk-free asset\, find tangency portfolio. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m8-rec-20260529@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260529T090000Z
+DTEND:20260529T100000Z
+SUMMARY:15.455x M8 — Recitation
+DESCRIPTION:Work recitation before solutions. Focus: constrained optimisation with financial constraints. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m8-ps8-20260530@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260530T090000Z
+DTEND:20260530T113000Z
+SUMMARY:15.455x M8 — PS8 work + submit (due Jun 1)
+DESCRIPTION:Complete and submit PS8. Module 8: optimisation. 2.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps8@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260601T112700Z
+DTEND:20260601T122700Z
+SUMMARY:15.455x — PS8 DUE: Optimization
+DESCRIPTION:Module 8 deadline.
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:PS8 due in 24h
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m9-lec-20260602@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260602T090000Z
+DTEND:20260602T103000Z
+SUMMARY:15.455x M9 — Lectures: dynamic programming + variational methods
+DESCRIPTION:Watch M9 lectures. Topics: dynamic programming\, variational methods\, extensions\, optimal execution and trading. 1.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m9-notes-20260603@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260603T090000Z
+DTEND:20260603T113000Z
+SUMMARY:15.455x M9 — Notes: Bellman equation + optimal execution
+DESCRIPTION:Write M09 note. Bellman equation\, HJB equation\, Almgren-Chriss optimal execution model. No PS but appears on final. 2.5h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m9-r-20260604@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260604T090000Z
+DTEND:20260604T100000Z
+SUMMARY:15.455x M9 — R: dynamic programming demo
+DESCRIPTION:r/m9/: implement simple DP\, simulate optimal execution trajectory. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-m9-rec-20260604@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260604T100000Z
+DTEND:20260604T110000Z
+SUMMARY:15.455x M9 — Recitation + exam-style problems
+DESCRIPTION:Recitation. Then work 2-3 exam-style DP problems without notes. M9 has no PS but is on the final. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m1m3-a-20260607@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260607T090000Z
+DTEND:20260607T110000Z
+SUMMARY:15.455x Review — M1-M3: probability + random walk + time series
+DESCRIPTION:Review M1-M3 notes. Run all flashcards. Redo 1 exam-style question per topic from memory. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m1m3-b-20260608@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260608T090000Z
+DTEND:20260608T110000Z
+SUMMARY:15.455x Review — M1-M3 weak-spot drill
+DESCRIPTION:Write from memory: CLT proof sketch\, ARMA structure\, RW hypothesis tests. Fix anything missed. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m4m5-a-20260609@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260609T090000Z
+DTEND:20260609T110000Z
+SUMMARY:15.455x Review — M4-M5: Brownian motion + Ito lemma + BSM
+DESCRIPTION:Review M4-M5 notes. Derive Ito lemma and BSM from scratch on blank paper. Run flashcards. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m4m5-b-20260610@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260610T090000Z
+DTEND:20260610T110000Z
+SUMMARY:15.455x Review — M4-M5 problem practice (closed notes)
+DESCRIPTION:Work 3-4 exam-style problems on stochastic processes and Ito calculus without notes. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m6-20260611@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260611T090000Z
+DTEND:20260611T110000Z
+SUMMARY:15.455x Review — M6: continuous-time finance + PDEs
+DESCRIPTION:Review M6 notes. Reconstruct Feynman-Kac. Solve 1 example PDE with boundary conditions from scratch. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m7m8-a-20260613@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260613T090000Z
+DTEND:20260613T110000Z
+SUMMARY:15.455x Review — M7-M8: FTAP + mean-variance optimisation
+DESCRIPTION:Review M7-M8 notes. Prove FTAP sketch from memory. Derive efficient frontier with Lagrangian. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m7m8-b-20260614@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260614T090000Z
+DTEND:20260614T110000Z
+SUMMARY:15.455x Review — M7-M8 problem practice (closed notes)
+DESCRIPTION:Work 3-4 exam-style problems on LA asset pricing and portfolio optimisation without notes. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-m9-20260615@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260615T090000Z
+DTEND:20260615T110000Z
+SUMMARY:15.455x Review — M9: dynamic programming + optimal strategies
+DESCRIPTION:Review M9. Bellman equation from memory\, optimal execution worked example. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-mock-exam-20260617@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260617T090000Z
+DTEND:20260617T120000Z
+SUMMARY:15.455x — MOCK EXAM (3h timed · all modules · closed notes)
+DESCRIPTION:Simulate exam conditions. 3 hours\, closed notes. At least one question from every module. Mark immediately after. 3h.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Mock exam in 30 min — prepare clean desk
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-mock-debrief-20260618@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260618T090000Z
+DTEND:20260618T110000Z
+SUMMARY:15.455x — Mock exam debrief + weak-topic list
+DESCRIPTION:Review mock answers. Every missed or uncertain question gets added to final weak-topic list. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-weak-a-20260619@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260619T090000Z
+DTEND:20260619T110000Z
+SUMMARY:15.455x Review — Weak spots from mock exam
+DESCRIPTION:Work through every topic flagged in mock debrief. Derive from first principles\, not re-read. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-weak-b-20260620@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260620T090000Z
+DTEND:20260620T110000Z
+SUMMARY:15.455x Review — Final flashcard sweep + formula sheet
+DESCRIPTION:Run all flashcard decks. Write a 1-page formula sheet from memory. No new topics today. 2h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-review-light-20260621@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260621T090000Z
+DTEND:20260621T100000Z
+SUMMARY:15.455x — Light review: flashcards only (1h max)
+DESCRIPTION:Flashcards only. No heavy problem-solving. Confirm exam logistics: proctor link\, ID\, RStudio working. 1h.
+END:VEVENT
+BEGIN:VEVENT
+UID:15455x-exam-eve-20260622@study
+DTSTAMP:20260503T000000Z
+DTSTART:20260622T090000Z
+DTEND:20260622T093000Z
+SUMMARY:15.455x — Exam eve: logistics check only (30 min)
+DESCRIPTION:Confirm: RStudio working\, internet stable\, proctor link tested\, ID ready. No studying. Rest well.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps1@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260423T063900Z
+DTEND:20260423T073900Z
+SUMMARY:15.455x — PS1 original deadline (submitting late May 5)
+DESCRIPTION:Module 1 Probability. Original deadline passed. Late submission on May 5.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps2@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260428T210300Z
+DTEND:20260428T220300Z
+SUMMARY:15.455x — PS2 original deadline (submitting late May 7)
+DESCRIPTION:Module 2 Discrete-Time Stochastic Processes. Original deadline passed. Late submission on May 7.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-ps3@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260504T112700Z
+DTEND:20260504T122700Z
+SUMMARY:15.455x — PS3 original deadline (submitting late May 9)
+DESCRIPTION:Module 3 Time Series Models. Original deadline passed. Late submission on May 9.
+END:VEVENT
+BEGIN:VEVENT
+UID:15.455x-final@study
+DTSTAMP:20260419T000000Z
+DTSTART:20260623T190300Z
+DTEND:20260623T220300Z
+SUMMARY:15.455x — FINAL EXAM (proctored · timed · 50% of grade)
+DESCRIPTION:Final Exam. 3-hour block. Covers all 9 modules. 50% of course grade. Proctored.
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Final exam in 1 week
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Final exam tomorrow — confirm proctor setup tonight
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT3H
+ACTION:DISPLAY
+DESCRIPTION:Final exam in 3 hours — confirm RStudio is working
+END:VALARM
+END:VEVENT
+END:VCALENDAR
