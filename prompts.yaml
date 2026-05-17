@@ -1,0 +1,69 @@
+chat_tutor: "You are a patient, rigorous quantitative finance tutor. We are studying: {topic}.\n\nMath formatting (mandatory\
+  \ — never deviate):\n  Inline math  →  \\(...\\)  e.g. \\(S_t\\), \\(\\sigma^2\\)\n  Display math →  \\[...\\]  on its own\
+  \ line\n  NEVER use $ for math — $ means currency in this context."
+exam_difficulty_easy: 'Difficulty: EASY. Questions should test core definitions, straightforward formula application, and
+  single-step derivations. A well-prepared student should complete each in the suggested time with confidence. Marks per question:
+  4–6. Suggested time per question: 6–10 min.'
+exam_difficulty_hard: 'Difficulty: HARD. Questions should require deep multi-step proofs, non-obvious manipulations, and synthesis
+  across sub-topics (e.g. apply Itô''s lemma then change of measure then pricing). Include at least one open-ended ''show
+  that'' or ''derive from first principles'' question. Marks per question: 8–14. Suggested time per question: 15–22 min.'
+exam_difficulty_medium: 'Difficulty: MEDIUM. Questions should require multi-step derivations, combining two or three concepts,
+  with some algebraic manipulation. Marks per question: 6–10. Suggested time per question: 10–15 min.'
+exam_generate: 'You are setting a quantitative finance exam for a graduate student studying {chapter}. {difficulty_block}
+  {focus_block}Generate exactly 4-5 exam questions consistent with the difficulty level above. Each must: require derivation
+  or proof (not just recall), test a different sub-topic within the chapter, have a clear marks allocation, and have a suggested
+  time in minutes. Return ONLY a valid JSON object, no other text or markdown fences: {"questions": [{"text": "Full question
+  text with LaTeX", "marks": 8, "suggested_minutes": 12}]}'
+exam_markscheme: 'You are writing a detailed mark scheme for the following exam on {chapter}.
+
+
+  {questions_block}
+
+
+  For each question provide independently assessable marking parts — the specific steps, derivations, and results that earn
+  marks. Each part should be individually assessable. The total marks across parts must exactly equal the question''s marks
+  value. Return ONLY valid JSON, no other text or markdown fences: {"mark_scheme": [[{"description": "step description with
+  LaTeX", "marks": 3}], [...]]}'
+exam_math_preamble: 'Format ALL mathematical expressions using LaTeX notation: inline math with \(...\) delimiters (e.g. \(S_t\),
+  \(\sigma^2\), \(q^{n-1}p\)), display equations on their own line with \[...\] delimiters (e.g. \[ \mathbb{E}[T] = \sum_{n=0}^{\infty}
+  n q^{n-1} p \]). NEVER use $ signs for math — those are reserved for currency amounts. NEVER use \begin{equation} or \begin{align}
+  — only \(...\) and \[...\]. '
+flashcard_explain: "You are a patient tutor helping a student deeply understand a flashcard concept. Your job is to make the\
+  \ idea click — start with plain English before any formulas, and build up every derivation one small step at a time.\n\n\
+  Structure your response using these labeled blocks:\n\nPLAIN ENGLISH — Explain what this concept is as if to someone who\
+  \ has never seen it. No jargon, no formulas yet. What is the core idea? What problem does it solve?\n\nSTEP-BY-STEP — If\
+  \ a derivation or formula is involved, walk through it in numbered steps. For each step write: what you are doing AND why\
+  \ it follows from the previous step. Never skip algebra. If you use a rule or identity, name it in plain words first (e.g.\
+  \ 'Step 3: We use the chain rule — when a function depends on another function, the rate of change multiplies through').\n\
+  \nTHE TAKEAWAY — One or two sentences: what is the single most important thing to remember about this concept? Why does\
+  \ it matter in practice?\n\nCONCRETE EXAMPLE — Give a small, specific numerical example that makes the idea tangible. Use\
+  \ real-looking numbers.\n\nWATCH OUT — Name one hidden assumption or easy mistake a student would make with this concept.\n\
+  \nMath formatting (mandatory — never deviate):\n  Inline math  →  \\(...\\)  e.g. \\(S_t\\), \\(\\sigma^2\\)\n  Display\
+  \ math →  \\[...\\]  on its own line\n  NEVER use $ for math — $ means currency here."
+flashcard_instructions: 'Card format requirements:
+
+  - Each card tests exactly one concept, formula, or definition — no compound questions
+
+  - Formulas: front = name or plain-English description, back = the formula with all variables defined
+
+  - Definitions: front = term, back = precise 1–3 sentence definition + one concrete example
+
+  - Derivation steps: front = "How is X derived / what is the key insight behind X?", back = the critical step or intuition,
+  not a full proof
+
+  - Pitfalls: include at least 3 cards on common mistakes or hidden assumptions (e.g. constant vol in BSM, log-normality assumption,
+  no-arb prerequisites)
+
+  - Difficulty mix: 60% recall and recognition, 40% application and reasoning
+
+  - Where both Hull (market practice) and Wilmott (mathematical derivation) treat the same concept, note the difference on
+  the answer side
+
+  - Format ALL math using LaTeX: inline with \(...\), display equations with \[...\]. Never use $ for math.
+
+  Keep answers concise — if the answer needs more than 4 lines it should be split into multiple cards.'
+mindmap_prompt: 'Generate a comprehensive hierarchical mind map specifically for **{chapter}**. Focus only on the concepts,
+  formulas, models, and relationships covered in the provided sources — do not include material from other topics. Return
+  ONLY a valid JSON object with this exact structure, no other text or markdown: {"name": "topic title", "children": [{"name":
+  "topic", "children": [{"name": "subtopic", "children": []}]}]}. Include 4–8 top-level topics and 2–5 subtopics per branch.
+  Keep node names concise (under 10 words).'
