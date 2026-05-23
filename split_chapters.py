@@ -11,14 +11,18 @@ Strategy:
      - Tolerates OCR artifacts (e.g. "Ch11pter" instead of "Chapter").
      - Finds the PDF/book-page offset by locating where printed page "1" appears.
 
+Tracks are read from registry.yaml — any slug registered there is accepted.
+Register a new textbook first with registry_create_textbook (MCP tool) or by
+editing registry.yaml directly, then run this script to split its PDF.
+
 Usage (run from quant-notes/ directory):
     uv run --with pymupdf split_chapters.py --track hull
     uv run --with pymupdf split_chapters.py --track wilmott
     uv run --with pymupdf split_chapters.py --track hull --dry-run
-    uv run --with pymupdf split_chapters.py --track mitx --pdf "lecture-notes.pdf"
+    uv run --with pymupdf split_chapters.py --track stochastic_calculus
     uv run --with pymupdf split_chapters.py --track hull --no-filter
 
-Output: quant-notes/{track}/chapters/chNN_slug.pdf
+Output: quant-notes/{notes_dir}/chapters/chNN_slug.pdf
 """
 
 import argparse
@@ -26,12 +30,37 @@ import re
 import sys
 from pathlib import Path
 
+try:
+    import yaml as _yaml
+except ImportError:
+    _yaml = None  # type: ignore
+
 REPO_ROOT = Path(__file__).parent
-TRACK_DIRS = {
-    "hull":    REPO_ROOT / "hull",
-    "wilmott": REPO_ROOT / "wilmott",
-    "mitx":    REPO_ROOT / "mitx",
-}
+_REGISTRY_PATH = REPO_ROOT / "registry.yaml"
+
+
+def _load_track_dirs() -> dict[str, Path]:
+    """Return {slug: track_dir} for every textbook in registry.yaml, falling back to a
+    hard-coded set when the registry file is absent or pyyaml is not installed."""
+    if _yaml is not None and _REGISTRY_PATH.exists():
+        with open(_REGISTRY_PATH) as f:
+            data = _yaml.safe_load(f) or {}
+        return {
+            slug: REPO_ROOT / meta["notes_dir"]
+            for slug, meta in (data.get("textbooks") or {}).items()
+        }
+    # Fallback for environments without pyyaml
+    return {
+        "hull":    REPO_ROOT / "hull",
+        "wilmott": REPO_ROOT / "wilmott",
+        "mitx":    REPO_ROOT / "mitx",
+    }
+
+
+# Resolved lazily so the script still works without pyyaml when the caller uses
+# the hardcoded fallback.
+def _track_dir(slug: str) -> Path | None:
+    return _load_track_dirs().get(slug)
 
 SKIP_TITLES = {
     "index", "bibliography", "references", "preface", "foreword",
@@ -228,17 +257,29 @@ def run(track: str, pdf_path: Path, out_dir: Path, chapter_filter: bool, dry_run
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--track",     required=True, choices=list(TRACK_DIRS))
+    parser = argparse.ArgumentParser(
+        description="Split a textbook PDF into per-chapter files.\n"
+                    "Tracks are read from registry.yaml; any registered slug is accepted.",
+    )
+    parser.add_argument("--track",     required=True, help="Registry slug (e.g. hull, wilmott, stochastic_calculus)")
     parser.add_argument("--pdf",       help="PDF filename inside {track}/pdfs/ (auto-detected if only one)")
-    parser.add_argument("--no-filter", action="store_true", help="Include all TOC entries")
+    parser.add_argument("--no-filter", action="store_true", help="Include all TOC entries (skip/appendix etc.)")
     parser.add_argument("--dry-run",   action="store_true", help="Print manifest without writing files")
     args = parser.parse_args()
 
+    track_dir = _track_dir(args.track)
+    if track_dir is None:
+        known = ", ".join(sorted(_load_track_dirs()))
+        sys.exit(
+            f"Unknown track '{args.track}'.\n"
+            f"Registered tracks: {known}\n"
+            f"Register first with: registry_create_textbook (MCP) or edit quant-notes/registry.yaml"
+        )
+
     run(
         args.track,
-        find_pdf(TRACK_DIRS[args.track], args.pdf),
-        TRACK_DIRS[args.track] / "chapters",
+        find_pdf(track_dir, args.pdf),
+        track_dir / "chapters",
         chapter_filter=not args.no_filter,
         dry_run=args.dry_run,
     )
