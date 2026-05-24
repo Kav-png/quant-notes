@@ -1,0 +1,393 @@
+{
+  "id": "fe23e9fef09541bb8b98248f705a4d75",
+  "track": "mitx",
+  "slug": "m01",
+  "name": "",
+  "created_at": "2026-05-19T13:00:22.528442+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "easy",
+  "suggested_minutes": 84,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": 52,
+  "status": "markscheme_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Derive the variance of a continuous uniform random variable \\(X\\) defined on the interval \\([1]\\). Show all integration steps clearly.\n\\[ \\sigma^2 = \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2 \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 2,
+      "text": "For a Poisson random variable \\(X\\) with probability mass function \\(p(k; \\lambda) = \\frac{e^{-\\lambda} \\lambda^k}{k!}\\), derive the expected value \\(\\mathbb{E}[X]\\).\n\\[ \\mathbb{E}[X] = \\sum_{k=0}^{\\infty} k \\frac{e^{-\\lambda} \\lambda^k}{k!} \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 3,
+      "text": "Let \\(Y\\) be a lognormal random variable such that \\(X = \\log(Y)\\) is normally distributed with mean \\(\\mu\\) and variance \\(\\sigma^2\\). Using the change of variable formula \\(g(y) = \\frac{p(x)}{|dy/dx|}\\), derive the probability density function \\(g(y)\\) for the lognormal distribution.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 4,
+      "text": "Let \\(T\\) be the waiting time for the first success in a series of independent Bernoulli trials, with probability of success \\(p\\) and failure \\(q = 1-p\\). The probability of waiting exactly \\(n\\) trials is \\(q^{n-1}p\\). By recognizing that \\(n q^{n-1}\\) is a derivative, derive the expected waiting time \\(\\mathbb{E}[T]\\).\n\\[ \\mathbb{E}[T] = \\sum_{n=0}^{\\infty} n q^{n-1} p \\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 5,
+      "text": "Consider a Binomial random variable \\(S = X_1 + X_2 + \\dots + X_n\\), where each \\(X_i\\) is an independent Bernoulli trial with success probability \\(p\\). Using the linearity of expectation and the properties of independent Bernoulli variables (where \\(\\mathbb{E}[X_i^2] = p\\) and \\(\\mathbb{E}[X_i X_j] = p^2\\) for \\(i \\neq j\\)), derive the variance \\(\\sigma^2 = \\mathbb{E}[(S - \\mu)^2]\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 6,
+      "text": "The characteristic function of a binomial distribution is given by \\(\\tilde{f}(t) = (p e^{it} + q)^n\\), where \\(q = 1-p\\). Using the property that \\(\\mathbb{E}[X] = -i \\left. \\frac{d}{dt} \\tilde{f}(t) \\right|_{t=0}\\), derive the mean of the binomial distribution.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 7,
+      "text": "For a portfolio consisting of two assets with weights \\(w_1\\) and \\(w_2\\), return variances \\(\\sigma_1^2\\) and \\(\\sigma_2^2\\), and correlation \\(\\rho_{12} = 1\\), prove that the standard deviation of the portfolio return \\(\\sigma_p\\) simplifies exactly to the sum of the weighted standard deviations of the individual assets.\n\\[ \\sigma_p = w_1 \\sigma_1 + w_2 \\sigma_2 \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 8,
+      "text": "Prove that if two random variables \\(X\\) and \\(Y\\) are independent, their covariance is zero. Use the expectation definition of covariance:\n\\[ \\text{Cov}(X,Y) = \\mathbb{E}[(X - \\mu_x)(Y - \\mu_y)] \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 9,
+      "text": "Let \\(X_1\\) and \\(X_2\\) be independent normally distributed random variables with means \\(\\mu_1, \\mu_2\\) and variances \\(\\sigma_1^2, \\sigma_2^2\\). The characteristic function of a normal distribution is \\(\\tilde{p}_k(t) = \\exp\\left[-\\frac{\\sigma_k^2 t^2}{2} + i\\mu_k t\\right]\\). Show that the characteristic function of their sum \\(Y = X_1 + X_2\\) is also Gaussian, and determine its mean and variance.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 10,
+      "text": "The cumulant expansion is defined by \\(\\log \\tilde{p}(t) = \\sum_{\\ell=0}^{\\infty} \\frac{(it)^\\ell}{\\ell!} C_\\ell\\), where the characteristic function is \\(\\tilde{p}(t) = \\mathbb{E}[e^{itX}]\\). Prove that the first cumulant \\(C_1\\) is equal to the expected value \\(\\mathbb{E}[X]\\) by differentiating the cumulant expansion once and evaluating at \\(t=0\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    }
+  ],
+  "mark_scheme": [
+    [
+      {
+        "part_id": "1a",
+        "description": "State the formula for the mean \\( \\mu = \\int_0^1 x \\, dx \\) and compute \\( \\mu = \\frac{1}{2} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "1b",
+        "description": "State the formula for the second moment \\( \\mathbb{E}[X^2] = \\int_0^1 x^2 \\, dx \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "1c",
+        "description": "Compute the second moment integral \\( \\mathbb{E}[X^2] = \\left[ \\frac{x^3}{3} \\right]_0^1 = \\frac{1}{3} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "1d",
+        "description": "State the variance formula \\( \\sigma^2 = \\mathbb{E}[X^2] - \\mu^2 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "1e",
+        "description": "Substitute the values to find final variance \\( \\sigma^2 = \\frac{1}{3} - \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{12} \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "2a",
+        "description": "Set up the expectation sum: \\( \\mathbb{E}[X] = \\sum_{k=0}^{\\infty} k \\frac{e^{-\\lambda} \\lambda^k}{k!} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "2b",
+        "description": "Drop the \\( k=0 \\) term and cancel \\( k \\) with \\( k! \\) to get \\( (k-1)! \\) in the denominator: \\( \\sum_{k=1}^{\\infty} \\frac{e^{-\\lambda} \\lambda^k}{(k-1)!} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "2c",
+        "description": "Factor out one \\( \\lambda \\) to align the exponent with the factorial: \\( \\lambda e^{-\\lambda} \\sum_{k=1}^{\\infty} \\frac{\\lambda^{k-1}}{(k-1)!} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "2d",
+        "description": "Shift the summation index by setting \\( k' = k-1 \\) to obtain: \\( \\lambda e^{-\\lambda} \\sum_{k'=0}^{\\infty} \\frac{\\lambda^{k'}}{k'!} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "2e",
+        "description": "Recognize the remaining sum as the Taylor series expansion for \\( e^\\lambda \\) and conclude \\( \\mathbb{E}[X] = \\lambda e^{-\\lambda} e^\\lambda = \\lambda \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "3a",
+        "description": "Identify that \\( x = \\log(y) \\) implies \\( \\frac{dx}{dy} = \\frac{1}{y} \\) or \\( \\frac{dy}{dx} = y \\)",
+        "marks": 2,
+        "checked": false
+      },
+      {
+        "part_id": "3b",
+        "description": "State the normal density function for \\( x \\): \\( p(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} e^{-(x-\\mu)^2 / (2\\sigma^2)} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "3c",
+        "description": "Substitute \\( x = \\log(y) \\) into the probability density \\( p(x) \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "3d",
+        "description": "Apply the change of variable formula \\( g(y) = p(x) \\left| \\frac{dx}{dy} \\right| \\) or \\( g(y) = \\frac{p(x)}{|dy/dx|} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "3e",
+        "description": "Combine the expressions to yield the lognormal density \\( g(y) = \\frac{1}{y\\sqrt{2\\pi\\sigma^2}} e^{-(\\log(y)-\\mu)^2 / (2\\sigma^2)} \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "4a",
+        "description": "Write the expected waiting time sum: \\( \\mathbb{E}[T] = \\sum_{n=0}^{\\infty} n q^{n-1} p \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "4b",
+        "description": "Recognize \\( n q^{n-1} = \\frac{d}{dq}(q^n) \\) and rewrite the sum as \\( p \\sum_{n=0}^{\\infty} \\frac{d}{dq}(q^n) \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "4c",
+        "description": "Interchange summation and differentiation to form: \\( p \\frac{d}{dq} \\left( \\sum_{n=0}^{\\infty} q^n \\right) \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "4d",
+        "description": "Evaluate the infinite geometric series \\( \\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\) for \\( q < 1 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "4e",
+        "description": "Differentiate \\( \\frac{1}{1-q} \\) with respect to \\( q \\) to obtain \\( \\frac{1}{(1-q)^2} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "4f",
+        "description": "Substitute \\( 1-q = p \\) to conclude \\( \\mathbb{E}[T] = p \\frac{1}{p^2} = \\frac{1}{p} \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "5a",
+        "description": "Expand the square for \\( S^2 \\): \\( \\mathbb{E}[S^2] = \\mathbb{E}\\left[\\left(\\sum_{i=1}^n X_i\\right)^2\\right] = \\sum_{i=1}^n \\mathbb{E}[X_i^2] + \\sum_{i \\neq j} \\mathbb{E}[X_i X_j] \\)",
+        "marks": 2,
+        "checked": false
+      },
+      {
+        "part_id": "5b",
+        "description": "Substitute \\( \\mathbb{E}[X_i^2] = p \\) into the first sum to yield \\( np \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "5c",
+        "description": "Substitute \\( \\mathbb{E}[X_i X_j] = p^2 \\) for the \\( n(n-1) \\) cross-terms, yielding \\( n(n-1)p^2 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "5d",
+        "description": "Identify that \\( \\mu = np \\), hence \\( \\mu^2 = n^2 p^2 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "5e",
+        "description": "Combine the terms into the variance formula and simplify: \\( \\sigma^2 = np + n^2 p^2 - n p^2 - n^2 p^2 = np(1-p) = npq \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "6a",
+        "description": "State the formula connecting the mean and the characteristic function: \\( \\mathbb{E}[X] = -i \\left. \\frac{d}{dt} \\tilde{f}(t) \\right|_{t=0} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "6b",
+        "description": "Apply the chain rule to differentiate the outer function \\( \\tilde{f}(t) \\): \\( n(p e^{it} + q)^{n-1} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "6c",
+        "description": "Multiply by the derivative of the inner term \\( i p e^{it} \\) to get \\( \\tilde{f}'(t) = i n p e^{it} (p e^{it} + q)^{n-1} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "6d",
+        "description": "Evaluate the derivative at \\( t=0 \\), noting that \\( e^{i(0)} = 1 \\) and \\( p+q=1 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "6e",
+        "description": "Compute the final expectation by multiplying by \\( -i \\): \\( -i \\left( i n p (1)^{n-1} \\right) = np \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "7a",
+        "description": "Write the general variance formula for a two-asset portfolio: \\( \\sigma_p^2 = w_1^2 \\sigma_1^2 + w_2^2 \\sigma_2^2 + 2 w_1 w_2 \\text{Cov}(R_1, R_2) \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "7b",
+        "description": "Substitute \\( \\text{Cov}(R_1, R_2) = \\rho_{12} \\sigma_1 \\sigma_2 = \\sigma_1 \\sigma_2 \\) since \\( \\rho_{12}=1 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "7c",
+        "description": "Recognize that \\( w_1^2 \\sigma_1^2 + w_2^2 \\sigma_2^2 + 2 w_1 w_2 \\sigma_1 \\sigma_2 \\) factors into a perfect square: \\( (w_1 \\sigma_1 + w_2 \\sigma_2)^2 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "7d",
+        "description": "Take the square root of the variance to conclude \\( \\sigma_p = w_1 \\sigma_1 + w_2 \\sigma_2 \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "8a",
+        "description": "Expand the product inside the expectation: \\( \\mathbb{E}[XY - \\mu_x Y - \\mu_y X + \\mu_x \\mu_y] \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "8b",
+        "description": "Apply the linearity of expectation: \\( \\mathbb{E}[XY] - \\mu_x \\mathbb{E}[Y] - \\mu_y \\mathbb{E}[X] + \\mu_x \\mu_y \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "8c",
+        "description": "Substitute \\( \\mathbb{E}[X] = \\mu_x \\) and \\( \\mathbb{E}[Y] = \\mu_y \\) and simplify the terms to \\( \\mathbb{E}[XY] - \\mu_x \\mu_y \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "8d",
+        "description": "State that for independent variables \\( \\mathbb{E}[XY] = \\mathbb{E}[X]\\mathbb{E}[Y] = \\mu_x \\mu_y \\), showing the result simplifies to \\( \\mu_x \\mu_y - \\mu_x \\mu_y = 0 \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "9a",
+        "description": "State that the characteristic function of the sum \\( Y = X_1 + X_2 \\) is the product of the individual characteristic functions \\( \\tilde{p}_Y(t) = \\tilde{p}_1(t) \\tilde{p}_2(t) \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "9b",
+        "description": "Multiply the two exponentials: \\( \\exp\\left[-\\frac{\\sigma_1^2 t^2}{2} + i\\mu_1 t\\right] \\exp\\left[-\\frac{\\sigma_2^2 t^2}{2} + i\\mu_2 t\\right] \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "9c",
+        "description": "Combine the exponents to yield: \\( \\exp\\left[-\\frac{(\\sigma_1^2 + \\sigma_2^2)t^2}{2} + i(\\mu_1 + \\mu_2)t\\right] \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "9d",
+        "description": "Recognize that the resulting exponent structure is exactly the characteristic function of a normal distribution",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "9e",
+        "description": "Identify the parameters of the new distribution: the mean is \\( \\hat{\\mu} = \\mu_1 + \\mu_2 \\) and the variance is \\( \\hat{\\sigma}^2 = \\sigma_1^2 + \\sigma_2^2 \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ],
+    [
+      {
+        "part_id": "10a",
+        "description": "State the formula for the first cumulant: \\( C_1 = -i \\left. \\frac{d}{dt} \\log \\tilde{p}(t) \\right|_{t=0} \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "10b",
+        "description": "Apply the chain rule to differentiate the logarithm: \\( \\frac{d}{dt} \\log \\tilde{p}(t) = \\frac{\\tilde{p}'(t)}{\\tilde{p}(t)} \\)",
+        "marks": 2,
+        "checked": false
+      },
+      {
+        "part_id": "10c",
+        "description": "Evaluate the denominator at \\( t=0 \\): \\( \\tilde{p}(0) = \\mathbb{E}[e^{i(0)X}] = 1 \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "10d",
+        "description": "Evaluate the numerator at \\( t=0 \\): \\( \\tilde{p}'(0) = \\left. \\frac{d}{dt} \\mathbb{E}[e^{itX}] \\right|_{t=0} = i \\mathbb{E}[X] \\)",
+        "marks": 1,
+        "checked": false
+      },
+      {
+        "part_id": "10e",
+        "description": "Multiply by \\( -i \\) to conclude: \\( C_1 = -i \\left( \\frac{i \\mathbb{E}[X]}{1} \\right) = \\mathbb{E}[X] \\)",
+        "marks": 1,
+        "checked": false
+      }
+    ]
+  ]
+}

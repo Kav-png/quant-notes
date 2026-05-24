@@ -1,0 +1,42 @@
+{
+  "id": "a107dd7f6ca74d94b2228aad2cf53faa",
+  "track": "hull",
+  "slug": "ch03_hedging_futures",
+  "name": "",
+  "created_at": "2026-05-17T15:49:36.007278+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "medium",
+  "suggested_minutes": 51,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Consider a hedger who is long \\(N_A\\) units of an asset and hedges the exposure by shorting \\(N_F\\) futures contracts. The change in the value of the hedged portfolio over the hedging period is \\(\\Delta V = N_A \\Delta S - N_F \\Delta F\\), where \\(\\Delta S\\) and \\(\\Delta F\\) are the changes in the spot and futures prices, respectively. Let \\(h = N_F / N_A\\) be the hedge ratio. Derive the formula for the minimum variance hedge ratio, \\(h^*\\), in terms of the standard deviations \\(\\sigma_S\\) and \\(\\sigma_F\\), and the correlation coefficient \\(\\rho\\). Furthermore, derive an expression for the variance of the hedged position when the optimal hedge ratio \\(h^*\\) is used, and interpret its mathematical meaning when \\(\\rho = 1\\) and \\(\\rho = -1\\).",
+      "marks": 8,
+      "suggested_minutes": 12
+    },
+    {
+      "id": 2,
+      "text": "A portfolio manager holds a well-diversified equity portfolio with a current value of \\(V_A\\) and a beta of \\(\\beta\\). The manager wishes to alter the beta of the portfolio to a target beta \\(\\beta^*\\) (where \\(\\beta^* < \\beta\\)) using stock index futures. The current futures price is \\(F\\) and the contract multiplier is \\(M\\). Derive the formula for the required number of futures contracts, \\(N\\), to be shorted. Using the Capital Asset Pricing Model (CAPM), mathematically prove that the expected return of this hedged portfolio is equivalent to the expected return of a portfolio that naturally has a beta of \\(\\beta^*\\). Assume the risk-free rate is \\(r\\) and the dividend yield on the index is \\(q\\).",
+      "marks": 10,
+      "suggested_minutes": 15
+    },
+    {
+      "id": 3,
+      "text": "A corporation plans to sell an asset at a future time \\(t_2\\) and initiates a short hedge at time \\(t_1\\) using futures contracts that mature at time \\(T\\), where \\(T > t_2\\). Define the basis at any time \\(t\\) as \\(b_t = S_t - F_t\\), where \\(S_t\\) is the spot price and \\(F_t\\) is the futures price. Assume the corporation uses a hedge ratio of \\(h\\). Derive the equation for the effective price realized per unit of the asset at time \\(t_2\\). Given the variance of the spot price \\(\\sigma_S^2\\), the variance of the futures price \\(\\sigma_F^2\\), and their covariance \\(\\sigma_{SF}\\), derive the variance of the effective realized price. From this variance equation, algebraically prove that if the basis \\(b_{t_2}\\) is perfectly predictable, the variance-minimizing hedge ratio must be exactly \\(1.0\\).",
+      "marks": 8,
+      "suggested_minutes": 12
+    },
+    {
+      "id": 4,
+      "text": "A commodity consumer faces a known exposure to purchase a quantity \\(Q\\) of a commodity at time \\(T\\). Because liquid futures contracts expiring at time \\(T\\) do not exist, the consumer implements a stack and roll strategy using \\(n\\) consecutive short-term futures contracts. The roll dates are \\(t_1, t_2, \\dots, t_{n-1}\\), with the final contract expiring at \\(t_n = T\\). Let \\(F_{i,t}\\) denote the futures price of the \\(i\\)-th contract at time \\(t\\) and let \\(S_t\\) be the spot price. Assuming a hedge ratio of \\(h=1\\), continuous trading, and ignoring the time value of money, derive an expression for the net effective purchase price per unit of the commodity at time \\(T\\). Show that this effective price can be expressed entirely in terms of the initial futures price \\(F_{1,0}\\) and the sequence of basis spreads at each roll date, resulting in the relationship:\n\\[ \\text{Effective Price} = F_{1,0} + \\sum_{i=1}^{n-1} (F_{i+1,t_i} - F_{i,t_i}) + b_T \\]",
+      "marks": 8,
+      "suggested_minutes": 12
+    }
+  ],
+  "mark_scheme": null
+}

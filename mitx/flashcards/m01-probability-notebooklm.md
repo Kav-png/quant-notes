@@ -478,6 +478,59 @@ Another frequent quantitative pitfall involves computing expected values. Studen
 
 **A:** $MSE = (1 - \rho^2) Var(\Theta)$.
 
+**E:** PLAIN ENGLISH
+Imagine you are trying to guess a hidden number, like tomorrow's temperature, but you only have a related measurement, like today's barometric pressure. If you have absolutely no measurements, your best guess is just the historical average temperature. In that case, your "error" is just the natural, everyday fluctuation of the temperature—which is its variance [1]. 
+
+However, if you can draw a straight line (a linear model) to connect today's pressure to tomorrow's temperature, you can make a much better guess. The Mean Squared Error (MSE) formula tells us exactly how much your guessing error shrinks when you use that straight line. The shrink depends entirely on the correlation coefficient—how tightly the two measurements move together [2]. If they move together perfectly, your error drops to zero. If they are completely unrelated, your measurement doesn't help at all, and your error remains the original variance [1].
+
+STEP-BY-STEP
+While the lecture skips the heavy algebra [3], we can build this beautiful result by combining the optimal slope of a line with the definition of correlation. 
+
+Step 1: Identify the optimal slope. When creating a linear estimator \( \hat{\Theta} = aX + b \), calculus tells us the optimal slope \( a \) that minimizes error is the covariance of the two variables divided by the variance of our data \( X \). 
+\[ a = \frac{Cov(X, \Theta)}{Var(X)} \]
+
+Step 2: Recall the definition of the correlation coefficient, \( \rho \). Correlation is the covariance standardized by the standard deviations (the square roots of the variances) of both variables [4]. 
+\[ \rho = \frac{Cov(X, \Theta)}{\sqrt{Var(X)Var(\Theta)}} \]
+
+Step 3: Rewrite the covariance using \( \rho \). By multiplying both sides of the Step 2 equation by the denominator, we isolate covariance. We do this so we can substitute it back into our slope formula.
+\[ Cov(X, \Theta) = \rho \sqrt{Var(X)Var(\Theta)} \]
+
+Step 4: Substitute the covariance back into the slope formula from Step 1.
+\[ a = \frac{\rho \sqrt{Var(X)Var(\Theta)}}{Var(X)} \]
+Since \( Var(X) \) is the same as \( \sqrt{Var(X)} \times \sqrt{Var(X)} \), one of the square roots cancels out, leaving:
+\[ a = \rho \sqrt{\frac{Var(\Theta)}{Var(X)}} \]
+
+Step 5: Set up the Mean Squared Error (MSE) formula. For an optimal linear estimator, the remaining error variance is always the original variance of \( \Theta \) minus the variance explained by our slope and data, which is \( a^2 Var(X) \).
+\[ MSE = Var(\Theta) - a^2 Var(X) \]
+
+Step 6: Substitute our new slope \( a \) into the MSE formula. First, square the slope \( a \):
+\[ a^2 = \rho^2 \frac{Var(\Theta)}{Var(X)} \]
+Now plug it into the MSE equation:
+\[ MSE = Var(\Theta) - \left( \rho^2 \frac{Var(\Theta)}{Var(X)} \right) Var(X) \]
+
+Step 7: Simplify the expression. The \( Var(X) \) in the numerator and denominator cancel out perfectly.
+\[ MSE = Var(\Theta) - \rho^2 Var(\Theta) \]
+
+Step 8: Factor out \( Var(\Theta) \) to arrive at our final flashcard formula.
+\[ MSE = (1 - \rho^2) Var(\Theta) \]
+
+THE TAKEAWAY
+The Mean Squared Error of the best linear guess is simply the original variance of your parameter reduced by the square of the correlation. It proves mathematically that highly correlated data drastically shrinks our uncertainty [3].
+
+CONCRETE EXAMPLE
+Let's say we are predicting a student's final exam score (\( \Theta \)). Without knowing anything else, the historical variance of all final scores is \( 100 \). We observe the student's midterm score (\( X \)). The correlation \( \rho \) between midterm and final scores is \( 0.8 \). 
+
+First, we square the correlation: \( 0.8^2 = 0.64 \). 
+Now we calculate the MSE: 
+\[ MSE = (1 - 0.64) \times 100 \]
+\[ MSE = 0.36 \times 100 = 36 \]
+By simply drawing a line from the midterm score to the final score, our guessing error (uncertainty) drops from \( 100 \) down to \( 36 \).
+
+WATCH OUT
+A common pitfall is thinking that a *negative* correlation increases your error, or forgetting to square \( \rho \). Because \( \rho \) is squared in the formula, a negative correlation (like \( -0.8 \)) becomes a positive \( 0.64 \). A strong negative correlation shrinks your error just as much as a strong positive one!
+
+Does it make sense why a strong negative relationship is just as useful for making predictions as a positive one?
+
 ---
 
 ## Card 59
@@ -534,6 +587,47 @@ Another frequent quantitative pitfall involves computing expected values. Studen
 
 **A:** It is approximately $1 - \lambda \delta$.
 
+**E:** PLAIN ENGLISH
+
+Imagine you are watching a completely random event, like shooting stars in the night sky or customers walking into a bank [1]. If you look at a window of time that is incredibly tiny—like a millisecond—what are the chances that a customer walks in? Because the window is so incredibly small, there is only a tiny chance that exactly one person arrives, and it is virtually impossible for two or more people to arrive at the exact same split second [2, 3]. 
+
+Because those are the only options, the chance that *nothing* happens is simply 100% minus that tiny chance that exactly one person arrived [2]. This simple idea is the foundational building block for the entire Poisson process!
+
+STEP-BY-STEP
+
+Let's break down exactly how we get this mathematical approximation.
+
+Step 1: We define our variables. Let \(\lambda\) be the arrival rate (how many events happen on average per unit of time) and let \(\delta\) be a very small interval of time [2]. 
+
+Step 2: We find the probability of exactly one arrival. By the core definition of the Poisson process, the probability of getting exactly one arrival in a tiny interval is proportional to the rate and the time interval [2]. 
+\[P(1 \text{ arrival}) \approx \lambda \delta\]
+
+Step 3: We look at the probability of two or more arrivals. Because the interval \(\delta\) is extremely small, the chance of getting more than one arrival is so miniscule that it is effectively zero (it involves \(\delta^2\) terms, which are negligibly small) [3, 4].
+\[P(\text{more than 1 arrival}) \approx 0\]
+
+Step 4: We use the rule that all probabilities in a sample space must add up to 1 [5]. The only possible outcomes in this tiny window are 0 arrivals, 1 arrival, or more than 1 arrival. 
+\[P(0 \text{ arrivals}) + P(1 \text{ arrival}) + P(\text{more than 1 arrival}) = 1\]
+
+Step 5: We substitute our known values into the equation and solve for the probability of zero arrivals.
+\[P(0 \text{ arrivals}) + \lambda \delta + 0 \approx 1\]
+\[P(0 \text{ arrivals}) \approx 1 - \lambda \delta\]
+
+THE TAKEAWAY
+
+In a continuous Poisson process, if you zoom in on an infinitely small slice of time, the system essentially becomes binary: either exactly one thing happens (with probability \(\lambda \delta\)), or absolutely nothing happens (with probability \(1 - \lambda \delta\)) [3]. This microscopic view allows mathematicians to build the full formulas for events over long periods of time.
+
+CONCRETE EXAMPLE
+
+Let's say emails arrive at your inbox at a rate of \(\lambda = 5\) emails per hour [6]. We want to know the probability of getting zero emails in a tiny fraction of an hour, let's say \(\delta = 0.01\) hours (about 36 seconds). 
+
+The probability of getting exactly one email in that tiny window is \(\lambda \delta = 5 \times 0.01 = 0.05\) (or 5%). Therefore, the probability of getting zero emails in that 36-second window is approximately \(1 - 0.05 = 0.95\) (or 95%).
+
+WATCH OUT
+
+A very easy mistake to make is trying to use the \(1 - \lambda \delta\) approximation for a *large* time interval instead of a tiny one. If \(\delta\) is large (for example, 2 hours when the rate is 5), the formula would give a negative probability (\(1 - 10 = -9\)), which is impossible! This approximation only works when \(\delta\) is extremely close to zero [4]; for larger intervals, you must use the full Poisson probability formula involving the exponential function.
+
+Does this step-by-step breakdown make the concept click for you?
+
 ---
 
 ## Card 66
@@ -557,6 +651,50 @@ Another frequent quantitative pitfall involves computing expected values. Studen
 **Q:** How is the PDF $f_X(x)$ derived from the CDF $F_X(x)$?
 
 **A:** By taking the first derivative of the CDF ($f_X(x) = \frac{d}{dx} F_X(x)$).
+
+**E:** PLAIN ENGLISH
+The Cumulative Distribution Function (CDF) measures the *total accumulated probability* up to a certain point. If you want to know the probability that a random event yields a value less than or equal to 5, the CDF gives you that exact number. 
+
+The Probability Density Function (PDF), on the other hand, tells you the *rate* at which that probability is accumulating at an exact specific spot. 
+
+Think of it like driving a car: the CDF is your odometer telling you the total distance you have traveled so far. The PDF is your speedometer telling you how fast you are covering ground right at this exact second. If you know your total distance over time, you can find your speed by looking at the rate of change. In math, finding the rate of change means taking the derivative [1].
+
+STEP-BY-STEP
+Here is how we mathematically arrive at the fact that the PDF is the derivative of the CDF [2]:
+
+1. **Define the probability of a tiny interval:** Let's look at the probability that a random variable \(X\) falls in a very small interval between \(x\) and \(x + \Delta x\). Using the CDF, which gives running totals, this is the total probability up to \(x + \Delta x\) minus the total probability up to \(x\). 
+   \[P(x < X \le x + \Delta x) = F_X(x + \Delta x) - F_X(x)\]
+
+2. **Define density for that same interval:** We also know that for a very small interval, the probability of falling in that interval is approximately the density at \(x\) multiplied by the width of the interval [3].
+   \[P(x < X \le x + \Delta x) \approx f_X(x) \cdot \Delta x\]
+
+3. **Set the two expressions equal to each other:** Because both equations represent the exact same probability, we can link them together.
+   \[f_X(x) \cdot \Delta x \approx F_X(x + \Delta x) - F_X(x)\]
+
+4. **Isolate the PDF:** We want to solve for the density, \(f_X(x)\), so we divide both sides of the equation by the interval width, \(\Delta x\).
+   \[f_X(x) \approx \frac{F_X(x + \Delta x) - F_X(x)}{\Delta x}\]
+
+5. **Take the limit to make it exact:** We use the fundamental definition of a derivative from calculus. By shrinking our interval \(\Delta x\) until it approaches zero, the approximation becomes exact. The right side of the equation becomes the formal definition of a derivative!
+   \[f_X(x) = \lim_{\Delta x \to 0} \frac{F_X(x + \Delta x) - F_X(x)}{\Delta x}\]
+   \[f_X(x) = \frac{d}{dx} F_X(x)\]
+
+THE TAKEAWAY
+The Probability Density Function is simply the rate of change (the first derivative) of the Cumulative Distribution Function [2]. This matters because it gives us a foolproof, mechanical way to extract the local "density" of a continuous random variable anytime we already know its total running probability [1]. 
+
+CONCRETE EXAMPLE
+Imagine the CDF for the lifespan of a lightbulb in years is given by the formula:
+\[F_X(x) = 1 - e^{-3x}\]
+
+To find the PDF, we take the derivative of this function with respect to \(x\).
+First, the derivative of the constant \(1\) is just \(0\). 
+Next, we use the chain rule for the exponential term — the derivative of \(e^{u}\) is \(e^{u}\) times the derivative of \(u\). Here, \(u = -3x\), so its derivative is \(-3\).
+\[f_X(x) = 0 - (-3)e^{-3x}\]
+\[f_X(x) = 3e^{-3x}\]
+
+WATCH OUT
+A very common mistake students make is forgetting that while the CDF always outputs a valid probability (a number between 0 and 1), the PDF does *not* output a probability [4]. Because the PDF is a rate of change (a density), its value can absolutely be greater than 1! It just represents probability *per unit length* [5].
+
+Does this relationship between the "running total" and the "rate of change" make sense, or would you like to try calculating a PDF from a different CDF together?
 
 ---
 

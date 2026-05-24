@@ -1,0 +1,849 @@
+{
+  "conversation_id": "51255e21-1549-4287-89a4-d1e3a785e655",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What are some hidden topics and understandings that I may have missed that's a bit down in the text",
+      "ts": "2026-05-19T12:51:30.574852+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are three subtle but critical concepts buried in the material, which are especially dangerous traps in quantitative finance:\n\n1. **Uncorrelated does not imply independent:** It is a common mistake to assume two variables are independent just because their covariance is zero. For example, if \\(X\\) is symmetrically distributed around zero and we define \\(Y = X^2\\), their covariance is exactly zero [1], [2]. However, \\(Y\\) is completely dependent on \\(X\\) [2]. \n\n2. **Diverging moments and \"Fat Tails\":** The Central Limit Theorem relies on distributions having a finite variance [3]. However, some distributions have \"fat tails\" that decay very slowly (e.g., proportionally to \\(1/x^2\\)) [4]. For these distributions, the variance\u2014and sometimes even the mean\u2014mathematically does not exist [5]. If you try to estimate historical volatility on data drawn from this kind of distribution, your results will diverge rather than converge as you collect more data [6].\n\n3. **Zero probability does not mean impossible:** In a continuous probability model, the chance of observing any exact real number is exactly zero [7], [8]. However, when you run the experiment, *some* exact number will be drawn [8]. Therefore, an event having a probability of zero means it is extraordinarily unlikely to predict perfectly, not that it cannot happen [8].\n\nWhich of these concepts would you like to explore first?",
+      "ts": "2026-05-19T12:51:30.574852+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "So it is possible to have vanishing covariance,",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "It's completely dependent.",
+          "source_id": "db5278ca-14f3-429e-817c-a53511db015b"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "distribution of Zn might be a\nvery complicated expression if",
+          "source_id": "4cbc8715-ef47-4fc3-b1c3-c51b227beaa8"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "Well, here's another example of that.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "this function decreases as 1 over x squared.",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "But the area under the curve going out from any given point",
+          "source_id": "8fe83204-43a0-4475-904c-46dca7158ed5"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": null,
+          "source_id": "6559da50-2d85-4808-b216-063ef05a37dc"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "So what happened in that\nexperiment is something that",
+          "source_id": "5be6b04f-98dd-4ce3-ae78-65e1f5facc15"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "what about characetristic functions and etc",
+      "ts": "2026-05-19T12:59:05.588311+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "The characteristic function serves the same purpose as a moment generating function, but it introduces the imaginary number \\(i = \\sqrt{-1}\\). It is defined as:\n\\[\\mathbb{E}[e^{itX}]\\] [1, 2]\nFor continuous random variables, this expectation is exactly the Fourier transform of the probability density function [3].\n\nThe reason this tool is so powerful lies in how random variables add together. When you add independent random variables, you must convolve their probability distributions, which is mathematically tedious [4]. However, the characteristic function (or Fourier transform) of a convolution is simply the product of their individual characteristic functions [5]. \n\nFurthermore, if you take the logarithm of this product, you get what is called the cumulant expansion [6]. This expansion provides the mathematical machinery to prove the Central Limit Theorem: as you add a large number of variables \\(N\\), all scaled cumulants higher than order 2 vanish [7]. Because a Gaussian distribution is uniquely defined by having all cumulants above order 2 equal to zero, the sum asymptotically approaches a Gaussian [8, 9].\n\nAre you comfortable with how we can use the Taylor series expansion of \\(\\mathbb{E}[e^{itX}]\\) to extract the individual moments of the distribution, or would you like to see that calculation?",
+      "ts": "2026-05-19T12:59:05.588311+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "of X times the expectation of X squared, plus twice",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "to become Gaussian.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "of X times the expectation of X squared, plus twice",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "to become Gaussian.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "of X times the expectation of X squared, plus twice",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "to become Gaussian.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "of X times the expectation of X squared, plus twice",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "to become Gaussian.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "from some simple calculations.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "Nevertheless, it's a good mathematical trick",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "the square root of negative 1.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "it's the coefficient of t squared.",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "So if x_1 and x_2 are arbitrary variables, the probability",
+          "source_id": "2b40efb3-81ea-4a58-872e-7a6ef40ac79e"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "their logarithms add.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "to relate these dimensionless numbers for our sum,",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "of X times the expectation of X squared, plus twice",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "to become Gaussian.",
+          "source_id": "7ca2d9c6-00cf-4da4-a6e2-53e12be6711a"
+        }
+      ]
+    }
+  ]
+}

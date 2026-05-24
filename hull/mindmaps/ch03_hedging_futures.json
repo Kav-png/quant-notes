@@ -6,15 +6,32 @@
         "name": "Basic Principles",
         "children": [
           {
+            "name": "Perfect Hedges",
+            "children": []
+          },
+          {
             "name": "Short Hedges",
             "children": []
           },
           {
             "name": "Long Hedges",
             "children": []
+          }
+        ]
+      },
+      {
+        "name": "Arguments on Hedging",
+        "children": [
+          {
+            "name": "Shareholder Diversification",
+            "children": []
           },
           {
-            "name": "Arguments For and Against Hedging",
+            "name": "Competitor Practices",
+            "children": []
+          },
+          {
+            "name": "Potential for Worse Outcomes",
             "children": []
           }
         ]
@@ -23,7 +40,7 @@
         "name": "Basis Risk",
         "children": [
           {
-            "name": "Definition: Spot minus Futures Price",
+            "name": "Basis Definition (Spot minus Futures)",
             "children": []
           },
           {
@@ -31,11 +48,11 @@
             "children": []
           },
           {
-            "name": "Choice of Contract Asset",
+            "name": "Contract Asset Choice",
             "children": []
           },
           {
-            "name": "Choice of Delivery Month",
+            "name": "Delivery Month Choice",
             "children": []
           }
         ]
@@ -43,10 +60,6 @@
       {
         "name": "Cross Hedging",
         "children": [
-          {
-            "name": "Asset Hedged Differs from Futures Asset",
-            "children": []
-          },
           {
             "name": "Minimum Variance Hedge Ratio",
             "children": []
@@ -65,7 +78,7 @@
         "name": "Stock Index Futures",
         "children": [
           {
-            "name": "Hedging an Equity Portfolio",
+            "name": "Hedging Equity Portfolios",
             "children": []
           },
           {
@@ -73,7 +86,7 @@
             "children": []
           },
           {
-            "name": "Locking in Stock Picking Benefits",
+            "name": "Locking in Stock Picking Returns",
             "children": []
           }
         ]
@@ -86,11 +99,7 @@
             "children": []
           },
           {
-            "name": "Managing Long-Term Exposures",
-            "children": []
-          },
-          {
-            "name": "Liquidity and Cash Flow Risks",
+            "name": "Liquidity Pressures and Cash Flows",
             "children": []
           }
         ]

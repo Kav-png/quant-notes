@@ -1,0 +1,109 @@
+{
+  "mind_map": {
+    "name": "MITx M2 Discrete-Time Stochastic Processes",
+    "children": [
+      {
+        "name": "Time Series Fundamentals",
+        "children": [
+          {
+            "name": "Discrete Time Variables",
+            "children": []
+          },
+          {
+            "name": "Recovering Increments by Differencing",
+            "children": []
+          },
+          {
+            "name": "Weak Stationarity and Invariant Moments",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Random Walk Models",
+        "children": [
+          {
+            "name": "Simple Random Walk",
+            "children": []
+          },
+          {
+            "name": "Generalized Random Walk",
+            "children": []
+          },
+          {
+            "name": "Asset Price Log Returns",
+            "children": []
+          },
+          {
+            "name": "Flavors of Random Walk",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Linear Time Series Models",
+        "children": [
+          {
+            "name": "Autoregressive AR(p) Models",
+            "children": []
+          },
+          {
+            "name": "Moving Average MA(q) Models",
+            "children": []
+          },
+          {
+            "name": "ARMA(p,q) Combined Models",
+            "children": []
+          },
+          {
+            "name": "AR(1) and Mean Reversion",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Monte Carlo Simulation",
+        "children": [
+          {
+            "name": "Random Number Generators",
+            "children": []
+          },
+          {
+            "name": "Simulating Lognormal Price Paths",
+            "children": []
+          },
+          {
+            "name": "Simulating AR(1) Processes",
+            "children": []
+          },
+          {
+            "name": "Approximating Exact Analytics",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Testing the Random Walk",
+        "children": [
+          {
+            "name": "Exploratory Data Analysis",
+            "children": []
+          },
+          {
+            "name": "Linear Variance Scaling Hypothesis",
+            "children": []
+          },
+          {
+            "name": "Variance Ratio Test",
+            "children": []
+          },
+          {
+            "name": "Overlapping Windows Test Statistics",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}

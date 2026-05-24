@@ -1,0 +1,64 @@
+{
+  "sections": [
+    {
+      "id": "inbox",
+      "name": "Inbox",
+      "order": 0
+    }
+  ],
+  "tasks": [
+    {
+      "id": "c8423a68-13f0-44b6-90d5-15f4e5e9648d",
+      "title": "Problem Set from MITx Module 1",
+      "done": true,
+      "priority": 4,
+      "due_date": "2026-05-20",
+      "section_id": "inbox",
+      "labels": [
+        "mitx"
+      ],
+      "subtasks": [
+        {
+          "id": "1fa00d36-10ad-4acb-84f9-edba203e6ca8",
+          "label": "Question 1",
+          "done": true
+        },
+        {
+          "id": "f4428ede-bc74-4d72-8c0f-e8ab49bbbe52",
+          "label": "Question 2",
+          "done": false
+        },
+        {
+          "id": "0fbe0296-9624-4b69-abc1-60bfdbc5bc14",
+          "label": "Question 3",
+          "done": false
+        },
+        {
+          "id": "14cff1f2-a76b-4caa-8cf5-dd0e5711b74c",
+          "label": "Question 4",
+          "done": false
+        }
+      ],
+      "created_at": "2026-05-18T18:52:12.016050",
+      "order": 0,
+      "scheduled_time": "20:00",
+      "linked_event_id": "2e7d3b91-c142-4053-a877-43488f6fd463"
+    },
+    {
+      "id": "adda6e70-b30a-4131-b45f-1c1a6df77b23",
+      "title": "Problem Set 2 MITx",
+      "done": false,
+      "priority": 4,
+      "due_date": "2026-05-25",
+      "scheduled_time": null,
+      "linked_event_id": "33738f85-69d5-4990-be19-ad0c9d0d1e64",
+      "section_id": "inbox",
+      "labels": [
+        "mitx"
+      ],
+      "subtasks": [],
+      "created_at": "2026-05-23T14:26:00.071962",
+      "order": 1
+    }
+  ]
+}

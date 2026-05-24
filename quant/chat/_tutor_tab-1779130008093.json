@@ -1,0 +1,531 @@
+{
+  "conversation_id": "e9d156eb-b9e6-4770-a0ae-ca8c920cd197",
+  "messages": [
+    {
+      "role": "user",
+      "content": "what is PDF",
+      "ts": "2026-05-18T18:47:18.601121+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "In quantitative finance, PDF stands for Probability Density Function [1, 2]. It is a mathematical function that describes the relative likelihood of a continuous random variable\u2014such as a future stock price or an asset's return\u2014taking on specific values [1, 3]. \n\nA fundamental property of any PDF is that the total area under its curve must equal exactly 1 [1, 2]. This represents a 100% probability that *some* outcome within the possible range will occur [2]. \n\nFor example, the standard Normal distribution, which is heavily used in pricing models like Black-Scholes, has a well-known bell-shaped PDF:\n\\[ f(x) = \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{1}{2}x^2} \\]\n[3, 4]. \n\nWould you like to see how we use a PDF to calculate the expected payoff of an option, or would you prefer to explore a specific distribution like the lognormal distribution next?",
+      "ts": "2026-05-18T18:47:18.601121+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "The frequency distribution of this time series of daily returns is easily calculated, and very instructive to plot. In Excel use Tools | Data Analysis | Histogram. In Figure 4.5 is",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "Some examples",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "18.5 THETA",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "what's pdf of binomial distribution",
+      "ts": "2026-05-18T18:48:33.034740+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Since the binomial distribution deals with discrete outcomes\u2014like a stock moving either \"up\" or \"down\" in a given time step\u2014it technically has a Probability Mass Function (PMF) rather than a continuous Probability Density Function (PDF). \n\nIf we have a binomial tree with \\(n\\) total time steps, and the probability of an upward movement is \\(p\\), the probability of getting exactly \\(j\\) upward movements and \\(n-j\\) downward movements is given by the formula:\n\n\\[ \\frac{n!}{j!(n-j)!} p^j (1-p)^{n-j} \\] [1].\n\nThis tells us the exact probability of the asset landing on a specific final price node after \\(n\\) steps.\n\nDoes the distinction between discrete and continuous probabilities make sense, or would you like to see how this discrete binomial formula eventually converges into the continuous normal distribution we use in the Black-Scholes model?",
+      "ts": "2026-05-18T18:48:33.034740+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "difference between probability mass function and probability desnsity function",
+      "ts": "2026-05-18T18:49:41.248550+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "The distinction comes down to whether the random variable is discrete or continuous [1, 2].\n\nA **Probability Mass Function (PMF)** is used for discrete random variables, which can only take specific, separated values [1]. In our binomial tree example, the number of upward stock movements uses a PMF because you can only have an integer number of steps [3]. A PMF gives the exact probability that the variable equals a specific value, and the sum of all these probabilities is exactly 1. \n\nA **Probability Density Function (PDF)** is used for continuous random variables, which can take any real value within a range [2]. When we model continuous stock returns using a normal distribution, we use a PDF [4]. Because there are infinite possible values, the probability of a continuous variable equaling one exact, specific number is actually zero [5]. Instead, you integrate the PDF over an interval to find the probability that the variable falls within that range. The total area under the PDF curve must always equal 1 [4].\n\nWould you like to see how the discrete binomial PMF mathematically converges into the continuous normal PDF as we make our time steps infinitely small?",
+      "ts": "2026-05-18T18:49:41.248550+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "That was an example of a discrete distribution. Shoe sizes are a discrete set. Contrast that with foot length. The length of a foot can",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": null,
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "From the properties of the binomial distribution, the probability of exactly j upward",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "P ro",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "You don\u2019t know which hat is which. You pick a number out of one hat, it is \u22122.6. Which hat do you think it came from? The \u2018probability\u2019 of picking the number \u22122.6 from hat A (having a mean of zero and a",
+          "source_id": "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+        }
+      ]
+    }
+  ]
+}

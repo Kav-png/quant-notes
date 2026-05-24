@@ -1,0 +1,138 @@
+{
+  "id": "dd95290638ec4f629dd06e3d36784dfb",
+  "track": "hull",
+  "slug": "ch01_introduction",
+  "name": "",
+  "created_at": "2026-05-19T13:31:58.653976+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "easy",
+  "suggested_minutes": 162,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Let \\(S_T\\) be the spot price of an asset at maturity \\(T\\) and \\(K\\) be the delivery price of a forward contract. Derive the profit function for a long position in this forward contract. Prove algebraically that the potential gain is unbounded while the maximum loss is strictly bounded, setting up the profit function as: \\[ \\Pi = S_T - K \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 2,
+      "text": "Derive the profit function for a short forward contract with delivery price \\(K\\) and spot price at maturity \\(S_T\\). Prove that the maximum possible profit is bounded by \\(K\\), assuming the asset price cannot be negative, by evaluating the expression: \\[ \\Pi = K - S_T \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 3,
+      "text": "Prove algebraically that a forward contract traded between Party A (long) and Party B (short) is a zero-sum game. Use \\(S_T\\) for the spot price at maturity and \\(K\\) for the delivery price, showing that the sum of their payoffs equals zero by evaluating: \\[ \\Pi_{total} = (S_T - K) + (K - S_T) \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 4,
+      "text": "An investor buys a European call option with strike price \\(K\\) for a premium \\(c\\). Derive the break-even spot price \\(S_T\\) at maturity by solving: \\[ \\max(S_T - K, 0) - c = 0 \\] Prove mathematically that the maximum loss is exactly \\(c\\).",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 5,
+      "text": "Derive the break-even spot price \\(S_T\\) at maturity for a short European put option with strike \\(K\\) and premium \\(p\\). Solve the equation: \\[ p - \\max(K - S_T, 0) = 0 \\] and mathematically prove the maximum possible loss for the option writer.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 6,
+      "text": "An investor wants to take a long position. The spot price of an asset is \\(S_0\\) and the initial margin for a futures contract of size \\(M\\) is \\(I\\), where \\(I < M \\cdot S_0\\). Derive the expression for the leverage ratio \\(L\\) achieved by using futures instead of the spot market: \\[ L = \\frac{M \\cdot S_0}{I} \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 7,
+      "text": "The spot price of gold is \\(S_0\\) and the 1-year forward price is \\(F_0\\). The 1-year borrowing rate is \\(r\\). If the forward price exceeds the future value of the spot price such that \\[ F_0 > S_0(1+r) \\] derive the step-by-step cash flows of an arbitrage strategy to prove a risk-free profit can be locked in today.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 8,
+      "text": "Assume a stock price is \\(S_0\\) and its 1-year forward price is \\(F_0\\). The 1-year risk-free lending rate is \\(r\\). If the forward price is too low, such that \\[ F_0 < S_0(1+r) \\] derive the arbitrage proof showing how an investor already owning the stock can increase their 1-year yield without taking additional risk.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 9,
+      "text": "Derive the mathematical difference in payoffs at maturity \\(T\\) between a long forward contract with delivery price \\(K\\) and a long European call option with strike price \\(K\\). Evaluate the difference: \\[ \\Delta = \\max(S_T - K, 0) - (S_T - K) \\] and prove under what condition the call strictly outperforms the forward.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 10,
+      "text": "A company owns \\(N\\) shares of a stock currently priced at \\(S_0\\). They buy \\(N\\) put options with strike \\(K\\) and premium \\(p\\). Derive the minimum guaranteed portfolio value at maturity \\(T\\) by analyzing the combined payoff: \\[ V_T = N \\cdot S_T + N \\cdot \\max(K - S_T, 0) \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 11,
+      "text": "An exporter will receive \\(X\\) units of foreign currency at time \\(T\\). The current forward exchange rate is \\(F_0\\). Derive the exact domestic currency cash flow at time \\(T\\) if the exporter hedges using a forward contract. Prove that the variance of the hedged cash flow is zero, given: \\[ \\text{Cash Flow} = X \\cdot F_0 \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 12,
+      "text": "A trader holds a long forward contract with delivery price \\(K\\) and buys a European put option with strike price \\(K\\) and premium \\(p\\). Derive the net payoff function at maturity \\(T\\) and prove that it is equivalent to a long European call option payoff by evaluating: \\[ (S_T - K) + \\max(K - S_T, 0) \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 13,
+      "text": "An investor buys a stock at \\(S_0\\) and writes a European call option with strike \\(K\\) for premium \\(c\\). Derive the overall profit function at maturity \\(T\\) as a function of the final stock price \\(S_T\\) by simplifying: \\[ \\Pi = (S_T - S_0) + c - \\max(S_T - K, 0) \\] Prove the maximum possible profit.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 14,
+      "text": "A stock trades at \\(P_A\\) in Market A and \\(P_B\\) in Market B. The exchange rate is \\(E\\) (units of B per unit of A). If the price in Market B exceeds the converted price from Market A, such that \\[ P_B > P_A \\cdot E \\] derive the algebraic proof of the arbitrage profit per share, detailing the simultaneous trades required.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 15,
+      "text": "A structured bond pays a principal of 1000 plus an additional amount based on the price of oil \\(S_T\\) at maturity. The additional amount is \\(170 \\max(S_T - 25, 0)\\), capped at a maximum of 2550. Prove algebraically that this payoff can be decomposed by setting up the equivalence: \\[ \\text{Payoff} = 1000 + 170 \\max(S_T - 25, 0) - 170 \\max(S_T - 40, 0) \\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 16,
+      "text": "Prove that selling a European put option with strike \\(K\\) for a premium \\(p\\) has a bounded payoff profile. Derive the maximum profit and maximum loss from the profit function: \\[ \\Pi = p - \\max(K - S_T, 0) \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 17,
+      "text": "An investor shorts a forward contract on \\(N\\) units of foreign exchange at rate \\(F_0\\). Derive the profit function if the spot rate at maturity is \\(S_T\\). Prove that the profit is strictly positive if \\(S_T < F_0\\) using the relationship: \\[ \\Pi = N(F_0 - S_T) \\]",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 18,
+      "text": "Derive the mathematical difference in terminal profit between shorting a stock at \\(S_0\\) and buying a European put option with strike \\(K = S_0\\) for premium \\(p\\). Evaluate the difference: \\[ \\Delta = (S_0 - S_T) - (\\max(S_0 - S_T, 0) - p) \\] Prove which strategy has unbounded downside risk.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 19,
+      "text": "Derive the profit function for a European call option on a stock with strike \\(K_1\\) and premium \\(c\\), and a European put on the same stock with strike \\(K_2\\) and premium \\(p\\), where \\(K_1 < K_2\\). Prove that the terminal payoff before premiums is always strictly positive: \\[ \\text{Payoff} = \\max(S_T - K_1, 0) + \\max(K_2 - S_T, 0) > 0 \\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 20,
+      "text": "Derive the net profit of buying 100 shares at \\(S_0\\) and buying 100 put options with strike \\(K\\) for premium \\(p\\). Prove that the downside risk is entirely eliminated for \\(S_T < K\\) by calculating the derivative of the profit function with respect to \\(S_T\\): \\[ \\frac{d\\Pi}{dS_T} = 0 \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    }
+  ],
+  "mark_scheme": null
+}

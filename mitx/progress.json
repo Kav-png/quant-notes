@@ -11,9 +11,12 @@
       "confidence": null
     },
     "1": {
-      "status": "in_progress",
+      "status": "completed",
       "topics": {
-        "Probability distributions": true
+        "Probability distributions": true,
+        "Expectation & variance": true,
+        "Sums of RVs": true,
+        "Central Limit Theorem": true
       },
       "confidence": null
     },

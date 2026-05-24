@@ -5,5 +5,9 @@
   "edition": "2nd",
   "total_pages": 736,
   "current_page": 0,
-  "chapters": {}
+  "chapters": {
+    "ch01_products_markets": {
+      "done": false
+    }
+  }
 }

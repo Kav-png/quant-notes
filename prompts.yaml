@@ -10,7 +10,7 @@ exam_difficulty_hard: 'Difficulty: HARD. Questions should require deep multi-ste
 exam_difficulty_medium: 'Difficulty: MEDIUM. Questions should require multi-step derivations, combining two or three concepts,
   with some algebraic manipulation. Marks per question: 6–10. Suggested time per question: 10–15 min.'
 exam_generate: 'You are setting a quantitative finance exam for a graduate student studying {chapter}. {difficulty_block}
-  {focus_block}Generate exactly 4-5 exam questions consistent with the difficulty level above. Each must: require derivation
+  {focus_block}Generate exactly {num_questions} exam questions consistent with the difficulty level above. Each must: require derivation
   or proof (not just recall), test a different sub-topic within the chapter, have a clear marks allocation, and have a suggested
   time in minutes. Return ONLY a valid JSON object, no other text or markdown fences: {"questions": [{"text": "Full question
   text with LaTeX", "marks": 8, "suggested_minutes": 12}]}'

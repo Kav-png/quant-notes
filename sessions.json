@@ -64,5 +64,101 @@
     "module": "",
     "duration_mins": 25,
     "date": "2026-05-17"
+  },
+  {
+    "track": "optiver",
+    "module": "80in8",
+    "duration_mins": 5,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "optiver",
+    "module": "beat-the-odds",
+    "duration_mins": 1,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "optiver",
+    "module": "80in8",
+    "duration_mins": 7,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "mitx",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-18"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 50,
+    "date": "2026-05-19"
+  },
+  {
+    "track": "optiver",
+    "module": "balloon",
+    "duration_mins": 1,
+    "date": "2026-05-19"
+  },
+  {
+    "track": "optiver",
+    "module": "number-box",
+    "duration_mins": 11,
+    "date": "2026-05-19"
+  },
+  {
+    "track": "optiver",
+    "module": "80in8",
+    "duration_mins": 6,
+    "date": "2026-05-20"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 50,
+    "date": "2026-05-20"
+  },
+  {
+    "track": "optiver",
+    "module": "balloon",
+    "duration_mins": 1,
+    "date": "2026-05-20"
+  },
+  {
+    "track": "optiver",
+    "module": "number-box",
+    "duration_mins": 14,
+    "date": "2026-05-20"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-23"
+  },
+  {
+    "track": "optiver",
+    "module": "80in8",
+    "duration_mins": 4,
+    "date": "2026-05-23"
   }
 ]

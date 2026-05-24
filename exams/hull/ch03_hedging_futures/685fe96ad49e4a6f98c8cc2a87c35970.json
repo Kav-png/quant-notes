@@ -1,0 +1,42 @@
+{
+  "id": "685fe96ad49e4a6f98c8cc2a87c35970",
+  "track": "hull",
+  "slug": "ch03_hedging_futures",
+  "name": "",
+  "created_at": "2026-05-17T21:16:34.318273+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "easy",
+  "suggested_minutes": 30,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Consider a hedger who holds a portfolio and wishes to minimize the variance of the hedged position. Let \\(\\Delta S\\) and \\(\\Delta F\\) be the changes in the spot and futures prices over the hedge period. The variance of the change in the value of the hedged position per unit of exposure is given by \\[ v = \\sigma_S^2 + h^2 \\sigma_F^2 - 2 h \\rho \\sigma_S \\sigma_F \\] where \\(h\\) is the hedge ratio, \\(\\sigma_S\\) is the standard deviation of \\(\\Delta S\\), \\(\\sigma_F\\) is the standard deviation of \\(\\Delta F\\), and \\(\\rho\\) is the correlation coefficient between \\(\\Delta S\\) and \\(\\Delta F\\). Derive the minimum variance hedge ratio \\(h^*\\) by differentiating the variance \\(v\\) with respect to \\(h\\) and solving for the optimum.",
+      "marks": 6,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 2,
+      "text": "A corporation knows it will purchase a specific asset at time \\(t_2\\) and decides to initiate a long hedge at time \\(t_1\\) using a futures contract. Let \\(S_1\\) and \\(F_1\\) be the spot and futures prices at time \\(t_1\\), respectively, and let \\(S_2\\) and \\(F_2\\) be the prices at time \\(t_2\\). Given the standard definition of the basis at time \\(t\\) as \\(b_t = S_t - F_t\\), prove algebraically that the effective price paid by the corporation at time \\(t_2\\), after accounting for the payoff from the futures position, is given by \\[ P_{\\text{effective}} = F_1 + b_2 \\] Briefly state why this result implies that the hedger is exposed to basis risk.",
+      "marks": 5,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 3,
+      "text": "When using stock index futures to hedge a well-diversified equity portfolio, the optimal hedge ratio is equal to the portfolio's beta, \\(h^* = \\beta\\). Let \\(V_A\\) be the current value of the portfolio and \\(V_F\\) be the current value of one index futures contract. Assume the portfolio currently has a beta of \\(\\beta\\). Derive the formula for the number of short futures contracts \\(N^*\\) required to reduce the portfolio's beta to a target beta \\(\\beta^*\\) (where \\(\\beta^* < \\beta\\)), proving that \\[ N^* = \\frac{(\\beta - \\beta^*) V_A}{V_F} \\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 4,
+      "text": "When cross-hedging, the underlying asset being hedged is different from the asset underlying the futures contract. Let \\(Q_A\\) be the size of the position being hedged (in units) and \\(Q_F\\) be the size of one futures contract (in units). If \\(h^*\\) is the minimum variance hedge ratio calculated from the price changes, derive the formula for the optimal number of futures contracts \\(N^*\\) to short: \\[ N^* = h^* \\frac{Q_A}{Q_F} \\] Explain the dimensional reasoning behind multiplying \\(h^*\\) by the ratio of \\(Q_A\\) to \\(Q_F\\).",
+      "marks": 4,
+      "suggested_minutes": 6
+    }
+  ],
+  "mark_scheme": null
+}

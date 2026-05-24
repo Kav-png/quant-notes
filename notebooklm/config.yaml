@@ -48,7 +48,7 @@ notebooks:
       - mitx/modules/recitation-week01v1.pdf
       - mitx/modules/handouts-week01.pdf
     m02:
-      notebook_id: ''
+      notebook_id: d8a2189a-71f4-49d9-8e61-57bfc17dfd9e
       label: M02 — Discrete-Time Stochastic Processes
       source_globs: []
     m03:
@@ -90,3 +90,6 @@ notebooks:
     hull:
       ch03_hedging_futures:
         notebook_id: 67c4b151-f59a-4b14-a7e0-5b195d83b001
+optiver:
+  beat_the_odds:
+    notebook_id: af45de05-4ffd-460b-b1c3-b6aa2f6c6e3b

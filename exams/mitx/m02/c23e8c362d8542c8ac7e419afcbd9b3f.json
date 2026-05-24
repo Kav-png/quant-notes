@@ -1,0 +1,48 @@
+{
+  "id": "c23e8c362d8542c8ac7e419afcbd9b3f",
+  "track": "mitx",
+  "slug": "m02",
+  "name": "",
+  "created_at": "2026-05-20T21:17:49.716580+00:00",
+  "completed_at": null,
+  "focus_topic": "concept multi part questions a) i) etc simple testing overal concepts rather than explain derive",
+  "difficulty": "easy",
+  "suggested_minutes": 39,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Consider a simple random walk model constructed as a sum of independent and identically distributed random variables, \\[ S_T = \\sum_{t=1}^T z_t \\] where the increments \\(z_t\\) are standard random variables satisfying \\(\\mathbb{E}[z_t]=0\\) and \\(\\mathbb{E}[z_t^2]=1\\).\n\na) i) Derive the expected value \\(\\mathbb{E}[S_T]\\) using the linearity of the expectation operator. [2 marks]\nii) By expanding the expectation of the squared sum, derive the variance \\(\\text{Var}(S_T)\\), clearly showing why the cross-terms vanish. [3 marks]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 2,
+      "text": "Asset prices are often modeled using a generalized random walk for daily log returns, given by \\(r_t = \\mu + \\sigma z_t\\), where \\(z_t \\sim \\text{IID}(0,1)\\). The cumulative log return over \\(T\\) periods is \\(X_T = \\sum_{t=1}^T r_t\\).\n\na) i) Derive the expected cumulative return \\(\\mathbb{E}[X_T]\\). [2 marks]\nii) Derive the variance \\(\\text{Var}(X_T)\\) and demonstrate that it scales linearly with the time horizon \\(T\\). [3 marks]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 3,
+      "text": "A time series process is defined recursively by \\(X_t = z_t + \\theta z_{t-2}\\), where the innovations \\(z_t\\) are independent and normalized random variables (mean zero, variance one).\n\na) i) Derive the variance of the process, \\(\\text{Var}(X_t)\\). [2 marks]\nii) Derive the lag-2 autocovariance, defined as \\(\\gamma_2 = \\mathbb{E}[X_t X_{t-2}]\\). [3 marks]",
+      "marks": 5,
+      "suggested_minutes": 7
+    },
+    {
+      "id": 4,
+      "text": "The AR(1) process is often used to model mean reversion and is expressed as \\[ R_t - \\mu = -\\lambda(R_{t-1} - \\mu) + \\sigma z_t \\] where \\(|\\lambda| < 1\\) and \\(z_t \\sim \\text{IID}(0,1)\\). Assume the process is weakly stationary.\n\na) i) By applying the unconditional expectation operator to both sides of the equation, derive \\(\\mathbb{E}[R_t]\\). [2 marks]\nii) Using the assumption of stationarity (\\(\\text{Var}(R_t) = \\text{Var}(R_{t-1}) = \\gamma_0\\)), substitute the equation of motion into \\(\\text{Var}(R_t) = \\mathbb{E}[(R_t - \\mu)^2]\\) to derive the unconditional variance \\(\\gamma_0\\). [4 marks]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 5,
+      "text": "The variance ratio test evaluates whether a stock price follows a random walk by analyzing aggregated returns. Let the \\(q\\)-period return be \\[ r_t^{(q)} = \\sum_{i=1}^q r_{t-i+1} \\]\n\na) i) If the 1-period returns \\(r_t\\) are uncorrelated with a constant variance \\(\\sigma^2\\), derive the variance of the aggregated return, \\(\\text{Var}(r_t^{(q)})\\). [2 marks]\nii) Using your result from part (i), formulate the theoretical variance ratio \\(\\text{VR}(q)\\) and state the exact value it must equal under the null hypothesis of a random walk. [2 marks]",
+      "marks": 4,
+      "suggested_minutes": 6
+    }
+  ],
+  "mark_scheme": null
+}

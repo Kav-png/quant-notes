@@ -1,0 +1,219 @@
+textbooks:
+  hull:
+    label: Hull
+    subtitle: Options, Futures & Derivatives 8th ed.
+    color: text-blue-400
+    type: textbook
+    notes_dir: hull
+    total_pages: 896
+    chapters:
+    - slug: ch01_introduction
+      label: Ch 1 — Introduction
+    - slug: ch02_futures_markets
+      label: Ch 2 — Mechanics of Futures Markets
+    - slug: ch03_hedging_futures
+      label: Ch 3 — Hedging Strategies Using Futures
+    - slug: ch04_interest_rates
+      label: Ch 4 — Interest Rates
+    - slug: ch05_forward_futures_prices
+      label: Ch 5 — Determination of Forward and Futures Prices
+    - slug: ch06_interest_rate_futures
+      label: Ch 6 — Interest Rate Futures
+    - slug: ch07_swaps
+      label: Ch 7 — Swaps
+    - slug: ch08_securitization
+      label: Ch 8 — Securitization and the Credit Crisis of 2007
+    - slug: ch09_mechanics_options
+      label: Ch 9 — Mechanics of Options Markets
+    - slug: ch10_properties_options
+      label: Ch 10 — Properties of Stock Options
+    - slug: ch11_trading_strategies
+      label: Ch 11 — Trading Strategies Involving Options
+    - slug: ch12_binomial_trees
+      label: Ch 12 — Binomial Trees
+    - slug: ch13_wiener_ito
+      label: Ch 13 — Wiener Processes and Itô's Lemma
+    - slug: ch14_bsm
+      label: Ch 14 — The Black-Scholes-Merton Model
+    - slug: ch15_employee_options
+      label: Ch 15 — Employee Stock Options
+    - slug: ch16_index_currency_options
+      label: Ch 16 — Options on Stock Indices and Currencies
+    - slug: ch17_futures_options
+      label: Ch 17 — Futures Options
+    - slug: ch18_greeks
+      label: Ch 18 — The Greek Letters
+    - slug: ch19_vol_smiles
+      label: Ch 19 — Volatility Smiles
+    - slug: ch20_numerical_procedures
+      label: Ch 20 — Basic Numerical Procedures
+    - slug: ch21_var
+      label: Ch 21 — Value at Risk
+    - slug: ch22_vol_correlations
+      label: Ch 22 — Estimating Volatilities and Correlations
+    - slug: ch23_credit_risk
+      label: Ch 23 — Credit Risk
+    - slug: ch24_credit_derivatives
+      label: Ch 24 — Credit Derivatives
+    - slug: ch25_exotic_options
+      label: Ch 25 — Exotic Options
+    - slug: ch26_models_numerical
+      label: Ch 26 — More on Models and Numerical Procedures
+    - slug: ch27_martingales_measures
+      label: Ch 27 — Martingales and Measures
+    - slug: ch28_ir_standard_models
+      label: 'Ch 28 — Interest Rate Derivatives: Standard Market Models'
+    - slug: ch29_convexity_timing
+      label: Ch 29 — Convexity, Timing, and Quanto Adjustments
+    - slug: ch30_ir_short_rate
+      label: 'Ch 30 — Interest Rate Derivatives: Models of the Short Rate'
+    - slug: ch31_hjm_lmm
+      label: 'Ch 31 — Interest Rate Derivatives: HJM and LMM'
+    - slug: ch32_swaps_revisited
+      label: Ch 32 — Swaps Revisited
+    - slug: ch33_energy_commodity
+      label: Ch 33 — Energy and Commodity Derivatives
+    - slug: ch34_real_options
+      label: Ch 34 — Real Options
+    - slug: ch35_mishaps
+      label: Ch 35 — Derivatives Mishaps and What We Can Learn
+  wilmott:
+    label: Wilmott
+    subtitle: Paul Wilmott Introduces Quantitative Finance 2nd ed.
+    color: text-green-400
+    type: textbook
+    notes_dir: wilmott
+    total_pages: 736
+    chapters:
+    - slug: ch01_products_markets
+      label: Ch 1 — Products and Markets
+    - slug: ch02_derivatives
+      label: Ch 2 — Derivatives
+    - slug: ch03_binomial_model
+      label: Ch 3 — The Binomial Model
+    - slug: ch04_random_behavior
+      label: Ch 4 — The Random Behavior of Assets
+    - slug: ch05_stochastic_calculus
+      label: Ch 5 — Elementary Stochastic Calculus
+    - slug: ch06_bsm
+      label: Ch 6 — The Black–Scholes Model
+    - slug: ch07_pde
+      label: Ch 7 — Partial Differential Equations
+    - slug: ch08_bsm_greeks
+      label: Ch 8 — The Black–Scholes Formulæ and the Greeks
+    - slug: ch09_vol_modeling
+      label: Ch 9 — Overview of Volatility Modeling
+    - slug: ch10_delta_hedge
+      label: Ch 10 — How to Delta Hedge
+    - slug: ch11_exotic_options
+      label: Ch 11 — An Introduction to Exotic and Path-dependent Options
+    - slug: ch12_multi_asset
+      label: Ch 12 — Multi-asset Options
+    - slug: ch13_barrier_options
+      label: Ch 13 — Barrier Options
+    - slug: ch14_fixed_income
+      label: Ch 14 — Fixed-income Products and Analysis
+    - slug: ch15_swaps
+      label: Ch 15 — Swaps
+    - slug: ch16_ir_modeling
+      label: Ch 16 — One-factor Interest Rate Modeling
+    - slug: ch17_yield_curve
+      label: Ch 17 — Yield Curve Fitting
+    - slug: ch18_ir_derivatives
+      label: Ch 18 — Interest Rate Derivatives
+    - slug: ch19_hjm_bgm
+      label: Ch 19 — The Heath, Jarrow & Morton and Brace, Gatarek & Musiela Models
+    - slug: ch20_blackjack
+      label: Ch 20 — Investment Lessons from Blackjack and Gambling
+    - slug: ch21_portfolio_mgmt
+      label: Ch 21 — Portfolio Management
+    - slug: ch22_var
+      label: Ch 22 — Value at Risk
+    - slug: ch23_credit_risk
+      label: Ch 23 — Credit Risk
+    - slug: ch24_riskmetrics
+      label: Ch 24 — RiskMetrics and CreditMetrics
+    - slug: ch25_crashmetrics
+      label: Ch 25 — CrashMetrics
+    - slug: ch26_mishaps
+      label: Ch 26 — Derivatives Mishaps
+    - slug: ch27_numerical_overview
+      label: Ch 27 — Overview of Numerical Methods
+    - slug: ch28_finite_difference
+      label: Ch 28 — Finite-difference Methods for One-factor Models
+    - slug: ch29_monte_carlo
+      label: Ch 29 — Monte Carlo Simulation
+    - slug: ch30_numerical_integration
+      label: Ch 30 — Numerical Integration
+  mitx:
+    label: MITx 15.455x
+    subtitle: Mathematical Methods for QF
+    color: text-primary/70
+    type: course
+    notes_dir: mitx/modules
+    total_pages: null
+    chapters:
+    - slug: m01
+      label: M1 — Probability
+      topics:
+      - Probability distributions
+      - Expectation & variance
+      - Sums of RVs
+      - Central Limit Theorem
+      progress_key: '1'
+    - slug: m02
+      label: M2 — Discrete-Time Stochastic Processes
+      topics:
+      - Random walk
+      - Monte Carlo methods
+      - Time series intro
+      progress_key: '2'
+    - slug: m03
+      label: M3 — Time Series Models
+      topics:
+      - AR/MA/ARMA
+      - Order determination
+      - Forecasting & trading strategies
+      progress_key: '3'
+    - slug: m04
+      label: M4 — Continuous-Time Stochastic Processes
+      topics:
+      - Brownian motion
+      - Scaling behaviour
+      - Itô processes
+      - Itô's lemma
+      progress_key: '4'
+    - slug: m05
+      label: M5 — Itô Calculus
+      topics:
+      - Dynamic hedging
+      - Black-Scholes-Merton equation
+      progress_key: '5'
+    - slug: m06
+      label: M6 — Continuous-Time Finance
+      topics:
+      - SDE to PDE
+      - Derivative pricing
+      - Credit default risk
+      progress_key: '6'
+    - slug: m07
+      label: M7 — Linear Algebra of Asset Pricing
+      topics:
+      - FTAP
+      - Risk-neutral pricing
+      - Portfolio space
+      progress_key: '7'
+    - slug: m08
+      label: M8 — Optimization
+      topics:
+      - Lagrange multipliers
+      - Quadratic programming
+      - Portfolio optimization
+      progress_key: '8'
+    - slug: m09
+      label: M9 — Optimal Decision Making
+      topics:
+      - Dynamic programming
+      - Variational methods
+      - Optimal execution
+      progress_key: '9'

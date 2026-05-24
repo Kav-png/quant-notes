@@ -1,0 +1,76 @@
+{
+  "mind_map": {
+    "name": "Financial Model Testing",
+    "children": [
+      {
+        "name": "Stress Testing",
+        "children": [
+          {
+            "name": "Extreme Market Move Scenarios",
+            "children": []
+          },
+          {
+            "name": "Historical Extreme Scenarios",
+            "children": []
+          },
+          {
+            "name": "Management-Generated Scenarios",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Back Testing",
+        "children": [
+          {
+            "name": "Historical Data Validation",
+            "children": []
+          },
+          {
+            "name": "Value at Risk (VaR) Verification",
+            "children": []
+          },
+          {
+            "name": "Model Failure Identification",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Volatility Model Testing",
+        "children": [
+          {
+            "name": "Autocorrelation Structure Testing",
+            "children": []
+          },
+          {
+            "name": "Ljung-Box Statistic",
+            "children": []
+          },
+          {
+            "name": "Maximum Likelihood Estimation",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Distribution Testing",
+        "children": [
+          {
+            "name": "Volatility Smile Analysis",
+            "children": []
+          },
+          {
+            "name": "Implied Distribution Testing",
+            "children": []
+          },
+          {
+            "name": "Empirical Exchange Rate Data Testing",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "note_id": null
+}
