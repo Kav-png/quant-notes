@@ -1,13 +1,9 @@
----
+# Wilmott — Ch 1 — Products and Markets
 
-## chapter: ch01_products_markets track: wilmott
-
-# ch01 products markets
+## Theory
 
 ## Derivation
 
-## Key result
+## Intuition
 
-## Connection to Hull
-
-## Open questions
+## Exercises

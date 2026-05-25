@@ -1,0 +1,184 @@
+PROFESSOR: Let's generalize further by looking
+at linear time series models that go beyond the random walk.
+We want to capture correlation across time.
+And we saw that one of the things that
+was a property the random walk model,
+the generalized random walk model,
+was that the increments were independent, they were IID.
+And simply, multiplying by constant
+and adding a constant to our zs didn't change that.
+So in the generalized random walk model,
+we can have a non-zero mean, we can have a non-zero volatility
+or randomness.
+But the increments are still independent of each other
+over time.
+For many things, so we do want to have dependence over time.
+We'd like to have causal influences,
+we want to be able to propagate information across time.
+So we need more complex models.
+The great thing is, that we can build them out of the pieces
+we've already seen.
+Our main friend here is going to be linearity.
+And let me just give you a couple of examples.
+One of them is the so-called MA 1 model, where
+MA stands for moving average.
+And the idea here is that the return in a given period
+or a realization of a variable--
+let's be general.
+Let's say that r is something that looks like the random walk
+model, mu plus sigma z t, plus I'm
+going to add a new term on the right hand side.
+And the new term on the right hand side
+is going to be a constant phi, just
+some other constant parameter, some scalar
+times a previous value of z sub t minus 1.
+So notice that by the time we get to time t
+and we're waiting to see what new realization,
+we're going to have this random variable z sub t.
+This variable will have already been observed,
+it will be in and constant.
+And that means that over different periods of time,
+the rs are not being drawn from the same distribution.
+So the model is not IID.
+We can get into more complex examples
+as well by letting other features vary with time, not
+just the constant offset to a random variable,
+but the size of the randomness itself.
+And this is an attribute of the so-called GARCH models.
+And in a GARCH model, it's really a two component model
+with two random variables.
+It looks deceptively simple, so let
+me show you because you'll get the intuition right away.
+The idea is that in the model, that the return is
+a random walk form mu plus sigma times z sub t.
+The difference is, that the coefficient sigma now itself
+has the time dependence.
+We then need an equation to specify
+how sigma evolves with t and that's
+what defines the GARCH model, and there
+are different possible dynamical models.
+But you could think of this as saying,
+that within each period say each day or each month,
+there's a generalized random walk process.
+But the parameters of that random walk change from one day
+to the next.
+The sigma's change.
+
+Another way to model causal influences,
+is to have other terms on the right hand side
+not just previous values of z, but we
+could have previous values of the variable of interest
+itself.
+So we could generalize, and have this model of this form.
+This is called an autoregressive model,
+and it's of order P, which simply
+means that the coefficients c 0, c 1,
+c 2 up through c P that at least c P
+is non-zero, that these has this non-trivial structure.
+But the idea is terms on the right hand
+side are now lagged versions, they're
+referring to previous values not of the zs,
+but of the variable in question.
+In this case, R sub t.
+And the right hand side I have, 1 period before all the way
+through t periods before.
+Again, those are telling us that the present value
+is going to depend on what happened in the past.
+So there will be a causal relationship.
+Plus it's not deterministic, it is random.
+Plus in each time period, we're getting a new kick--
+a new kick from z, which is going
+to z is going to be a standardized random variable,
+identical and independently distributed with mean 0,
+variance 1.
+But we have a scale factor sigma,
+that lets us generate the size of the kick.
+And although z has no mean, the c 0 and potentially other
+terms do.
+So this is a generalization and it
+will have some causal structure, and we'll take a look at this.
+We can go further and combine both of the two
+that we had before.
+And this is known as an ARMA model
+for AR autoregressive moving average of order P, Q, where
+we've got a bunch of terms.
+All I've done is I've combined these two
+forms, on the top line I've got c 0 through c P,
+adding lagged values of the past variable R,
+plus I've got Q terms with past values of the variable z.
+
+These models have in common that they have a linear structure.
+So what we're doing is we're just adding a bunch of stuff
+to the right hand side.
+That means we can apply linearity.
+The terms have are all of the form
+a constant, times a random variable.
+And whether that variable depending
+on when we take the expectation, whether it's
+conditional or unconditional expectation,
+we'll either treat those as being unknown or being known.
+But the causal, the time ordering structure
+is clear, the things on the right hand
+side all refer to times before time t that's on the left hand
+side with one exception.
+There's one term the sigma z t term it's new,
+it's sometimes known as a shock or an innovation that
+occurs in each period.
+So we have that basic linear structure,
+we have the past values on the right hand
+side that are going to determine subsequent outcomes.
+They're going to be part of the evolution
+of future random variables.
+And the coefficients need to be specified or determined,
+and we'll see that they often have natural interpretations.
+
+How do we solve such a model?
+Well, we take a look using our old friend linearity.
+We use the recursive structure of the definitions, that
+is that each period in time t refers to previous periods
+from the past.
+And we use one new property that's called stationarity.
+Stationary means time and variance.
+It doesn't mean that the process is static.
+What it means is, that the probability distributions
+don't change over time.
+So think of going into a Casino, you
+would like the games to be stationary,
+the probability on the dice, it should
+be the same every day on every roll that it was before.
+The probability on the roulette wheel,
+should be the same on every turn that it was before.
+The probability on the decks of cards
+in a poker game or a blackjack game,
+should be the same as they were before.
+All right.
+Blackjack, we would have to assume
+that we're reshuffling after each turn for that to be true,
+for that to be stationary.
+Otherwise it would be a non stationary process.
+So stationarity means, that the probability distribution
+is the same.
+It does not mean that the outcomes are the same.
+Now where stationarity is a strong condition,
+and we don't need anything that strong necessarily.
+We're going to use a weaker condition that is appropriately
+named weak stationarity, and we're
+going to say that a process is weakly stationary, if just
+the first and second moments are stationary, that is there
+time translation invariant.
+And that's good because we're going to play our usual game,
+instead of finding out the entire distribution
+of our process.
+The whole probability distribution,
+we're going to ask about its mean and its variance,
+we're not going to know what the fourth, eighth, tenth,
+and in moments are to all orders.
+So to see this, let's take one case and do it in detail.
+And the case, we're going to do in detail, is the case of AR 1.
+The AR 1 structure looks like this.
+It's got one term has just two coefficients.
+There's a constant, plus c 0 plus another proportionality
+constant c 1, times the previous values observation, plus well
+our old friend sigma.
+So a third constant actually, times a random shock
+that occurs in each period.

@@ -1,0 +1,187 @@
+{
+  "conversation_id": "362e321b-9cda-4bd5-a898-a5211975434a",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Why are 252 time steps used to simulate a 1-year price trajectory?\n\nOn average, there are about 21 market days per month, excluding weekends and holidays.\n\nThis number evenly divides the number of sample paths in the simulation.\n\nThe simulation will run 30% faster than using 365 days.\n\nIt\u2019s a palindrome.",
+      "ts": "2026-05-25T10:08:57.481379+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "The correct reason is that, on average, there are about 21 market days per month, excluding weekends and holidays, which totals roughly 252 trading days in a year [1]. \n\nIn quantitative finance, time is typically measured in trading days rather than calendar days. This is because empirical research shows that asset volatility is generated primarily when the exchange is open and trading is active [1, 2]. Over weekends and holidays, when markets are closed, price volatility is significantly lower. As a result, practitioners ignore these non-trading days when estimating historical volatility, modeling price trajectories, and calculating the life of an option [1, 2]. \n\nThis 252-day convention is heavily used when scaling risk metrics. For example, to convert a daily volatility, \\(\\sigma_{\\text{day}}\\), into an annualized volatility, \\(\\sigma_{\\text{year}}\\), you scale it by the square root of the number of trading days:\n\\[\\sigma_{\\text{year}} = \\sigma_{\\text{day}} \\sqrt{252}\\] [3, 4].\n\nDoes this clarify why we use trading days, or would you like to dive into how we actually build the Monte Carlo simulation using these time steps?",
+      "ts": "2026-05-25T10:08:57.481379+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "Example 14.4",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "What is the relationship between the volatility per year used in option pricing and the volatility per day used in VaR calculations? Let us define ayear as the volatility per year of a certain asset and a day as the equivalent volatility per day of the asset. Assuming 252 trading days in a year, equation (14.2) gives the standard deviation of the continuously compounded return on the asset in 1 year as either ayear or aday.J252\u00b7 It follows that",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "Example 14.4",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "What is the relationship between the volatility per year used in option pricing and the volatility per day used in VaR calculations? Let us define ayear as the volatility per year of a certain asset and a day as the equivalent volatility per day of the asset. Assuming 252 trading days in a year, equation (14.2) gives the standard deviation of the continuously compounded return on the asset in 1 year as either ayear or aday.J252\u00b7 It follows that",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "Example 14.4",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "What is the relationship between the volatility per year used in option pricing and the volatility per day used in VaR calculations? Let us define ayear as the volatility per year of a certain asset and a day as the equivalent volatility per day of the asset. Assuming 252 trading days in a year, equation (14.2) gives the standard deviation of the continuously compounded return on the asset in 1 year as either ayear or aday.J252\u00b7 It follows that",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "Example 14.4",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "What is the relationship between the volatility per year used in option pricing and the volatility per day used in VaR calculations? Let us define ayear as the volatility per year of a certain asset and a day as the equivalent volatility per day of the asset. Assuming 252 trading days in a year, equation (14.2) gives the standard deviation of the continuously compounded return on the asset in 1 year as either ayear or aday.J252\u00b7 It follows that",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "Volatility Volatility Number of trading days per annum = per trading day x per annum",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "1. The variance of stock price reh.i'rns between the close of rading on one day , and the ' close of trading on the' next day wP.,en there are no intervenjng nontrading days",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "Example 14.4",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "What is the relationship between the volatility per year used in option pricing and the volatility per day used in VaR calculations? Let us define ayear as the volatility per year of a certain asset and a day as the equivalent volatility per day of the asset. Assuming 252 trading days in a year, equation (14.2) gives the standard deviation of the continuously compounded return on the asset in 1 year as either ayear or aday.J252\u00b7 It follows that",
+          "source_id": "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+        }
+      ]
+    }
+  ]
+}

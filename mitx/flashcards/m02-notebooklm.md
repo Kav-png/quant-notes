@@ -1,290 +1,290 @@
-# Stochastic Flashcards
+# Finance Flashcards
 
 ## Card 1
 
 **Q:** Term: Stochastic Process
 
-**A:** Definition: A time-dependent random variable that can be observed in continuous time as $S(t)$ or discrete time as $S_1, S_2, \dots, S_t$. Example: The daily closing price of a stock over a calendar year.
+**A:** Definition: A random variable that evolves over time, either in continuous or discrete intervals. Example: The daily closing price of a specific stock over a year.
 
 ---
 
 ## Card 2
 
-**Q:** In a discrete-time stochastic process, how are the variable levels $S_t$ constructed from increments $x_t$?
+**Q:** How is a discrete-time process typically constructed from its components?
 
-**A:** They are constructed by adding increments recursively: $S_t = S_{t-1} + x_t = x_0 + x_1 + \dots + x_t$.
+**A:** It is built by adding successive increments to an initial value, represented as $S_t = S_{t-1} + x_t$.
 
 ---
 
 ## Card 3
 
-**Q:** Formula: Increment recovery through differencing
+**Q:** Formula for the elementary random walk model
 
-**A:** $x_t = S_t - S_{t-1}$, where $x_t$ is the increment and $S_t$ is the value of the process at time $t$.
+**A:** $S_T = z_1 + z_2 + \dots + z_T$, where $z_t$ are IID random variables with zero mean and unit variance.
 
 ---
 
 ## Card 4
 
-**Q:** What three characteristics define the sampling of a standard time series model?
+**Q:** What is the expected value of an elementary random walk $S_T$?
 
-**A:** Uniform intervals (integer indices), equal spacing (e.g. business days), and a time zero origin.
+**A:** The expected value is $E[S_T] = 0$.
 
 ---
 
 ## Card 5
 
-**Q:** Term: Innovation
+**Q:** Formula for the variance of an elementary $T$-step random walk
 
-**A:** Definition: The random component or shock added to a process in a recursive definition to determine the next value. Example: The $\sigma z_t$ term in a generalized random walk.
+**A:** $Var(S_T) = T$, where $T$ is the number of steps taken.
 
 ---
 
 ## Card 6
 
-**Q:** What is the simplest form of a time-series model?
+**Q:** Term: Innovation
 
-**A:** The random walk model.
+**A:** Definition: The random 'shock' or new information occurring in each period of a time series model. Example: The $\sigma z_t$ term in a generalized random walk.
 
 ---
 
 ## Card 7
 
-**Q:** What does it mean for increments in a random walk to be 'IID'?
+**Q:** How is a model considered 'solved' in the context of time series analysis?
 
-**A:** It means the increments are Independent and Identically Distributed.
+**A:** A model is solved when the analyst can describe or forecast the probability distribution of future values.
 
 ---
 
 ## Card 8
 
-**Q:** Does a simple random walk have a dependence on past history?
+**Q:** What property of the expectation operator allows for the calculation of sums of random variables?
 
-**A:** No, it has no dependence on past history as each increment is independent.
+**A:** The property of linearity.
 
 ---
 
 ## Card 9
 
-**Q:** List the three properties of a 'standard' random variable $z_t$ used in random walks.
+**Q:** Formula for a single period return in a generalized random walk
 
-**A:** Mean is 0 ($E[z_t] = 0$), variance is 1 ($E[z_t^2] = 1$), and correlation is 0 for different times ($E[z_t z_{t'}] = 0$ if $t \neq t'$).
+**A:** $r_t = \mu + \sigma z_t$, where $\mu$ is the mean (offset) and $\sigma$ is the volatility (scale).
 
 ---
 
 ## Card 10
 
-**Q:** Formula: Gaussian random variable probability distribution
+**Q:** What is the expected value of the sum $X_T$ in a generalized random walk model?
 
-**A:** $p(z_t) = \frac{1}{\sqrt{2\pi}} e^{-z_t^2/2}$, representing a standard normal distribution $N(0,1)$.
+**A:** $E[X_T] = T\mu$, where $\mu$ is the constant mean return per step.
 
 ---
 
 ## Card 11
 
-**Q:** How does the variance of a $T$-step random walk scale with time?
+**Q:** Formula for the variance of the sum $X_T$ in a generalized random walk
 
-**A:** The variance grows linearly with the number of steps $T$.
+**A:** $Var(X_T) = T\sigma^2$, where $\sigma^2$ is the variance of an individual step.
 
 ---
 
 ## Card 12
 
-**Q:** How does the standard deviation of a $T$-step random walk scale with time?
+**Q:** Term: Moving Average Model of order 1 (MA(1))
 
-**A:** The standard deviation grows as the square root of time, or $\sqrt{T}$.
+**A:** Definition: A linear model where the current realization depends on the current innovation and the immediately preceding innovation. Example: $r_t = \mu + \sigma z_t + \phi z_{t-1}$.
 
 ---
 
 ## Card 13
 
-**Q:** What is the key insight behind the linear growth of variance in a sum of independent random variables?
+**Q:** Why is an MA(1) model not considered IID?
 
-**A:** Because the increments are uncorrelated, the expectation of all cross-terms $E[z_t z_{t'}]$ is zero, leaving only the sum of individual variances.
+**A:** It is not IID because the observations are drawn from different distributions due to the inclusion of an observed lagged variable $z_{t-1}$.
 
 ---
 
 ## Card 14
 
-**Q:** Term: Generalized Random Walk
+**Q:** How does a GARCH model differ from a standard random walk?
 
-**A:** Definition: A model where the standard random variable is scaled by a volatility parameter and offset by a constant mean return. Example: Modelling stock returns as $r_t = \sigma z_t + \mu$.
+**A:** In a GARCH model, the volatility coefficient $\sigma$ is itself time-dependent and evolves according to its own dynamical equation.
 
 ---
 
 ## Card 15
 
-**Q:** In the generalized random walk model $r_t = \sigma z_t + \mu$, what do the parameters $\sigma$ and $\mu$ represent?
+**Q:** Formula for an Autoregressive model of order $p$ (AR(p))
 
-**A:** $\sigma$ represents the risk (volatility) and $\mu$ represents the return (mean).
+**A:** $R_t = c_0 + c_1 R_{t-1} + \dots + c_p R_{t-p} + \sigma z_t$, where $c_i$ are constant coefficients and $z_t \sim IID(0,1)$.
 
 ---
 
 ## Card 16
 
-**Q:** Formula: Mean of a $T$-step generalized random walk $X_T$
+**Q:** What is the key insight behind using recursive structures to solve time series models?
 
-**A:** $E[X_T] = T\mu$, where $T$ is the number of time steps and $\mu$ is the mean of each individual step.
+**A:** The present value is determined by relating it to previous values from the past plus a new innovation.
 
 ---
 
 ## Card 17
 
-**Q:** Formula: Variance of a $T$-step generalized random walk $X_T$
+**Q:** Term: Strong Stationarity
 
-**A:** $Var(X_T) = T\sigma^2$, where $T$ is the number of time steps and $\sigma^2$ is the variance of each individual step.
+**A:** Definition: A property where the joint probability distribution of a process is invariant under a shift in time. Example: A dice game in a casino where the odds never change day-to-day.
 
 ---
 
 ## Card 18
 
-**Q:** Term: MA(1) Model
+**Q:** Term: Weak Stationarity
 
-**A:** Definition: A first-order moving average model where the current value depends on the current shock and the immediately preceding shock. Example: $r_t = \mu + \sigma z_t + \phi z_{t-1}$.
+**A:** Definition: A property where only the first and second moments (mean and autocovariance) of a process are time-invariant. Example: An AR(1) process with a constant mean and variance over time.
 
 ---
 
 ## Card 19
 
-**Q:** How does an MA(1) model differ from an IID process regarding temporal correlation?
+**Q:** How is the stationarity assumption practically applied to solve for model parameters?
 
-**A:** The MA(1) model is not IID because the term $\phi z_{t-1}$ introduces a correlation with the previous period's random shock.
+**A:** It allows unconditional expectations to be treated as constant across time, enabling the calculation of long-run means and variances.
 
 ---
 
 ## Card 20
 
-**Q:** Term: GARCH Model
+**Q:** Formula for the lag-$k$ autocovariance coefficient $\gamma_k$
 
-**A:** Definition: A model where the distribution of the random variable (specifically the variance) is itself time-varying. Example: Modelling market returns where volatility 'clusters' during certain periods.
+**A:** $\gamma_k = E[(R_t - \mu)(R_{t-k} - \mu)]$, which relates the influence of past excess returns on current values.
 
 ---
 
 ## Card 21
 
-**Q:** Term: AR(p) Model
+**Q:** What is the relationship between $\gamma_k$ and $\gamma_{k-1}$ in an AR(1) model with coefficient $-\lambda$?
 
-**A:** Definition: An autoregressive model of order $p$ where the current value is a linear combination of its $p$ past values plus a random shock. Example: $R_t = c_0 + c_1 R_{t-1} + \dots + c_p R_{t-p} + \sigma z_t$.
+**A:** $\gamma_k = -\lambda \gamma_{k-1}$, indicating that the autocovariance decays geometrically with the lag.
 
 ---
 
 ## Card 22
 
-**Q:** Term: ARMA(p, q) Model
+**Q:** Formula for the variance of a stationary AR(1) process
 
-**A:** Definition: A model that combines autoregressive (AR) and moving average (MA) structures to determine the likelihood of future outcomes. Example: $R_t = c_0 + c_1 R_{t-1} + \sigma z_t + \phi_1 z_{t-1}$.
+**A:** $\gamma_0 = \frac{\sigma^2}{1 - \lambda^2}$, where $\sigma^2$ is the innovation variance and $\lambda$ is the autoregressive coefficient.
 
 ---
 
 ## Card 23
 
-**Q:** Term: Stationarity (Strong)
+**Q:** What identifies an ARMA(p,q) model?
 
-**A:** Definition: A property where the joint distribution of all values in a time series is invariant under time translation. Example: A process where the probability of seeing a specific sequence of values is the same today as it is next year.
+**A:** It combines $p$ autoregressive (lagged dependent variable) terms and $q$ moving average (lagged innovation) terms.
 
 ---
 
 ## Card 24
 
-**Q:** Term: Weak Stationarity
+**Q:** Pitfall: The 'Static Process' Misconception
 
-**A:** Definition: A property where the first and second moments (means and covariances) of a process are invariant over time. Example: A process where $E[R_t]$ and $Var(R_t)$ are constants that do not depend on $t$.
+**A:** Stationarity does not mean a process is static or unchanging; it means the underlying probability laws governing its evolution are time-invariant.
 
 ---
 
 ## Card 25
 
-**Q:** What is the key insight behind solving for the mean of an AR(1) process?
+**Q:** Formula for logarithmic returns ($r_t$)
 
-**A:** The key insight is assuming stationarity, which allows setting $E[R_t] = E[R_{t-1}]$ to solve the recursive expectation equation.
+**A:** $r_t = \log(P_t / P_{t-1})$, where $P_t$ is the asset price at time $t$.
 
 ---
 
 ## Card 26
 
-**Q:** Formula: Unconditional mean of an AR(1) process
+**Q:** Why are asset prices often modelled as log-normal variables?
 
-**A:** $E[R_t] = \frac{c_0}{1 - c_1}$, where $c_0$ is the constant intercept and $c_1$ is the autoregressive coefficient.
+**A:** This assumption implies that continuously compounded returns are normally distributed, ensuring that prices remain non-negative.
 
 ---
 
 ## Card 27
 
-**Q:** Formula: Mean reversion form of an AR(1) model
+**Q:** What is the distribution of the sum of log returns $r(T)$ over $T$ periods in a log-normal model?
 
-**A:** $R_t - \mu = -\lambda(R_{t-1} - \mu) + \sigma z_t$, where $\mu$ is the mean and $\lambda$ is the mean-reversion coefficient (equal to $-c_1$).
+**A:** $r(T) \sim \mathcal{N}(T\mu, T\sigma^2)$, assuming individual returns are IID normal.
 
 ---
 
 ## Card 28
 
-**Q:** In the mean-reverting AR(1) model, what is the effect of a positive coefficient $\lambda$?
+**Q:** Formula for the price of an asset $P_T$ in terms of log returns
 
-**A:** An excess value in one period leads to a change in the opposite direction (toward the mean) in the following period.
+**A:** $P_T = P_0 \exp(r_1 + r_2 + \dots + r_T)$, where $P_0$ is the initial price.
 
 ---
 
 ## Card 29
 
-**Q:** Formula: Variance ($\gamma_0$) of a stationary AR(1) process
+**Q:** Formula for the expected simple return $E[R]$ of a log-normal process
 
-**A:** $\gamma_0 = \frac{\sigma^2}{1 - \lambda^2}$, where $\sigma^2$ is the innovation variance and $\lambda$ is the mean-reversion coefficient.
+**A:** $E[R] = e^{\mu + \sigma^2/2} - 1$, where $\mu$ and $\sigma^2$ are the mean and variance of the log returns.
 
 ---
 
 ## Card 30
 
-**Q:** Term: Lag-$k$ Autocovariance
+**Q:** Formula for the variance of the simple return $Var(R)$ in a log-normal model
 
-**A:** Definition: The covariance between observations in a time series taken $k$ periods apart. Example: $\gamma_k = E[(R_t - \mu)(R_{t-k} - \mu)]$.
+**A:** $Var(R) = e^{2\mu + \sigma^2}(e^{\sigma^2} - 1)$, where $\mu$ and $\sigma$ are parameters of the underlying normal distribution.
 
 ---
 
 ## Card 31
 
-**Q:** Formula: Lag-$k$ autocovariance for a stationary AR(1) process
+**Q:** What is the first step in simulating a log-normal price process?
 
-**A:** $\gamma_k = (-\lambda)^k \gamma_0 = \frac{(-\lambda)^k}{1 - \lambda^2} \sigma^2$, where $\lambda$ is the mean-reversion coefficient and $\sigma^2$ is the innovation variance.
+**A:** Determine the parameters (mean and volatility) for the underlying normal distribution of returns.
 
 ---
 
 ## Card 32
 
-**Q:** How do unconditional expectations differ from conditional expectations in time series modelling?
+**Q:** How must annualized parameters be adjusted for a sampling interval $dt$?
 
-**A:** Unconditional expectations are taken with respect to all future values, while conditional expectations treat past observations as known fixed values.
+**A:** Drift is scaled by $dt$ and volatility is scaled by $\sqrt{dt}$ to reflect the specific time step.
 
 ---
 
 ## Card 33
 
-**Q:** Term: Monte Carlo Simulation
+**Q:** Term: Monte Carlo Method
 
-**A:** Definition: The use of random number generators to simulate many hypothetical realisations of a stochastic process to approximate statistical results. Example: Simulating 10,000 different price paths for a stock to estimate the probability of it hitting a certain level.
+**A:** Definition: A computational technique using random number generators to simulate data following a specific model or distribution. Example: Simulating 10,000 possible price paths for a stock to estimate option value.
 
 ---
 
 ## Card 34
 
-**Q:** Why is Monte Carlo simulation described as a 'test lab' for financial analytics?
+**Q:** What serves as the 'best case' setting for testing financial theory in Monte Carlo simulations?
 
-**A:** It provides a 'best case' dataset from a known distribution, allowing for the testing of algorithms and theory where the 'true' process is controlled.
+**A:** Simulations provide an environment where the true data-generating process is known and results can be repeated.
 
 ---
 
 ## Card 35
 
-**Q:** What is a major limitation of Monte Carlo results compared to closed-form solutions?
+**Q:** What is a major limitation of Monte Carlo simulations compared to closed-form analytics?
 
-**A:** Monte Carlo results are statistical approximations subject to sampling error and machine limitations.
+**A:** Results are subject to sampling error and machine limitations rather than being exact solutions.
 
 ---
 
 ## Card 36
 
-**Q:** Term: Log-return
+**Q:** How is a random walk represented in log-price space?
 
-**A:** Definition: The natural logarithm of the ratio of a price to its previous price, representing continuously compounded returns. Example: $r_t = \log(P_t / P_{t-1})$.
+**A:** $X_t = X_{t-1} + r_t$, where $X_t \equiv \log(P_t/P_0)$ and $r_t$ are the log returns.
 
 ---
 
@@ -292,7 +292,7 @@
 
 **Q:** Term: RW1 (IID Random Walk)
 
-**A:** Definition: A random walk where increments are independent and identically distributed. Example: A process where every daily return follows the exact same $N(\mu, \sigma^2)$ distribution independently.
+**A:** Definition: The strictest form of random walk where increments are both independent and identically distributed. Example: A process where each step is drawn from the same $\mathcal{N}(0, 1)$ distribution.
 
 ---
 
@@ -300,7 +300,7 @@
 
 **Q:** Term: RW2 (INID Random Walk)
 
-**A:** Definition: A random walk with independent but non-identically distributed increments. Example: A stock model where returns are independent each day, but the volatility parameter changes daily.
+**A:** Definition: A random walk where increments are independent but not identically distributed. Example: A stock whose daily returns are independent but have differing daily volatility parameters.
 
 ---
 
@@ -308,174 +308,134 @@
 
 **Q:** Term: RW3 (Uncorrelated Random Walk)
 
-**A:** Definition: A random walk where innovations are dependent and non-identical, but the increments remain uncorrelated. Example: Volatility clustering where the squares of increments are correlated even if the increments themselves are not.
+**A:** Definition: A random walk where increments are uncorrelated but may have dependent higher-order moments. Example: Volatility clustering where the squares of increments are correlated over time.
 
 ---
 
 ## Card 40
 
-**Q:** Term: Variance Ratio Test
+**Q:** What does the variance ratio test by Lo & MacKinlay evaluate?
 
-**A:** Definition: A test by Lo & MacKinlay that analyses how variances scale as observation frequency changes to check for random walk behaviour. Example: Comparing the variance of weekly returns to five times the variance of daily returns.
+**A:** It analyses whether the variance of returns scales linearly with the observation frequency, as predicted by the random walk model.
 
 ---
 
 ## Card 41
 
-**Q:** What does the variance ratio test predict for a true random walk?
+**Q:** Pitfall: Assuming Linear Variance Scaling in all Models
 
-**A:** It predicts that the variance ratio should be one, as variances should scale linearly with time.
+**A:** Linear variance scaling is a specific property of the random walk; models with temporal dependence (like AR or MA) do not follow this rule.
 
 ---
 
 ## Card 42
 
-**Q:** How is the process $X_t = z \cos(\omega t) + z' \sin(\omega t)$ shown to be weakly stationary?
+**Q:** What is the primary implication of rejecting the random walk hypothesis for an asset?
 
-**A:** By showing its mean is zero, its variance is a constant ($1$), and its autocovariance depends only on the time difference $|t-s|$.
+**A:** It suggests that asset prices may have some level of predictability or causal influence from past values.
 
 ---
 
 ## Card 43
 
-**Q:** Formula: Autocovariance of the trigonometric process $X_t = z \cos(\omega t) + z' \sin(\omega t)$
+**Q:** Formula for the variance ratio $VR(q)$
 
-**A:** $E[X_t X_s] = \cos(\omega(t-s))$, which confirms the process is stationary as it depends only on the lag.
+**A:** $VR(q) = \frac{Var(r_t[q])}{q \cdot Var(r_t)}$, which should equal 1 if the process follows a random walk.
 
 ---
 
 ## Card 44
 
-**Q:** Pitfall: Assuming parameter stability
+**Q:** How does one calculate the variance of the sum of two independent variables $z$ and $z'$?
 
-**A:** A common mistake is assuming that parameters $\mu$ and $\sigma$ estimated in one period remain constant across all future periods, whereas historical data often shows significant variation.
+**A:** Using linearity and independence, $Var(z + z') = Var(z) + Var(z')$.
 
 ---
 
 ## Card 45
 
-**Q:** Pitfall: Volatility Clustering in RW1
+**Q:** What trig identity is used to prove the weak stationarity of $X_t = z \cos(\omega t) + z' \sin(\omega t)$?
 
-**A:** The RW1 model fails to capture 'volatility clustering' because it assumes innovations are identically distributed, ignoring that high-volatility days often follow high-volatility days.
+**A:** The identity $\cos^2(\theta) + \sin^2(\theta) = 1$ is used to show the variance is constant.
 
 ---
 
 ## Card 46
 
-**Q:** Pitfall: Log-normality assumption
+**Q:** In the process $X_t = z \cos(\omega t) + z' \sin(\omega t)$, what is the autocovariance $E[X_t X_s]$?
 
-**A:** Standard random walk models for stock prices often assume returns are drawn from a log-normal distribution, which may fail to account for 'fat tails' or extreme market events seen in reality.
+**A:** $E[X_t X_s] = \cos(\omega(t-s))$, which depends only on the time difference $t-s$.
 
 ---
 
 ## Card 47
 
-**Q:** In the process $X_t = z_t + \theta z_{t-2}$, what is the autocovariance $\gamma_k$ for a lag of $k = 2$?
+**Q:** What is the significance of $t-s$ appearing alone in an autocovariance function?
 
-**A:** $\gamma_2 = \theta$, derived from $E[(z_t + \theta z_{t-2})(z_{t-2} + \theta z_{t-4})]$, where only the $E[\theta z_{t-2}^2]$ term is non-zero.
+**A:** It confirms that the process is weakly stationary as the covariance is invariant under time translation.
 
 ---
 
 ## Card 48
 
-**Q:** What is the expected value of the increment $z_t$ in relation to a semi-infinite sum of past increments $Y_{t-1}$?
+**Q:** Pitfall: Confusing Independence and Uncorrelatedness
 
-**A:** The expectation $E[z_t Y_{t-1}]$ is $0$ because the current increment is independent of all previous increments in the sum.
+**A:** Two variables can be uncorrelated ($E[z_t z_s] = 0$) while still being dependent (e.g., $E[z_t^2 z_s^2] \ne 0$), as seen in RW3 models.
 
 ---
 
 ## Card 49
 
-**Q:** If we define $R_t = \sigma z_t + \mu$, what is the variance of $r_t - \mu$?
+**Q:** What is the key insight behind 'causal influence' in time series?
 
-**A:** $E[(r_t - \mu)^2] = \sigma^2$, which represents the variance of the innovation scaled by $\sigma$.
+**A:** The present state of the system is influenced by its specific historical path rather than just being a random draw from a fixed distribution.
 
 ---
 
 ## Card 50
 
-**Q:** What is the key insight behind 'Universality' in random walk models?
+**Q:** How is a multi-period return $r(T)$ constructed from single-period returns $r_t$?
 
-**A:** The essential features of the walk, such as variance scaling, are independent of many of the specific details of the individual steps.
+**A:** It is the simple summation of the individual single-period log returns: $r(T) = \sum_{t=1}^T r_t$.
 
 ---
 
 ## Card 51
 
-**Q:** Term: Ensemble
+**Q:** Formula for the autocovariance of an MA(1) process
 
-**A:** Definition: A collection of a large number of hypothetical realisations of a stochastic process used in Monte Carlo methods. Example: Generating 5,000 potential future paths for an interest rate index.
+**A:** $\gamma_1 = \sigma^2 \phi$ for lag 1, and $\gamma_k = 0$ for all $k > 1$.
 
 ---
 
 ## Card 52
 
-**Q:** Formula: Expected value of the trigonometric process $X_t = z \cos(\omega t) + z' \sin(\omega t)$
+**Q:** What is the effect of a positive $\phi$ in an MA(1) return model?
 
-**A:** $E[X_t] = 0$, given that the random variables $z$ and $z'$ are independent with zero mean.
+**A:** It creates a positive correlation between the current return and the previous period's innovation.
 
 ---
 
 ## Card 53
 
-**Q:** Formula: Variance of the trigonometric process $X_t = z \cos(\omega t) + z' \sin(\omega t)$
+**Q:** What does the term 'Time-Invariant' mean in the context of stationarity?
 
-**A:** $Var(X_t) = \cos^2(\omega t) + \sin^2(\omega t) = 1$, using the Pythagorean trigonometric identity.
+**A:** It means that the statistical properties of the process do not depend on the absolute time at which the process is observed.
 
 ---
 
 ## Card 54
 
-**Q:** How is the autocovariance of a stationary process denoted?
+**Q:** How is 'Volatility Clustering' modelled in an RW3 framework?
 
-**A:** It is denoted as $\gamma_k$, where $k$ represents the lag (the number of time steps between observations).
+**A:** It is modelled by assuming that the magnitudes of shocks (squared increments) are correlated, even if the directions are not.
 
 ---
 
 ## Card 55
 
-**Q:** What happens to the precision of a Monte Carlo simulation as the sample size increases?
+**Q:** In an AR(1) model for mean reversion, what does the coefficient $-\lambda$ represent?
 
-**A:** The precision increases, as the statistical approximations converge toward the exact results.
-
----
-
-## Card 56
-
-**Q:** In an AR(1) model, what condition on the parameter $\lambda$ (or $c_1$) is required for stationarity?
-
-**A:** The absolute value must be less than one ($|\lambda| < 1$ or $|c_1| < 1$).
-
----
-
-## Card 57
-
-**Q:** What does rejecting the random walk model imply about asset prices?
-
-**A:** It opens the possibility that asset prices may be predictable or that a more complex model is required to describe market efficiency.
-
----
-
-## Card 58
-
-**Q:** Why can Monte Carlo methods provide results even when closed-form analytics do not exist?
-
-**A:** Because they rely on numerical simulation of the process rather than the derivation of a precise mathematical formula.
-
----
-
-## Card 59
-
-**Q:** Term: Lag-k Autocovariance Coefficient
-
-**A:** Definition: A value that relates the influence of an excess return value at one point in time with values $k$ periods in the past. Example: $\gamma_k$ in an AR(1) process showing how past shocks decay over time.
-
----
-
-## Card 60
-
-**Q:** If $X_t = X_{t-1} + r_t$, and $r_t$ is IID, what is $Var(X_t | X_0)$?
-
-**A:** $Var(X_t | X_0) = \sigma^2 t$, assuming $r_t \sim IID(0, \sigma^2)$.
+**A:** It represents the speed at which the process pulls back toward its long-run mean $\mu$.
 
 ---

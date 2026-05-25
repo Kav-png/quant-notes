@@ -1,0 +1,48 @@
+{
+  "id": "d7f86c6d59334d4e8566970f41bdb291",
+  "track": "mitx",
+  "slug": "m02",
+  "name": "",
+  "created_at": "2026-05-25T00:32:52.004802+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "medium",
+  "suggested_minutes": 64,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Consider a discrete-time weakly stationary AR(1) process used to model mean reversion, defined by \\( R_t - \\mu = -\\lambda(R_{t-1} - \\mu) + \\sigma z_t \\), where \\( z_t \\sim \\text{IID}(0, 1) \\) and \\( |\\lambda| < 1 \\). By applying the properties of weak stationarity, derive the unconditional variance \\( \\gamma_0 = \\text{Var}(R_t) \\) and the lag-\\( k \\) autocovariance \\( \\gamma_k = \\mathbb{E}[(R_t - \\mu)(R_{t-k} - \\mu)] \\) for \\( k > 0 \\).",
+      "marks": 8,
+      "suggested_minutes": 12
+    },
+    {
+      "id": 2,
+      "text": "Let \\( Y_t = \\frac{R_t - \\mu}{\\sigma} \\), where \\( R_t \\) follows the AR(1) process \\( R_t - \\mu = -\\lambda(R_{t-1} - \\mu) + \\sigma z_t \\) with \\( z_t \\sim \\text{IID}(0, 1) \\) and \\( |\\lambda| < 1 \\). Using recursive substitution, prove that \\( Y_t \\) can be expressed as an infinite-order Moving Average (MA) process. Use this representation to formally show that \\( \\mathbb{E}[z_s Y_t] = 0 \\) for any \\( t < s \\), demonstrating the causal ordering of the innovations.",
+      "marks": 8,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 3,
+      "text": "Assume an asset price \\( P_t \\) follows a discrete-time lognormal process where the continuously compounded returns \\( r_t = \\log(P_t/P_{t-1}) \\) are independent and identically distributed as \\( \\mathcal{N}(\\mu, \\sigma^2) \\). Let the simple return over \\( T \\) periods be defined as \\( R = \\frac{P_T}{P_0} - 1 \\). Given that the moment generating function for a normal variable \\( X \\sim \\mathcal{N}(m, s^2) \\) is \\( \\mathbb{E}[e^X] = e^{m + s^2/2} \\), derive the exact formulas for the expected value \\( \\mathbb{E}[R] \\) and the variance \\( \\text{Var}(R) \\) in terms of \\( \\mu \\), \\( \\sigma^2 \\), and \\( T \\).",
+      "marks": 10,
+      "suggested_minutes": 15
+    },
+    {
+      "id": 4,
+      "text": "Define a stochastic process by \\( X_t = z_t + \\theta z_{t-2} \\), where \\( z_t \\) are independent, normalized random variables with mean 0 and variance 1. Let a new random variable \\( A \\) be defined as the equally weighted average of the next four consecutive observations: \\[ A = \\frac{1}{4}(X_1 + X_2 + X_3 + X_4) \\] Derive the analytical variance of \\( A \\) in terms of the parameter \\( \\theta \\).",
+      "marks": 8,
+      "suggested_minutes": 12
+    },
+    {
+      "id": 5,
+      "text": "Let \\( r_t \\) be a weakly stationary sequence of 1-period logarithmic returns with mean \\( \\mu \\) and variance \\( \\sigma^2 \\). Define the \\( q \\)-period aggregated return as \\( r_t^{(q)} = \\sum_{i=1}^q r_{t-i+1} \\). If the returns \\( r_t \\) follow a generalized random walk such that \\( r_t = \\mu + \\sigma z_t \\) with \\( z_t \\sim \\text{IID}(0, 1) \\), prove that the variance ratio \\( \\frac{\\text{Var}(r_t^{(q)})}{q \\text{Var}(r_t)} \\) is exactly equal to 1. Then, demonstrate analytically how this ratio would deviate from 1 if the returns instead followed an MA(1) process \\( r_t = \\mu + \\sigma z_t + \\phi z_{t-1} \\).",
+      "marks": 10,
+      "suggested_minutes": 15
+    }
+  ],
+  "mark_scheme": null
+}

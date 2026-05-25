@@ -21,8 +21,11 @@
       "confidence": null
     },
     "2": {
-      "status": "not_started",
-      "topics": {},
+      "status": "in_progress",
+      "topics": {
+        "Random walk": true,
+        "Time series intro": true
+      },
       "confidence": null
     },
     "3": {
