@@ -1,0 +1,1722 @@
+{
+  "conversation_id": "fbabbcd3-b4f3-49a7-9573-ebbf4c18fff6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "can you explain solving multivariate time sereies the video has the walkthrough on it",
+      "ts": "2026-05-29T14:30:09.745537+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "To solve a multivariate time series where multiple variables jointly influence each other, we use linear algebra to \"decouple\" the equations into independent, single-variable models [1, 2]. \n\nIn the recitation video, the professor uses the following two-variable system as an example:\n\\[x_t = \\lambda y_{t-1} + \\sigma z_t\\]\n\\[y_t = \\lambda x_{t-1} + \\sigma w_t\\]\nIn this system, \\(x\\) and \\(y\\) cross over and influence each other's futures, while \\(z_t\\) and \\(w_t\\) represent independent noise terms [3-5]. \n\nHere is the rigorous 4-step method to solve this kind of system:\n\n**1. Rewrite as a Vector Equation**\nGroup the variables into a vector \\(\\xi_t\\) and the independent noise terms into a vector \\(\\eta_t\\) [6, 7]. This allows you to rewrite the system as \\(\\xi_t = M \\xi_{t-1} + \\sigma \\eta_t\\) [7, 8]. For the example above, the coefficient matrix \\(M\\) is:\n\\[M = \\begin{bmatrix} 0 & \\lambda \\\\ \\lambda & 0 \\end{bmatrix}\\] [7, 9].\n\n**2. Diagonalize the Matrix**\nNext, find the eigenvalues and eigenvectors of \\(M\\) to express it as an eigenvalue decomposition: \\(M = V \\Gamma V^{-1}\\) [10, 11]. Here, \\(V\\) is the matrix of orthogonal eigenvectors and \\(\\Gamma\\) is the diagonal matrix of eigenvalues [10-12]. For our specific matrix \\(M\\), the eigenvalues are \\(\\lambda\\) and \\(-\\lambda\\) [10, 13].\n\n**3. Decouple the Equations**\nSubstitute the decomposed matrix back into your equation and multiply everything by \\(V^{-1}\\) [8, 14]. By defining a new set of transformed variables as \\(\\xi'_t = V^{-1} \\xi_t\\), the system simplifies into entirely uncoupled equations [14, 15]. The new equations for the first and second components look like this:\n\\[\\xi'_{1,t} = \\lambda \\xi'_{1,t-1} + \\sigma \\eta'_{1,t}\\]\n\\[\\xi'_{2,t} = -\\lambda \\xi'_{2,t-1} + \\sigma \\eta'_{2,t}\\] [15, 16].\n\n**4. Solve and Transform Back**\nYou now have two independent univariate autoregressive models [17, 18]. You can solve these independent equations using standard 1D time series techniques, and then multiply your results by \\(V\\) to \"reshuffle\" the combinations back into your original variables, \\(x_t\\) and \\(y_t\\) [17, 19]. \n\nDoes this matrix decomposition approach make sense, or would you like to explore how this applies to factor models where the matrices might not be full rank?",
+      "ts": "2026-05-29T14:30:09.745537+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 72,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 73,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 74,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 75,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 76,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 77,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 78,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 79,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 80,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 81,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 82,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 83,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 84,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 85,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 86,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 87,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 88,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 89,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 90,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 91,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 92,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 93,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 94,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 95,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 96,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 97,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 98,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 99,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 100,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 101,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 102,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 103,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 104,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 105,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 106,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 107,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 108,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 109,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 110,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 111,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 112,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 113,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 114,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 115,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 116,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 117,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 118,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 119,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 120,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 121,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 122,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 123,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 124,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 125,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 126,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 127,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 128,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 129,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 130,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 131,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 132,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 133,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 134,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 135,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 136,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 137,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 138,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 139,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 140,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 141,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 142,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 143,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 144,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 145,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 146,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 147,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 148,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 149,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 150,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 151,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 152,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 153,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 154,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 155,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 156,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 157,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 158,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 159,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 160,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 161,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 162,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 163,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 164,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 165,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 166,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 167,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 168,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 169,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 170,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 171,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 172,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 173,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 174,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 175,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 176,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 177,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 178,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 179,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 180,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 181,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 182,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 183,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 184,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 185,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 186,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 187,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 188,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 189,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 190,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 191,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 192,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 193,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 194,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 195,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 196,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 197,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 198,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 199,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 200,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 201,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 202,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 203,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 204,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 205,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 206,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 207,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 208,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 209,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 210,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 211,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 212,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 213,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 214,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 215,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 216,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 217,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 218,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 219,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 220,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 221,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 222,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 223,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 224,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 225,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 226,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 227,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 228,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 229,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 230,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 231,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 232,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 233,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 234,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 235,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 236,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 237,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 238,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 239,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 240,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 241,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 242,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 243,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 244,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 245,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 246,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 247,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 248,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 249,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 250,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 251,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 252,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 253,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 254,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 255,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 256,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 257,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 258,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 259,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 260,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 261,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 262,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 263,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 264,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 265,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 266,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 267,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 268,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 269,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 270,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 271,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 272,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 273,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 274,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 275,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 276,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 277,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 278,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 279,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 280,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 281,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 282,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 283,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 284,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 285,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 286,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 287,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 288,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 289,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 290,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 291,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 292,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 293,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 294,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 295,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 296,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 297,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 298,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 299,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 300,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 301,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 302,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 303,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 304,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 305,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 306,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 307,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 308,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 309,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 310,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 311,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 312,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 313,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 314,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 315,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 316,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 317,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 318,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 319,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 320,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 321,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 322,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 323,
+          "cited_text": "But what's really going on in the dynamics? What's really going on is these equations say that X and Y are jointly influenced by their past histories. Whatever happened in the past in X influences Y. Whatever happened in the past of Y influences X and of course then they cross over and the next time step they go back and forth. So what it's saying is these two variables are really jointly working together and they're processing information together as they go forward in time. So that's fine. And the Z's and the W's are independent. They're just noise terms that show up new in each period of time. time. But what often happens when we have linear equations like this, whether they're linear time series models like this one, whether they're linear differential equations, whether they're um statistics for joint distributions of uh random variables in certain cases like jointly normal distributions.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 324,
+          "cited_text": "whether they're statistics for joint distributions",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 325,
+          "cited_text": "But the the other category is when there are um symmetries or there are multiple variables that come in on an equal footing and in that there are some ways that we can reframe the equations that not only help us solve it. The numbers we get will be the same as with any other valid technique, but they give us a little bit of insight as to what's going on. So, let me just remind you for the structure. I think we've got a problem here from uh from this week. Let me just grab that and uh let's expand it a bit, shall we? So, we have two equations. We've got xt is lambda y. Whoops, I'm sorry. We should have t minus one. - one and this should be min -1. So we've got xt is lambda * y tus1 plus sigma z and then we have the same thing basically with x and y reversed and we've given z and w they're all independent of each other but we've given them different letters. So we have x is related to a past y is related to a past x and certainly we could substitute that and look at it recursively.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 326,
+          "cited_text": "with x and y reversed.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 327,
+          "cited_text": "And, of course, then they cross over in the next time step,",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 328,
+          "cited_text": "in terms of the old variable.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 329,
+          "cited_text": "And let's put them in a vector that we're going to call eta t.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 330,
+          "cited_text": "gamma v minus 1.",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 331,
+          "cited_text": "And I will um sometimes put arrows, but often I'll drop my arrows. So, I hope that's one reason why I went to pick different letters that from the context it's clear which are vectors. Um, and let's combine our noise terms uh zt and wt and let's put them in a vector that we're going to call a to t. So um in terms of these what is our equation look like? Well our the structure of our equation is going to be such that we have ct the vector is going to be some matrix m * c t minus one plus sigma * a t. And what is the matrix M? Well, in this particular example, M is going to be a 2x2 matrix which has the form 0 lambda lambda 0. So when the matrix M um when this matrix M here acts on this vector, you can see that it interchanges the X and Y. It gives lambda x uh lambda excuse me x goes down y goes up and uh then we have our basic equation. So this gives us here this gives us the right hand side of our original equation.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 332,
+          "cited_text": "So let's let me just remind you of what those features are. So in general we can diagonalize a matrix we can uh diagonalize M right writing it in the form of V and normally I would call it lambda but I've already used lambda so let me call it gamma for our matrix of igen values v minus one so v is a uh matrix whose columns are igen vectors and gamma is a diagonal matrix of igen values. Now take a moment just look at the matrix M for a moment that we have right here and see if you can figure out what the IGEN values and IGEN vectors are and then I'll write them down and we can compare notes. So pause the video here, go take a look and then come back. So the IGEN vectors are are 1 one and 1 minus one and they have igen values lambda and minus lambda respectively. So to formalize that what we do is we put them into a matrix and we will um uh normalize because they're orthogonal we will normalize them with a uklidian metric.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 333,
+          "cited_text": "We could take it and reduce it to that same number",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 334,
+          "cited_text": "So diagonalize we can do in general",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 335,
+          "cited_text": "and see if you can figure out what the eigenvalues",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 336,
+          "cited_text": "Well, let's just substitute it into our equation. So um well, so here's our equation and what we're going to do is we're going to write this m we're going to substitute this igen value decomposition v gamma v minus one. So let's do that and we will write that ct vector is going to be v gamma v minus one * c t minus one plus sigma a t. And now let's multiply the equation through by v minus one. So we write v inverse ct on the left and that's going to be equal to V inverse * V is just the identity matrix. So this is going to be gamma which is a diagonal matrix times V -1 C T minus one plus sigma * V inverse time ADA of T So what we this is actually all we need. So now we're basically done. So we have two equations. Um the first and second components of this thing. Let's call let's give it a name. We can if we define now I will use a prime. Let's call it C T prime to be V inverse time Ct. Then we have two equations.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 337,
+          "cited_text": "So we have two equations--",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 338,
+          "cited_text": "We have the first component is going to be C prime 1 T is going to be lambda time uh C prime 1 at T minus one plus sigma times ADA prime one the first component and our second component is going to be C2 prime at time T is going to be minus lambda C2 at time T minus one plus sigma * A 2. So if you take the equations for V and you solve it and you plug it in, you can find that you can decouple these equations or other ones and you can solve them that way. way. So this is a more general approach. Now uh just so a recap and one further comment. So the first thing is that what we did is we looked for a way when the variables enter in such a way that the dynamics the multiple equations what they're really doing is they're all the same kind of equation. They all have the same general structure. In this case this vector auto reggressive model is component by component. Each line um is a AR type model and the multiple equations just reshuffle the variables.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 339,
+          "cited_text": "So when we have this linear structure one of the things that we might look for is is there a way to reduce n coupled equations down to n independent univaried equations with only one variable where that variable is a well-chosen linear combination of the starting variables and then we are down to a problem that we've already solved. We solve it and then we transform the variables back. Now this case is particularly easy and I don't want to give away the answer. Um you can do it either by inspection and playing with it or by taking a look but let me show you the general way that we can analyze this. So the first step is we'll define vector variables in terms of the old variables and then at the end we'll we'll invert will turn the Mac or you will. I'll just show you the general structure here today. So, let's take a vector XT YT and let's give it a new name. Instead of primes or other things, let me try some Greek letters. Um, let's just call it C subt.",
+          "source_id": "58508815-768a-4dcf-8518-0d5df9b518f3"
+        },
+        {
+          "citation_number": 340,
+          "cited_text": "down to N independent univariate equations",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        },
+        {
+          "citation_number": 341,
+          "cited_text": "In this case, this vector autoregressive model",
+          "source_id": "76a15f4f-89ce-4ea6-a7a2-17b73b4422eb"
+        }
+      ]
+    }
+  ]
+}

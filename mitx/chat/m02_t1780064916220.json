@@ -1,0 +1,372 @@
+{
+  "conversation_id": "c83825d5-a46a-452e-8db9-2bd6ddfd0c41",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain the core intuition in plain English",
+      "ts": "2026-05-29T14:29:28.532839+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "A discrete-time stochastic process is essentially a sequence of random variables measured at specific, equally spaced steps in time\u2014such as recording a stock price at the close of every trading day [1, 2]. \n\nThe core intuition is that the value of the process at the current time, \\(S_t\\), is constructed by taking a past state and adding a brand new random \"shock\" or \"innovation\" [2-4]. \n\nIn the simplest baseline model, the **Random Walk**, every new step is completely independent of the past [5]. However, in quantitative finance, we use these basic building blocks to create more complex models\u2014like Autoregressive \\(AR\\) or Moving Average \\(MA\\) models\u2014to capture how past prices or past shocks ripple forward to influence future outcomes [6, 7]. This allows us to mathematically model real-world market behaviors like trend (drift), volatility, and mean reversion [8, 9].\n\nWhere would you like to start? We can break down the math for the basic Random Walk model first, or we can look directly at how it is generalized to model asset price returns.",
+      "ts": "2026-05-29T14:29:28.532839+00:00",
+      "references": [
+        {
+          "citation_number": 1,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 2,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 3,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 4,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 5,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 6,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 7,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 8,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 9,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 10,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 11,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 12,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 13,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 14,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 15,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 16,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 17,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 18,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 19,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 20,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 21,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 22,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 23,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 24,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 25,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 26,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 27,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 28,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 29,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 30,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 31,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 32,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 33,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 34,
+          "cited_text": "E[zt] = 0",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 35,
+          "cited_text": "Rt = c0 + c1Rt\u00001 + \u0000zt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 36,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 37,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 38,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 39,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 40,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 41,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 42,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 43,
+          "cited_text": "E[zt] = 0",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 44,
+          "cited_text": "Rt = c0 + c1Rt\u00001 + \u0000zt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 45,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 46,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 47,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 48,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 49,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 50,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 51,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 52,
+          "cited_text": "E[zt] = 0",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 53,
+          "cited_text": "Rt = c0 + c1Rt\u00001 + \u0000zt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 54,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 55,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 56,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 57,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 58,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 59,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 60,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 61,
+          "cited_text": "E[zt] = 0",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 62,
+          "cited_text": "Rt = c0 + c1Rt\u00001 + \u0000zt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 63,
+          "cited_text": null,
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 64,
+          "cited_text": "= x0 + x1 + x2 + \u00b7 \u00b7 \u00b7+ xt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 65,
+          "cited_text": "a constant, times a random variable.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 66,
+          "cited_text": "So we have that basic linear structure,",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 67,
+          "cited_text": "I1 + I2 + I3 + \u00b7 \u00b7 \u00b7",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 68,
+          "cited_text": "or randomness.",
+          "source_id": "4dc46f79-2718-44ea-8ed4-56b3e37416d9"
+        },
+        {
+          "citation_number": 69,
+          "cited_text": "14",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 70,
+          "cited_text": "E[zt] = 0",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        },
+        {
+          "citation_number": 71,
+          "cited_text": "Rt = c0 + c1Rt\u00001 + \u0000zt",
+          "source_id": "61cfffa6-9cb6-4dac-8a0d-6a50e19a5ac6"
+        }
+      ]
+    }
+  ]
+}

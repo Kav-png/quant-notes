@@ -21,10 +21,11 @@
       "confidence": null
     },
     "2": {
-      "status": "in_progress",
+      "status": "completed",
       "topics": {
         "Random walk": true,
-        "Time series intro": true
+        "Time series intro": true,
+        "Monte Carlo methods": true
       },
       "confidence": null
     },

@@ -202,5 +202,83 @@
     "module": "",
     "duration_mins": 25,
     "date": "2026-05-25"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 50,
+    "date": "2026-05-25"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-25"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-25"
+  },
+  {
+    "track": "optiver",
+    "module": "80in8",
+    "duration_mins": 16,
+    "date": "2026-05-26"
+  },
+  {
+    "track": "mitx",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-26"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-27"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-28"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-29"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-30"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-30"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-05-31"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 50,
+    "date": "2026-05-31"
+  },
+  {
+    "track": "",
+    "module": "",
+    "duration_mins": 25,
+    "date": "2026-06-01"
   }
 ]

@@ -79,6 +79,10 @@ notebooks:
       notebook_id: ''
       label: M09 — Optimal Decision Making
       source_globs: []
+    linear-algebra-prereqs:
+      notebook_id: a7d3e858-49d3-44d4-9a39-a7e3369d208f
+    coupled-processes-solutions:
+      notebook_id: 557a6dd8-6875-4264-9f3f-5d9aecce773c
   quant:
     quant:
       notebook_id: 961e6f43-699c-4bca-8d1f-4498021bb664

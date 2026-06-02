@@ -49,27 +49,43 @@
       "id": "adda6e70-b30a-4131-b45f-1c1a6df77b23",
       "title": "Problem Set 2 MITx",
       "done": false,
-      "priority": 4,
-      "due_date": "2026-05-25",
+      "priority": 2,
+      "due_date": "2026-05-31",
       "scheduled_time": null,
-      "linked_event_id": "33738f85-69d5-4990-be19-ad0c9d0d1e64",
+      "linked_event_id": "fab89745-de02-449b-a6e3-1aa519d9cf8d",
       "section_id": "inbox",
       "labels": [
         "mitx"
       ],
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "cc4a2d2c-08aa-46fb-a367-20a2378c8563",
+          "label": "Question 2",
+          "done": false
+        },
+        {
+          "id": "4ccaf2b0-2ef9-4f9c-a77d-38fc5b2e3f90",
+          "label": "Question 3",
+          "done": false
+        },
+        {
+          "id": "461d2945-39f1-4c6d-a012-d887219285ae",
+          "label": "Question 4",
+          "done": false
+        }
+      ],
       "created_at": "2026-05-23T14:26:00.071962",
       "order": 1,
-      "color": null
+      "color": "#f59e0b"
     },
     {
       "id": "451c3156-7af6-40a4-9422-3530bb4f5e63",
       "title": "Lectures Module 2 MITx",
-      "done": false,
+      "done": true,
       "priority": 3,
       "due_date": "2026-05-25",
       "scheduled_time": null,
-      "linked_event_id": "f74ae656-f08b-48df-9e73-b02dd4d47bcb",
+      "linked_event_id": null,
       "section_id": "inbox",
       "labels": [
         "mitx"
@@ -88,22 +104,22 @@
         {
           "id": "1b0f5aba-28d3-4d89-9a94-8b0aa62c3f04",
           "label": "3.1 Introduction to Monte Carlo Simulation",
-          "done": false
+          "done": true
         },
         {
           "id": "719e7623-1e62-4c89-9b0d-3a217519a0bb",
           "label": "3.2 Simulating random walks",
-          "done": false
+          "done": true
         },
         {
           "id": "d24f9e9c-a743-4f28-b7bb-f71ff6813d55",
           "label": "3.3 Analytics of Monte Carlo price paths",
-          "done": false
+          "done": true
         },
         {
           "id": "62fad982-5120-480a-806d-d7a0c47e0e7e",
           "label": "3.4 Mean-reversion simulation and identification",
-          "done": false
+          "done": true
         }
       ],
       "created_at": "2026-05-24T14:41:56.640566",
@@ -114,10 +130,10 @@
       "id": "eb6a5267-5d90-4e8a-9466-a27677eef63a",
       "title": "Problem Set 3 MITx",
       "done": false,
-      "priority": 4,
-      "due_date": "2026-05-31",
+      "priority": 2,
+      "due_date": "2026-06-02",
       "scheduled_time": null,
-      "linked_event_id": null,
+      "linked_event_id": "d6f7952a-eb5f-4d99-8ae3-e7860f385bee",
       "section_id": "inbox",
       "labels": [
         "mitx"
@@ -228,6 +244,61 @@
       "created_at": "2026-05-24T14:44:04.481516",
       "order": 9,
       "color": null
+    },
+    {
+      "id": "b73f0fcd-f3eb-4cab-96a5-0843c72e56fc",
+      "title": "Recitation Lectures Module 2 MITx",
+      "done": true,
+      "priority": 1,
+      "due_date": "2026-05-25",
+      "scheduled_time": null,
+      "linked_event_id": "29d4fc23-74b2-4c10-a648-d976c11160c0",
+      "section_id": "inbox",
+      "labels": [
+        "mitx"
+      ],
+      "subtasks": [],
+      "color": "#f43f5e",
+      "created_at": "2026-05-25T16:45:28.857354",
+      "order": 10
+    },
+    {
+      "id": "45d786df-3e24-4dd1-b0ec-3cdacb8f9560",
+      "title": "Testing the Random Walk Module 2",
+      "done": true,
+      "priority": 4,
+      "due_date": "2026-05-28",
+      "scheduled_time": null,
+      "linked_event_id": "0f252507-dbb8-42dd-8060-3fa8e0ae87d7",
+      "section_id": "inbox",
+      "labels": [
+        "mitx"
+      ],
+      "subtasks": [
+        {
+          "id": "a9edbeb8-e933-4924-8016-96d9a784c1ac",
+          "label": "4.1",
+          "done": false
+        },
+        {
+          "id": "db192f4e-2ce7-478c-9016-0a3cc0f2fc4b",
+          "label": "4.2",
+          "done": false
+        },
+        {
+          "id": "4f25bdb6-9e9a-4799-990b-a047c54c8cd3",
+          "label": "4.3",
+          "done": false
+        },
+        {
+          "id": "ee970859-8012-44cb-a345-2bf2bad2bb7d",
+          "label": "4.4",
+          "done": false
+        }
+      ],
+      "color": null,
+      "created_at": "2026-05-27T18:11:44.025537",
+      "order": 11
     }
   ]
 }
