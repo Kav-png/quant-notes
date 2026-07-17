@@ -114,9 +114,10 @@ async def fetch_flashcards(
     chapter: str | None = None,
     track: str | None = None,
     args_slug: str | None = None,
+    source_ids: list[str] | None = None,
 ) -> None:
-    source_ids = [source_id] if source_id else None
-    scope = f"source {source_id[:8]}…" if source_id else "all sources"
+    source_ids = source_ids if source_ids else ([source_id] if source_id else None)
+    scope = f"{len(source_ids)} source(s)" if source_ids else "all sources"
     print(f"  Generating flashcards for {label} ({scope})...")
     if instructions:
         print(f"  Instructions: {instructions[:120]}...")
@@ -168,6 +169,7 @@ async def main(
     track: str | None,
     args_slug: str | None = None,
     notebook_id_override: str | None = None,
+    source_ids_override: list[str] | None = None,
 ) -> None:
     if notebook_id_override:
         notebook_id = notebook_id_override
@@ -207,7 +209,10 @@ async def main(
 
     async with await NotebookLMClient.from_storage() as client:
         if artifact_type in ("flashcards", "all"):
-            await fetch_flashcards(client, notebook_id, key, label, instructions, source_id, chapter, track, args_slug)
+            await fetch_flashcards(
+                client, notebook_id, key, label, instructions, source_id, chapter, track, args_slug,
+                source_ids=source_ids_override,
+            )
         if artifact_type in ("quiz", "all"):
             await fetch_quiz(client, notebook_id, key, label)
 
@@ -251,5 +256,17 @@ if __name__ == "__main__":
         dest="notebook_id",
         help="Use this notebook_id directly, bypassing config.yaml key lookup",
     )
+    parser.add_argument(
+        "--source-ids",
+        default=None,
+        dest="source_ids",
+        help="Comma-separated NLM source ids to scope generation to, overrides --track resolution",
+    )
     args = parser.parse_args()
-    asyncio.run(main(args.key, args.type, args.chapter, args.notes, args.track, args.slug, args.notebook_id))
+    source_ids_override = (
+        [s.strip() for s in args.source_ids.split(",") if s.strip()] if args.source_ids else None
+    )
+    asyncio.run(main(
+        args.key, args.type, args.chapter, args.notes, args.track, args.slug, args.notebook_id,
+        source_ids_override,
+    ))
