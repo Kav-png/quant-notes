@@ -1,0 +1,130 @@
+{
+  "id": "0cc1409933f341a291de216314cdf420",
+  "name": "",
+  "chapter_label": "",
+  "mind_map": {
+    "name": "MITx M1 \u2014 Probability & Distributions",
+    "children": [
+      {
+        "name": "Random Variables Basics",
+        "children": [
+          {
+            "name": "Discrete and Continuous Types",
+            "children": []
+          },
+          {
+            "name": "Probability Density Functions",
+            "children": []
+          },
+          {
+            "name": "Cumulative Distribution Function (CDF)",
+            "children": []
+          },
+          {
+            "name": "Change of Variables Formula",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Expectations and Moments",
+        "children": [
+          {
+            "name": "Mean and Expected Values",
+            "children": []
+          },
+          {
+            "name": "Variance and Standard Deviation",
+            "children": []
+          },
+          {
+            "name": "Skewness and Kurtosis",
+            "children": []
+          },
+          {
+            "name": "Covariance and Correlation",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Discrete Probability Distributions",
+        "children": [
+          {
+            "name": "Binomial Distribution",
+            "children": []
+          },
+          {
+            "name": "Poisson Distribution",
+            "children": []
+          },
+          {
+            "name": "Bernoulli Waiting Time",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Continuous Probability Distributions",
+        "children": [
+          {
+            "name": "Uniform Distribution",
+            "children": []
+          },
+          {
+            "name": "Normal (Gaussian) Distribution",
+            "children": []
+          },
+          {
+            "name": "Lognormal Distribution",
+            "children": []
+          },
+          {
+            "name": "Fat Tails and Cauchy Distribution",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Sums of Random Variables",
+        "children": [
+          {
+            "name": "Portfolio Returns and Risk",
+            "children": []
+          },
+          {
+            "name": "Sum Distribution Convolutions",
+            "children": []
+          },
+          {
+            "name": "Law of Large Numbers (LLN)",
+            "children": []
+          },
+          {
+            "name": "Central Limit Theorem (CLT)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Characteristic Functions and Cumulants",
+        "children": [
+          {
+            "name": "Fourier Transform of Density",
+            "children": []
+          },
+          {
+            "name": "Moment Generating Derivatives",
+            "children": []
+          },
+          {
+            "name": "Cumulant Expansion",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "sources": null,
+  "created_at": "2026-05-10T10:34:53.978981+00:00"
+}

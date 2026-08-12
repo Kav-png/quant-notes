@@ -1,0 +1,114 @@
+{
+  "id": "b5b7f3c937974c7b9335dfa736e41e21",
+  "name": "",
+  "chapter_label": "Wilmott \u2014 Ch 1 \u2014 Products and Markets",
+  "mind_map": {
+    "name": "Wilmott Chapter 1 Products and Markets",
+    "children": [
+      {
+        "name": "Equities and Market Indices",
+        "children": [
+          {
+            "name": "Equity Ownership and Capital Raising",
+            "children": []
+          },
+          {
+            "name": "Stock Splits and Dividend Effects",
+            "children": []
+          },
+          {
+            "name": "Weighted Basket Stock Indices",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Currencies and Commodity Markets",
+        "children": [
+          {
+            "name": "Exchange Rates and Consistent Pricing",
+            "children": []
+          },
+          {
+            "name": "Exchange and Interest Rate Link",
+            "children": []
+          },
+          {
+            "name": "Commodity Seasonality and Futures Speculation",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Time Value of Money",
+        "children": [
+          {
+            "name": "Continuous Compounding of Interest",
+            "children": []
+          },
+          {
+            "name": "Present Value and Discount Factors",
+            "children": []
+          },
+          {
+            "name": "Differential Equations for Bank Deposits",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Forwards and Futures Contracts",
+        "children": [
+          {
+            "name": "Forward Contracts Delivery Obligations",
+            "children": []
+          },
+          {
+            "name": "Daily Settlement of Futures Contracts",
+            "children": []
+          },
+          {
+            "name": "Speculative Positions and Risk Hedging",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "No-Arbitrage Pricing Models",
+        "children": [
+          {
+            "name": "Linear Spot-Forward Relationship Formula",
+            "children": []
+          },
+          {
+            "name": "Foreign Interest Rate FX Futures",
+            "children": []
+          },
+          {
+            "name": "Stock Index Continuous Dividend Yield",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Futures Market Operations",
+        "children": [
+          {
+            "name": "Daily Marking to Market Settlement",
+            "children": []
+          },
+          {
+            "name": "Initial and Maintenance Margin Accounts",
+            "children": []
+          },
+          {
+            "name": "Backwardation and Contango Market States",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-09T15:48:59.699972+00:00",
+  "sources": null
+}

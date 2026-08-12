@@ -48,7 +48,7 @@
     {
       "id": "adda6e70-b30a-4131-b45f-1c1a6df77b23",
       "title": "Problem Set 2 MITx",
-      "done": false,
+      "done": true,
       "priority": 2,
       "due_date": "2026-05-31",
       "scheduled_time": null,
@@ -299,6 +299,24 @@
       "color": null,
       "created_at": "2026-05-27T18:11:44.025537",
       "order": 11
+    },
+    {
+      "id": "d94c617f-e5ad-4e4e-b249-021f73873bfe",
+      "title": "Review MITx 6.86x Project 2 notes/flashcards (u2): mod-3 relabeling, PCA, cubic features, kernels",
+      "done": false,
+      "priority": 4,
+      "due_date": "2026-07-10",
+      "scheduled_time": null,
+      "linked_event_id": null,
+      "section_id": "inbox",
+      "labels": [
+        "mit-ml",
+        "study"
+      ],
+      "subtasks": [],
+      "created_at": "2026-07-08T13:05:25.940527",
+      "order": 13,
+      "color": null
     }
   ]
 }

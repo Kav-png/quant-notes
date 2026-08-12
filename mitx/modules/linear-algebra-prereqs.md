@@ -1,12 +1,8 @@
 ---
+tags: 
+topic: Linear Algebra Prerequisites for Multivariate Time Series
 difficulty: hard
 status: in-progress
-tags:
-- linear-algebra
-- prerequisites
-- eigenvectors
-- matrices
-topic: Linear Algebra Prerequisites for Multivariate Time Series
 ---
 # Linear Algebra Prerequisites for VAR Models
 

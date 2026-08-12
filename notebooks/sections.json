@@ -3,5 +3,20 @@
     "slug": "trading",
     "name": "Trading",
     "created_at": "2026-05-23T09:24:14.853401+00:00"
+  },
+  {
+    "slug": "ml",
+    "name": "ML",
+    "created_at": "2026-06-15T22:14:52.396908+00:00"
+  },
+  {
+    "slug": "event-notes",
+    "name": "Event Notes",
+    "created_at": "2026-07-08T19:09:52.929078+00:00"
+  },
+  {
+    "slug": "hackathon",
+    "name": "Hackathon",
+    "created_at": "2026-07-18T11:34:53.137420+00:00"
   }
 ]

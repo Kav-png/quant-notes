@@ -1,7 +1,10 @@
 ---
-due: 2026-04-23
+created: '2026-06-24T18:35:31Z'
+due: 2026-04-23T00:00:00Z
+modified: '2026-06-24T18:35:37Z'
 module: 1
 problem_set: 1
+slug: "mitx/modules/M01 \u2014 Probability"
 status: in-progress
 tags:
 - module/m1

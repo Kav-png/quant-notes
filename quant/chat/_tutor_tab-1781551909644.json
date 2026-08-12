@@ -1,0 +1,16 @@
+{
+  "conversation_id": null,
+  "messages": [
+    {
+      "role": "user",
+      "content": "what does orthognal mean",
+      "ts": "2026-06-15T19:32:09.870942+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "**Orthogonal** in the context of quantitative finance refers to a relationship where two vectors or variables are perpendicular to each other, meaning they form a right angle with one another. In linear algebra, this is confirmed by their dot product being equal to zero:\n\n\\[ \\mathbf{a} \\cdot \\mathbf{b} = 0 \\]\n\nThis property ensures that the vectors or variables are independent or uncorrelated, which is crucial in various applications like portfolio optimization, risk management, and data transformation where uncorrelatedness enhances efficiency and model stability.",
+      "ts": "2026-06-15T19:32:09.870942+00:00",
+      "references": []
+    }
+  ]
+}

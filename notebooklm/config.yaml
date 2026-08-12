@@ -90,10 +90,35 @@ notebooks:
       source_globs: []
       hull_source_id: 4b12a22c-7606-4f0a-9f25-5e6da24866bc
       wilmott_source_id: e0a835e1-ec33-43da-93ee-eec73d4ad5bd
+    bgm_model:
+      notebook_id: d2984547-94ef-4264-8903-21fec14ed0b2
+      label: BGM Model
+      source_globs: []
   chapters:
     hull:
       ch03_hedging_futures:
         notebook_id: 67c4b151-f59a-4b14-a7e0-5b195d83b001
+    mit-ml:
+      u1:
+        notebook_id: 9b3c45a9-33c8-44a4-8633-998d54830ef1
+    mitx-686x:
+      unit3:
+        notebook_id: 4bbe4bfd-bca7-4c69-94c3-f9edee3c136a
+      unit0:
+        notebook_id: 0221a46a-2bd0-45ea-8873-c023c7fc3422
+    wilmott:
+      ch01_products_markets:
+        notebook_id: ef01c125-8254-47c2-85c3-766c04ba2702
+      ch02_derivatives:
+        notebook_id: ef01c125-8254-47c2-85c3-766c04ba2702
+  custom: {}
 optiver:
   beat_the_odds:
     notebook_id: af45de05-4ffd-460b-b1c3-b6aa2f6c6e3b
+  notebook_sections:
+    ml:
+      notebook_id: ''
+      label: ML Notes
+    trading:
+      notebook_id: ''
+      label: Trading Notes

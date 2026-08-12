@@ -1,0 +1,145 @@
+{
+  "id": "f41a81b4599e413795a97ddb715a1c0d",
+  "track": "wilmott",
+  "slug": "ch01_products_markets",
+  "name": "",
+  "created_at": "2026-08-09T15:49:53.776345+00:00",
+  "completed_at": null,
+  "focus_topic": null,
+  "difficulty": "easy",
+  "suggested_minutes": 170,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Derive the continuous compounding formula \\(M(T) = M(0)e^{rT}\\) by taking the limit of the discrete compounding formula \\(M(T) = M(0)\\left(1 + \\frac{r}{m}\\right)^{mT}\\) as the frequency of compounding per year, \\(m\\), approaches infinity. Show all mathematical steps clearly.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 2,
+      "text": "Using a continuous-time model, set up the ordinary differential equation representing the rate of growth of money in a bank account, \\\\[\\frac{dM}{dt} = rM(t)\\\\] where \\(r\\) is the constant continuously compounded risk-free interest rate. Solve this differential equation to find \\(M(t)\\) given an initial capital \\(M(0)\\) at time \\(t = 0\\).",
+      "marks": 4,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 3,
+      "text": "By constructing a table of cashflows at today's date \\(t\\) and at maturity \\(T\\), derive the no-arbitrage forward price \\(F\\) of a non-dividend-paying stock with current spot price \\(S(t)\\), assuming a constant continuous risk-free rate \\(r\\) and no transaction costs.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 4,
+      "text": "Suppose the market forward price of a non-dividend-paying stock satisfies \\(F < S(t)e^{r(T-t)}\\). Prove that this creates an arbitrage opportunity by detailing the exact trading strategy an investor should execute today (at time \\(t\\)) and demonstrating the resulting guaranteed positive cashflow at maturity \\(T\\).",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 5,
+      "text": "Suppose the market forward price of a non-dividend-paying stock satisfies \\(F > S(t)e^{r(T-t)}\\). Show explicitly through a step-by-step mathematical proof how an investor can lock in a risk-free arbitrage profit at maturity \\(T\\) by shorting the forward contract and trading the underlying stock and cash today.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 6,
+      "text": "Derive the forward price \\(F\\) at time \\(t\\) for a stock with current spot price \\(S(t)\\) that is scheduled to pay a known single cash dividend \\(D\\) at a specified ex-dividend date \\(t_d\\) (where \\(t < t_d < T\\)). Assume a constant continuous risk-free interest rate \\(r\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 7,
+      "text": "Assume a stock pays a dividend equal to a fraction \\(q\\) of the stock price, \\(q S(t_d)\\), at time \\(t_d\\), where \\(t < t_d < T\\). Prove using a no-arbitrage portfolio that the forward price \\(F\\) at time \\(t\\) for maturity \\(T\\) is given by \\\\[F = S(t)(1-q)e^{r(T-t)}\\\\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 8,
+      "text": "Let the exchange rates between three currencies be \\(C_{1/2}\\) (units of Currency 2 per unit of Currency 1), \\(C_{2/3}\\) (units of Currency 3 per unit of Currency 2), and \\(C_{1/3}\\) (units of Currency 3 per unit of Currency 1). If \\(C_{1/3} \\neq C_{1/2} \\times C_{2/3}\\), prove that an arbitrage profit can be made. Derive the direction of trades required to secure this profit if \\(C_{1/3} < C_{1/2} \\times C_{2/3}\\).",
+      "marks": 5,
+      "suggested_minutes": 9
+    },
+    {
+      "id": 9,
+      "text": "A company announces an \\(n\\)-for-\\(m\\) stock split, where \\(n > m\\). Assuming the total market capitalization of the firm remains completely unchanged by the split, prove mathematically that the stock price must decrease from \\(S\\) to \\(\\frac{m}{n}S\\) immediately after the split to avoid arbitrage.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 10,
+      "text": "Using the inequality \\(e^x > 1 + x\\) for \\(x > 0\\), prove that for any positive risk-free interest rate \\(r > 0\\) and any compounding frequency \\(m > 1\\), continuous compounding always yields a strictly greater return than discrete compounding over a one-year horizon. That is, show \\\\[e^r > \\left(1 + \\frac{r}{m}\\right)^m\\\\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 11,
+      "text": "Explain how daily marking-to-market affects the cashflows of a futures contract compared to a forward contract. Prove that if interest rates are constant and known in advance, the forward price and futures price for contracts of the same maturity must be identical to prevent arbitrage.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 12,
+      "text": "Let \\(S(t)\\) be the spot exchange rate quoted as units of domestic currency per unit of foreign currency. The domestic and foreign risk-free continuous interest rates are \\(r_d\\) and \\(r_f\\), respectively. Derive the interest rate parity relationship for the forward exchange rate \\(F\\) at time \\(t\\) for maturity \\(T\\): \\\\[F = S(t)e^{(r_d-r_f)(T-t)}\\\\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 13,
+      "text": "Derive the formula for the value \\(V(S, t)\\) of an existing long forward contract at an intermediate time \\(t\\) before maturity \\(T\\), with an agreed delivery price \\(K\\). Prove that \\\\[V(S, t) = S(t) - Ke^{-r(T-t)}\\\\] by constructing a portfolio today that perfectly replicates the payoff of the forward at maturity.",
+      "marks": 5,
+      "suggested_minutes": 9
+    },
+    {
+      "id": 14,
+      "text": "Compare simple interest and continuously compounded interest. If an investor places capital \\(M(0)\\) in an account, prove that the continuous compound interest path \\(M(0)e^{rt}\\) is strictly greater than the simple interest path \\(M(0)(1 + rt)\\) for all \\(t > 0\\) and \\(r > 0\\). (Hint: Use the Taylor series expansion of \\(e^{rt}\\).)",
+      "marks": 5,
+      "suggested_minutes": 7
+    },
+    {
+      "id": 15,
+      "text": "A zero-coupon bond pays a principal of 1 at maturity \\(T\\). Its current price at time \\(t\\) is \\(Z(t)\\). Derive the expression for the continuously compounded yield to maturity \\(y\\) of this bond. Show all algebraic steps clearly.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 16,
+      "text": "Consider a stock market index defined as the weighted average \\(I(t) = \\sum_{i=1}^N w_i S_i(t)\\) where weights \\(w_i \\geq 0\\) are constant and \\(\\sum_{i=1}^N w_i = 1\\). If each stock grows deterministically such that \\\\[\\frac{dS_i}{dt} = \\mu S_i(t)\\\\] prove that the index \\(I(t)\\) also satisfies the differential equation \\\\[\\frac{dI}{dt} = \\mu I(t)\\\\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 17,
+      "text": "At maturity \\(T\\), a long forward contract with delivery price \\(K\\) obliges the holder to buy the underlying asset with spot price \\(S(T)\\). Prove that its value at maturity must equal \\(S(T) - K\\) by demonstrating that any other value would lead to an immediate risk-free arbitrage opportunity.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 18,
+      "text": "Suppose an asset pays a continuous income stream at a constant rate of \\(f\\) per year from \\(t = 0\\) to \\(t = T\\). Prove that the present value \\(PV\\) of this continuous payment stream under a constant risk-free continuous discount rate \\(r\\) is given by \\\\[PV = \\frac{f}{r}\\left(1 - e^{-rT}\\right)\\\\]",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 19,
+      "text": "An investment asset pays a continuous dividend yield \\(q\\). Prove via a no-arbitrage replication argument that the forward price \\(F\\) at time \\(t\\) for maturity \\(T\\) must be given by \\\\[F = S(t)e^{(r-q)(T-t)}\\\\] where \\(r\\) is the constant continuous risk-free interest rate.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 20,
+      "text": "If the forward exchange rate \\(F\\) violates interest rate parity such that \\(F > S(t)e^{(r_d-r_f)(T-t)}\\), prove that a domestic risk-free arbitrage profit can be achieved. Outline the step-by-step cashflows at time \\(t\\) and at maturity \\(T\\) for the arbitrageur.",
+      "marks": 5,
+      "suggested_minutes": 9
+    }
+  ],
+  "mark_scheme": null,
+  "sources": {
+    "notebook_id": "961e6f43-699c-4bca-8d1f-4498021bb664",
+    "source_ids": [
+      "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+    ],
+    "titles": []
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3afe864c763c4f8281fa446fbb4e842d",
+  "kind": "video",
+  "status": "failed",
+  "name": "",
+  "chapter_label": "MITx 15.455x \u2014 M2 \u2014 Discrete-Time Stochastic Processes",
+  "created_at": "2026-07-22T14:01:23.001442+00:00",
+  "completed_at": null,
+  "error": "Generation timed out (>15min)",
+  "task_id": "8eac3a33-3bcb-40bb-85a0-243bd9ca08b5"
+}

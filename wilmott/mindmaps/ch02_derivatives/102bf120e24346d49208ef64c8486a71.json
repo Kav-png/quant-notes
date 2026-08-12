@@ -1,0 +1,136 @@
+{
+  "id": "102bf120e24346d49208ef64c8486a71",
+  "name": "",
+  "chapter_label": "Wilmott \u2014 Ch 2 \u2014 Derivatives",
+  "mind_map": {
+    "name": "Wilmott Chapter 2: Derivatives",
+    "children": [
+      {
+        "name": "Basic Option Contracts",
+        "children": [
+          {
+            "name": "Vanilla Call Option",
+            "children": []
+          },
+          {
+            "name": "Vanilla Put Option",
+            "children": []
+          },
+          {
+            "name": "Binary or Digital Options",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Option Terminology and Jargon",
+        "children": [
+          {
+            "name": "Premium and Underlying Asset",
+            "children": []
+          },
+          {
+            "name": "Strike Price and Expiry",
+            "children": []
+          },
+          {
+            "name": "Option Writing and Margin",
+            "children": []
+          },
+          {
+            "name": "Variables versus Parameters",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Performance and Value Representation",
+        "children": [
+          {
+            "name": "Payoff Diagrams",
+            "children": []
+          },
+          {
+            "name": "Profit Diagrams",
+            "children": []
+          },
+          {
+            "name": "Time Value Adjustments",
+            "children": []
+          },
+          {
+            "name": "Speculation and Gearing",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Put-Call Parity Theory",
+        "children": [
+          {
+            "name": "Model Independent Pricing",
+            "children": []
+          },
+          {
+            "name": "Replicating Portfolio Construction",
+            "children": []
+          },
+          {
+            "name": "Parity Mathematical Equation",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Option Trading Strategies",
+        "children": [
+          {
+            "name": "Bull and Bear Spreads",
+            "children": []
+          },
+          {
+            "name": "Straddles and Strangles",
+            "children": []
+          },
+          {
+            "name": "Butterflies and Condors",
+            "children": []
+          },
+          {
+            "name": "Calendar Spreads",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Market Types and Conventions",
+        "children": [
+          {
+            "name": "Exchange Traded Series",
+            "children": []
+          },
+          {
+            "name": "Over the Counter Options",
+            "children": []
+          },
+          {
+            "name": "LEAPS and FLEX Options",
+            "children": []
+          },
+          {
+            "name": "Warrants and Convertible Bonds",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-11T10:04:42.807181+00:00",
+  "sources": {
+    "notebook_id": "961e6f43-699c-4bca-8d1f-4498021bb664",
+    "source_ids": [
+      "e0a835e1-ec33-43da-93ee-eec73d4ad5bd"
+    ],
+    "titles": []
+  }
+}

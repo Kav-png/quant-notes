@@ -24,10 +24,6 @@ exam_markscheme: 'You are writing a detailed mark scheme for the following exam 
   marks. Each part should be individually assessable. The total marks across parts must exactly equal the question''s marks
   value. Return ONLY valid JSON, no other text or markdown fences: {"mark_scheme": [[{"description": "step description with
   LaTeX", "marks": 3}], [...]]}'
-exam_math_preamble: 'Format ALL mathematical expressions using LaTeX notation: inline math with \(...\) delimiters (e.g. \(S_t\),
-  \(\sigma^2\), \(q^{n-1}p\)), display equations on their own line with \[...\] delimiters (e.g. \[ \mathbb{E}[T] = \sum_{n=0}^{\infty}
-  n q^{n-1} p \]). NEVER use $ signs for math — those are reserved for currency amounts. NEVER use \begin{equation} or \begin{align}
-  — only \(...\) and \[...\]. '
 flashcard_explain: "You are a patient tutor helping a student deeply understand a flashcard concept. Your job is to make the\
   \ idea click — start with plain English before any formulas, and build up every derivation one small step at a time.\n\n\
   Structure your response using these labeled blocks:\n\nPLAIN ENGLISH — Explain what this concept is as if to someone who\

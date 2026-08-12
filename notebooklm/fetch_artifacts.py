@@ -115,6 +115,7 @@ async def fetch_flashcards(
     track: str | None = None,
     args_slug: str | None = None,
     source_ids: list[str] | None = None,
+    out_dir_override: str | None = None,
 ) -> None:
     source_ids = source_ids if source_ids else ([source_id] if source_id else None)
     scope = f"{len(source_ids)} source(s)" if source_ids else "all sources"
@@ -131,7 +132,12 @@ async def fetch_flashcards(
     await client.artifacts.wait_for_completion(notebook_id, status.task_id)
 
     slug = args_slug or (_slugify(chapter) if chapter else key)
-    out_dir = TRACK_FLASHCARD_DIRS.get(track, FLASHCARDS_DIR) if track else FLASHCARDS_DIR
+    if out_dir_override:
+        out_dir = REPO_ROOT / out_dir_override
+    elif track:
+        out_dir = TRACK_FLASHCARD_DIRS.get(track, REPO_ROOT / track)
+    else:
+        out_dir = FLASHCARDS_DIR
     out_path = out_dir / f"{slug}-notebooklm.md"
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -170,6 +176,7 @@ async def main(
     args_slug: str | None = None,
     notebook_id_override: str | None = None,
     source_ids_override: list[str] | None = None,
+    out_dir_override: str | None = None,
 ) -> None:
     if notebook_id_override:
         notebook_id = notebook_id_override
@@ -212,6 +219,7 @@ async def main(
             await fetch_flashcards(
                 client, notebook_id, key, label, instructions, source_id, chapter, track, args_slug,
                 source_ids=source_ids_override,
+                out_dir_override=out_dir_override,
             )
         if artifact_type in ("quiz", "all"):
             await fetch_quiz(client, notebook_id, key, label)
@@ -241,9 +249,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--track",
-        choices=["hull", "wilmott", "mitx"],
         default=None,
-        help="Restrict to the source PDF for this track (hull / wilmott)",
+        help="Restrict to the source PDF for this track (hull / wilmott); also selects the output directory",
     )
     parser.add_argument(
         "--slug",
@@ -262,11 +269,17 @@ if __name__ == "__main__":
         dest="source_ids",
         help="Comma-separated NLM source ids to scope generation to, overrides --track resolution",
     )
+    parser.add_argument(
+        "--out-dir",
+        default=None,
+        dest="out_dir",
+        help="Output directory relative to the notes repo root, overrides --track-based directory routing",
+    )
     args = parser.parse_args()
     source_ids_override = (
         [s.strip() for s in args.source_ids.split(",") if s.strip()] if args.source_ids else None
     )
     asyncio.run(main(
         args.key, args.type, args.chapter, args.notes, args.track, args.slug, args.notebook_id,
-        source_ids_override,
+        source_ids_override, args.out_dir,
     ))

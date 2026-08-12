@@ -1,0 +1,73 @@
+# Single source of truth for MITx 6.86x. Not yet wired into calendar sync (see quant-study-app CLAUDE.md /api/calendar, which is hardcoded to mitx/15.455x today) — dates below are for reference until that's generalized.
+course:
+  id: 6.86x
+  title: "Machine Learning with Python: From Linear Models to Deep Learning"
+  program: MIT MicroMasters in Statistics and Data Science
+
+modules:
+  - id: overview
+    title: Course Overview
+    topics:
+      - Course Overview, Calendar, and Grading Policy
+      - Discussion Forum and Collaboration Guidelines
+      - Homework mechanics and standard notation
+      - Micromasters, Certification, and Honor Pledge
+
+  - id: entrance_survey
+    title: Entrance Survey
+    topics:
+      - Entrance survey
+
+  - id: unit0
+    title: "Unit 0. Brief Prerequisite Reviews, Homework 0, and Project 0"
+    topics:
+      - Brief Review of Vectors, Planes, and Optimization
+      - Homework 0 (35 Questions)
+      - Project 0 Setup, Numpy Exercises, Tutorial on Common Packages (7 Questions)
+    due_dates:
+      homework_0: 2026-06-10T12:59:00+01:00
+      project_0: 2026-07-01T12:59:00+01:00
+
+  - id: unit1
+    title: "Unit 1. Linear Classifiers and Generalizations (2 weeks)"
+    topics:
+      - Lecture 1. Introduction to Machine Learning (11 Questions)
+      - Lecture 2. Linear Classifier and Perceptron (18 Questions)
+      - Lecture 3. Hinge Loss, Margin Boundaries and Regularization (7 Questions)
+      - Lecture 4. Linear Classification and Generalization (9 Questions)
+      - Homework 1 (23 Questions)
+      - "Project 1: Automatic Review Analyzer (17 Questions)"
+      - "Recitation 1: Tuning the Regularization Hyperparameter by Cross Validation and a Demonstration"
+    due_dates:
+      exercises: 2026-06-10T12:59:00+01:00
+      homework_1: 2026-06-17T12:59:00+01:00
+      project_1: 2026-06-26T12:59:00+01:00
+
+  - id: unit2
+    title: "Unit 2. Nonlinear Classification, Linear Regression, Collaborative Filtering (2 weeks)"
+    topics:
+      - Lecture 5. Linear Regression (9 Questions)
+      - Lecture 6. Nonlinear Classification (12 Questions)
+      - Lecture 7. Recommender Systems (6 Questions)
+      - Homework 2 (15 Questions)
+      - "Project 2: Digit Recognition (Part 1) (27 Questions)"
+    due_dates:
+      exercises: 2026-07-01T12:59:00+01:00
+      homework_2: 2026-07-01T12:59:00+01:00
+      project_2: 2026-07-10T12:59:00+01:00
+
+  - id: unit3
+    title: "Unit 3. Neural Networks (2.5 weeks)"
+    topics:
+      - Lecture 8. Introduction to Feedforward Neural Networks (8 Questions)
+      - Lecture 9. Feedforward Neural Networks, Back Propagation, and SGD (5 Questions)
+      - Lecture 10. Recurrent Neural Networks 1 (11 Questions)
+      - Lecture 11. Recurrent Neural Networks 2 (10 Questions)
+      - Homework 3 (13 Questions)
+      - Lecture 12. Convolutional Neural Networks (8 Questions)
+      - "Project 3: Digit Recognition (Part 2) (12 Questions)"
+    due_dates:
+      exercises_lec8_11: 2026-07-15T12:59:00+01:00
+      homework_3: 2026-07-15T12:59:00+01:00
+      exercises_lec12: 2026-07-22T12:59:00+01:00
+      project_3: 2026-07-22T12:59:00+01:00

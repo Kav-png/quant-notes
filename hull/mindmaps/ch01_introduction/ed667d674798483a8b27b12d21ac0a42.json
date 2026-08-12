@@ -1,0 +1,157 @@
+{
+  "id": "ed667d674798483a8b27b12d21ac0a42",
+  "name": "",
+  "chapter_label": "Hull \u2014 Ch 1 \u2014 Introduction",
+  "mind_map": {
+    "name": "Hull Chapter 1 \u2014 Introduction",
+    "children": [
+      {
+        "name": "Derivatives Market Structures",
+        "children": [
+          {
+            "name": "Exchange-traded markets with standardized contracts",
+            "children": []
+          },
+          {
+            "name": "Over-the-counter private bilateral agreements",
+            "children": []
+          },
+          {
+            "name": "Central clearing counterparties to reduce systemic risk",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Forward Contracts",
+        "children": [
+          {
+            "name": "Private OTC agreements for future delivery",
+            "children": []
+          },
+          {
+            "name": "Long position buyer pays delivery price",
+            "children": []
+          },
+          {
+            "name": "Short position seller delivers the asset",
+            "children": []
+          },
+          {
+            "name": "Payoffs realized only at contract maturity",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Futures Contracts",
+        "children": [
+          {
+            "name": "Standardized agreements traded on organized exchanges",
+            "children": []
+          },
+          {
+            "name": "Daily settlement and margin account adjustments",
+            "children": []
+          },
+          {
+            "name": "Flexible range of specified delivery dates",
+            "children": []
+          },
+          {
+            "name": "Virtually no credit risk via clearinghouse",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Options Contracts",
+        "children": [
+          {
+            "name": "Call options provide right to buy",
+            "children": []
+          },
+          {
+            "name": "Put options provide right to sell",
+            "children": []
+          },
+          {
+            "name": "American style allowing early exercise",
+            "children": []
+          },
+          {
+            "name": "European style exercisable only at maturity",
+            "children": []
+          },
+          {
+            "name": "Requires up-front premium payment",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Hedgers",
+        "children": [
+          {
+            "name": "Objective to reduce existing risk exposure",
+            "children": []
+          },
+          {
+            "name": "Forwards neutralize risk by fixing prices",
+            "children": []
+          },
+          {
+            "name": "Options provide insurance with upside potential",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Speculators",
+        "children": [
+          {
+            "name": "Betting on future price movements",
+            "children": []
+          },
+          {
+            "name": "Obtain high leverage through derivatives markets",
+            "children": []
+          },
+          {
+            "name": "Futures speculation carries unlimited loss potential",
+            "children": []
+          },
+          {
+            "name": "Options speculation limits loss to premium",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Arbitrageurs",
+        "children": [
+          {
+            "name": "Locking in risk-free profit from mispricings",
+            "children": []
+          },
+          {
+            "name": "Simultaneous offsetting trades in multiple markets",
+            "children": []
+          },
+          {
+            "name": "Market forces rapidly eliminate arbitrage opportunities",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-07-22T06:58:32.798018+00:00",
+  "sources": {
+    "notebook_id": "961e6f43-699c-4bca-8d1f-4498021bb664",
+    "source_ids": [
+      "4b12a22c-7606-4f0a-9f25-5e6da24866bc"
+    ],
+    "titles": []
+  }
+}

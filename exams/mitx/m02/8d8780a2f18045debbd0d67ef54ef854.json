@@ -1,0 +1,138 @@
+{
+  "id": "8d8780a2f18045debbd0d67ef54ef854",
+  "track": "mitx",
+  "slug": "m02",
+  "name": "",
+  "created_at": "2026-06-02T22:35:47.207006+00:00",
+  "completed_at": null,
+  "focus_topic": "Coupled processes",
+  "difficulty": "easy",
+  "suggested_minutes": 160,
+  "actual_seconds": null,
+  "score_earned": null,
+  "score_total": null,
+  "status": "questions_ready",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Given the coupled bivariate system \\(x_t = \\lambda y_{t-1} + \\sigma z_t\\) and \\(y_t = \\lambda x_{t-1} + \\sigma w_t\\), define the vectors: \\[ \\xi_t = \\begin{pmatrix} x_t \\\\ y_t \\end{pmatrix}, \\quad \\eta_t = \\begin{pmatrix} z_t \\\\ w_t \\end{pmatrix} \\] Derive the \\(2 \\times 2\\) matrix \\(M\\) such that the system is expressed in the form \\(\\xi_t = M \\xi_{t-1} + \\sigma \\eta_t\\).",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 2,
+      "text": "Using the transition matrix \\(M = \\begin{pmatrix} 0 & \\lambda \\\\ \\lambda & 0 \\end{pmatrix}\\) from the bivariate coupled process, derive its eigenvalues.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 3,
+      "text": "Using the transition matrix \\(M = \\begin{pmatrix} 0 & \\lambda \\\\ \\lambda & 0 \\end{pmatrix}\\) and the eigenvalues \\(\\lambda\\) and \\(-\\lambda\\), derive the corresponding eigenvectors.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 4,
+      "text": "Construct the orthogonal matrix \\(V\\) from the normalized eigenvectors of \\(M = \\begin{pmatrix} 0 & \\lambda \\\\ \\lambda & 0 \\end{pmatrix}\\). Prove that \\(V^{-1} = V^T\\).",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 5,
+      "text": "Let \\(V\\) be the matrix of orthogonal eigenvectors for the coupled system's transition matrix \\(M\\). Prove that: \\[ V^{-1} M V = \\Gamma \\] where \\(\\Gamma\\) is the diagonal matrix of eigenvalues.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 6,
+      "text": "Define the decoupled vector \\(\\xi'_t = V^{-1} \\xi_t\\). By left-multiplying the coupled system \\(\\xi_t = M \\xi_{t-1} + \\sigma \\eta_t\\) by \\(V^{-1}\\), derive the decoupled equations for the components \\(\\xi'_{1,t}\\) and \\(\\xi'_{2,t}\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 7,
+      "text": "Let the transformed noise vector be \\(\\eta'_t = V^{-1} \\eta_t\\), where \\(V = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\). Given that \\(z_t\\) and \\(w_t\\) are independent standard normal variables, prove that the components of \\(\\eta'_t\\) are also independent.",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 8,
+      "text": "Without using matrix diagonalization, substitute the lag equation for \\(y_{t-1}\\) into the process \\(x_t = \\lambda y_{t-1} + \\sigma z_t\\) to derive a single-variable autoregressive equation of order 2 (AR(2)) for \\(x_t\\).",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 9,
+      "text": "Using the uncoupled equation \\(\\xi'_{1,t} = \\lambda \\xi'_{1,t-1} + \\sigma \\eta'_{1,t}\\), derive the necessary condition on the parameter \\(\\lambda\\) for the stochastic process to be weakly stationary.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 10,
+      "text": "Assume the coupled process \\(x_t = \\lambda y_{t-1} + \\sigma z_t\\) and \\(y_t = \\lambda x_{t-1} + \\sigma w_t\\) is initialized at \\(x_0 = y_0 = 0\\). Using the linearity of the expectation operator, prove that \\(\\mathbb{E}[x_t] = 0\\) for all \\(t > 0\\).",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 11,
+      "text": "Assuming weak stationarity, derive the unconditional variance of the decoupled variable \\(\\xi'_{1,t}\\) governed by the equation \\(\\xi'_{1,t} = \\lambda \\xi'_{1,t-1} + \\sigma \\eta'_{1,t}\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 12,
+      "text": "Given the transformed noise components \\(\\eta'_{1,t} = \\frac{1}{\\sqrt{2}}(z_t + w_t)\\) and \\(\\eta'_{2,t} = \\frac{1}{\\sqrt{2}}(z_t - w_t)\\), derive their cross-covariance \\(\\mathbb{E}[\\eta'_{1,t} \\eta'_{2,t}]\\) to verify they are uncorrelated.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 13,
+      "text": "Using the coupled system equations, derive the conditional expectation \\(\\mathbb{E}[x_{t+2} | x_t, y_t]\\) in terms of \\(x_t\\) and \\(y_t\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 14,
+      "text": "Using recursive substitution, derive the infinite moving average (MA(\\(\\infty\\))) representation for the uncoupled process: \\[ \\xi'_{1,t} = \\lambda \\xi'_{1,t-1} + \\sigma \\eta'_{1,t} \\]",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 15,
+      "text": "Given \\(V = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\) and \\(\\Gamma = \\begin{pmatrix} \\lambda & 0 \\\\ 0 & -\\lambda \\end{pmatrix}\\), derive the matrix multiplication \\(V \\Gamma V^{-1}\\) to prove it reconstructs the original coupling matrix \\(M\\).",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 16,
+      "text": "For the coupled system \\(x_t = \\lambda y_{t-1} + \\sigma z_t\\), derive the one-step-ahead conditional variance \\(Var(x_t | x_{t-1}, y_{t-1})\\). Assume \\(z_t\\) is a standard normal variable.",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 17,
+      "text": "By iterating the coupled system one step forward, derive the impulse response of \\(y_{t+1}\\) to a shock in \\(z_t\\). That is, find \\(\\frac{\\partial y_{t+1}}{\\partial z_t}\\).",
+      "marks": 4,
+      "suggested_minutes": 6
+    },
+    {
+      "id": 18,
+      "text": "Consider an asymmetrically coupled system \\(x_t = \\alpha y_{t-1} + z_t\\) and \\(y_t = \\beta x_{t-1} + w_t\\). Derive the transition matrix \\(M\\) and state the condition on \\(\\alpha\\) and \\(\\beta\\) for the eigenvalues of \\(M\\) to be real.",
+      "marks": 5,
+      "suggested_minutes": 8
+    },
+    {
+      "id": 19,
+      "text": "For an \\(N\\)-variable linear coupled process \\(\\xi_t = M \\xi_{t-1} + \\eta_t\\), where \\(M\\) is symmetric, prove that the system can be transformed into \\(N\\) univariate AR(1) processes by deriving the transformation steps using the spectral theorem \\(M = V \\Gamma V^{-1}\\).",
+      "marks": 6,
+      "suggested_minutes": 10
+    },
+    {
+      "id": 20,
+      "text": "Using the relations \\(x_t = \\frac{1}{\\sqrt{2}}(\\xi'_{1,t} + \\xi'_{2,t})\\) and the variances of the decoupled variables, derive the unconditional variance of \\(x_t\\). Assume the decoupled processes are weakly stationary and independent.",
+      "marks": 6,
+      "suggested_minutes": 10
+    }
+  ],
+  "mark_scheme": null
+}

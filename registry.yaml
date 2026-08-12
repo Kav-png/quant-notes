@@ -217,3 +217,269 @@ textbooks:
       - Variational methods
       - Optimal execution
       progress_key: '9'
+  mitx-686x:
+    label: MITx 6.86x
+    subtitle: 'Machine Learning with Python: From Linear Models to Deep Learning'
+    color: text-primary/70
+    type: course
+    notes_dir: mitx-686x/modules
+    total_pages: null
+    chapters:
+    - slug: unit0
+      label: Unit 0 — Prerequisite Reviews, Homework 0, and Project 0
+      topics:
+      - Brief Review of Vectors, Planes, and Optimization
+      - Homework 0 (35 Questions)
+      - Project 0 Setup, Numpy Exercises, Tutorial on Common Packages (7 Questions)
+      progress_key: unit0
+    - slug: unit1
+      label: Unit 1 — Linear Classifiers and Generalizations (2 weeks)
+      topics:
+      - Lecture 1. Introduction to Machine Learning (11 Questions)
+      - Lecture 2. Linear Classifier and Perceptron (18 Questions)
+      - Lecture 3. Hinge Loss, Margin Boundaries and Regularization (7 Questions)
+      - Lecture 4. Linear Classification and Generalization (9 Questions)
+      - Homework 1 (23 Questions)
+      - 'Project 1: Automatic Review Analyzer (17 Questions)'
+      - 'Recitation 1: Tuning the Regularization Hyperparameter by Cross Validation
+        and a Demonstration'
+      progress_key: unit1
+    - slug: unit2
+      label: Unit 2 — Nonlinear Classification, Linear Regression, Collaborative Filtering
+        (2 weeks)
+      topics:
+      - Lecture 5. Linear Regression (9 Questions)
+      - Lecture 6. Nonlinear Classification (12 Questions)
+      - Lecture 7. Recommender Systems (6 Questions)
+      - Homework 2 (15 Questions)
+      - 'Project 2: Digit Recognition (Part 1) (27 Questions)'
+      progress_key: unit2
+    - slug: unit3
+      label: Unit 3 — Neural Networks (2.5 weeks)
+      topics:
+      - Introduction to Feedforward Neural Networks (8 Questions)
+      - Lecture 9. Feedforward Neural Networks, Back Propagation, and SGD (5 Questions)
+      - Lecture 10. Recurrent Neural Networks 1 (11 Questions)
+      - Lecture 11. Recurrent Neural Networks 2 (10 Questions)
+      - Homework 3 (13 Questions)
+      - Lecture 12. Convolutional Neural Networks (8 Questions)
+      - 'Project 3: Digit Recognition (Part 2) (12 Questions)'
+      progress_key: unit3
+  python_data_analysis:
+    label: Python for Data Analysis
+    subtitle: Data Wrangling with pandas, NumPy & Jupyter, 3rd ed. — Wes McKinney
+    color: text-amber-400
+    type: textbook
+    notes_dir: python_data_analysis
+    total_pages: 582
+    chapters:
+    - slug: ch01_copyright
+      label: Ch 1 — Copyright
+    - slug: ch02_chapter_1_preliminaries
+      label: Ch 2 — Chapter 1. Preliminaries
+    - slug: ch03_chapter_2_python_language_basics_ipython_and_jupyter_noteboo
+      label: Ch 3 — Chapter 2. Python Language Basics, IPython, and Jupyter Notebooks
+    - slug: ch04_chapter_3_built_in_data_structures_functions_and_files
+      label: Ch 4 — Chapter 3. Built-In Data Structures, Functions, and Files
+    - slug: ch05_chapter_4_numpy_basics_arrays_and_vectorized_computation
+      label: 'Ch 5 — Chapter 4. NumPy Basics: Arrays and Vectorized   Computation'
+    - slug: ch06_chapter_5_getting_started_with_pandas
+      label: Ch 6 — Chapter 5. Getting Started with pandas
+    - slug: ch07_chapter_6_data_loading_storage_and_file_formats
+      label: Ch 7 — Chapter 6. Data Loading, Storage, and File   Formats
+    - slug: ch08_chapter_7_data_cleaning_and_preparation
+      label: Ch 8 — Chapter 7. Data Cleaning and Preparation
+    - slug: ch09_chapter_8_data_wrangling_join_combine_and_reshape
+      label: 'Ch 9 — Chapter 8. Data Wrangling: Join, Combine, and Reshape'
+    - slug: ch10_chapter_9_plotting_and_visualization
+      label: Ch 10 — Chapter 9. Plotting and Visualization
+    - slug: ch11_chapter_10_data_aggregation_and_group_operations
+      label: Ch 11 — Chapter 10. Data Aggregation and Group   Operations
+    - slug: ch12_chapter_11_time_series
+      label: Ch 12 — Chapter 11. Time Series
+    - slug: ch13_chapter_12_introduction_to_modeling_libraries_in_python
+      label: Ch 13 — Chapter 12. Introduction to Modeling Libraries in   Python
+    - slug: ch14_chapter_13_data_analysis_examples
+      label: Ch 14 — Chapter 13. Data Analysis Examples
+    - slug: ch15_appendix_a_advanced_numpy
+      label: Ch 15 — Appendix A. Advanced NumPy
+    - slug: ch16_appendix_b_more_on_the_ipython_system
+      label: Ch 16 — Appendix B. More on the IPython System
+    - slug: ch17_colophon
+      label: Ch 17 — Colophon
+    category: programming
+  fluent_python:
+    label: Fluent Python
+    subtitle: Clear, Concise, and Effective Programming, 2nd ed. — Luciano Ramalho
+    color: text-orange-400
+    type: textbook
+    notes_dir: fluent_python
+    total_pages: 1011
+    chapters:
+    - slug: ch01_who_this_book_is_for
+      label: Ch 1 — Who This Book Is For
+    - slug: ch02_who_this_book_is_not_for
+      label: Ch 2 — Who This Book Is Not For
+    - slug: ch03_five_books_in_one
+      label: Ch 3 — Five Books in One
+    - slug: ch04_hands_on_approach
+      label: Ch 4 — Hands-On Approach
+    - slug: ch05_soapbox_my_personal_perspective
+      label: 'Ch 5 — Soapbox: My Personal Perspective'
+    - slug: ch06_companion_website_fluentpython_com
+      label: 'Ch 6 — Companion Website: fluentpython.com'
+    - slug: ch07_conventions_used_in_this_book
+      label: Ch 7 — Conventions Used in This Book
+    - slug: ch08_using_code_examples
+      label: Ch 8 — Using Code Examples
+    - slug: ch09_o_reilly_online_learning
+      label: Ch 9 — O’Reilly Online Learning
+    - slug: ch10_how_to_contact_us
+      label: Ch 10 — How to Contact Us
+    - slug: ch11_chapter_1_the_python_data_model
+      label: Ch 11 — Chapter 1. The Python Data Model
+    - slug: ch12_chapter_2_an_array_of_sequences
+      label: Ch 12 — Chapter 2. An Array of Sequences
+    - slug: ch13_chapter_3_dictionaries_and_sets
+      label: Ch 13 — Chapter 3. Dictionaries and Sets
+    - slug: ch14_chapter_4_unicode_text_versus_bytes
+      label: Ch 14 — Chapter 4. Unicode Text Versus Bytes
+    - slug: ch15_chapter_5_data_class_builders
+      label: Ch 15 — Chapter 5. Data Class Builders
+    - slug: ch16_chapter_6_object_references_mutability_and_recycling
+      label: Ch 16 — Chapter 6. Object References, Mutability, and Recycling
+    - slug: ch17_chapter_7_functions_as_first_class_objects
+      label: Ch 17 — Chapter 7. Functions as First-Class Objects
+    - slug: ch18_chapter_8_type_hints_in_functions
+      label: Ch 18 — Chapter 8. Type Hints in Functions
+    - slug: ch19_chapter_9_decorators_and_closures
+      label: Ch 19 — Chapter 9. Decorators and Closures
+    - slug: ch20_chapter_10_design_patterns_with_first_class_functions
+      label: Ch 20 — Chapter 10. Design Patterns with First-Class Functions
+    - slug: ch21_chapter_11_a_pythonic_object
+      label: Ch 21 — Chapter 11. A Pythonic Object
+    - slug: ch22_chapter_12_special_methods_for_sequences
+      label: Ch 22 — Chapter 12. Special Methods for Sequences
+    - slug: ch23_chapter_13_interfaces_protocols_and_abcs
+      label: Ch 23 — Chapter 13. Interfaces, Protocols, and ABCs
+    - slug: ch24_chapter_14_inheritance_for_better_or_for_worse
+      label: 'Ch 24 — Chapter 14. Inheritance: For Better or for Worse'
+    - slug: ch25_chapter_15_more_about_type_hints
+      label: Ch 25 — Chapter 15. More About Type Hints
+    - slug: ch26_chapter_16_operator_overloading
+      label: Ch 26 — Chapter 16. Operator Overloading
+    - slug: ch27_chapter_17_iterators_generators_and_classic_coroutines
+      label: Ch 27 — Chapter 17. Iterators, Generators,  and Classic Coroutines
+    - slug: ch28_chapter_18_with_match_and_else_blocks
+      label: Ch 28 — Chapter 18. with, match, and else Blocks
+    - slug: ch29_chapter_19_concurrency_models_in_python
+      label: Ch 29 — Chapter 19. Concurrency Models in Python
+    - slug: ch30_chapter_20_concurrent_executors
+      label: Ch 30 — Chapter 20. Concurrent Executors
+    - slug: ch31_chapter_21_asynchronous_programming
+      label: Ch 31 — Chapter 21. Asynchronous Programming
+    - slug: ch32_chapter_22_dynamic_attributes_and_properties
+      label: Ch 32 — Chapter 22. Dynamic Attributes and Properties
+    - slug: ch33_chapter_23_attribute_descriptors
+      label: Ch 33 — Chapter 23. Attribute Descriptors
+    - slug: ch34_chapter_24_class_metaprogramming
+      label: Ch 34 — Chapter 24. Class Metaprogramming
+    - slug: ch35_further_reading
+      label: Ch 35 — Further Reading
+    category: programming
+  effective_python:
+    label: Effective Python
+    subtitle: 59 Specific Ways to Write Better Python — Brett Slatkin
+    color: text-yellow-400
+    type: textbook
+    notes_dir: effective_python
+    total_pages: 683
+    chapters:
+    - slug: ch01_about_this_ebook
+      label: Ch 1 — About This eBook
+    - slug: ch02_title_page
+      label: Ch 2 — Title Page
+    - slug: ch03_copyright_page
+      label: Ch 3 — Copyright Page
+    - slug: ch04_praise_for_effective_python
+      label: Ch 4 — Praise for Effective Python
+    - slug: ch05_1_pythonic_thinking
+      label: Ch 5 — 1. Pythonic Thinking
+    - slug: ch06_2_functions
+      label: Ch 6 — 2. Functions
+    - slug: ch07_3_classes_and_inheritance
+      label: Ch 7 — 3. Classes and Inheritance
+    - slug: ch08_4_metaclasses_and_attributes
+      label: Ch 8 — 4. Metaclasses and Attributes
+    - slug: ch09_5_concurrency_and_parallelism
+      label: Ch 9 — 5. Concurrency and Parallelism
+    - slug: ch10_6_built_in_modules
+      label: Ch 10 — 6. Built-in Modules
+    - slug: ch11_7_collaboration
+      label: Ch 11 — 7. Collaboration
+    - slug: ch12_8_production
+      label: Ch 12 — 8. Production
+    - slug: ch13_code_snippets
+      label: Ch 13 — Code Snippets
+    category: programming
+  bgm_model:
+    label: BGM Model
+    subtitle: The BGM Model, From First Principles — Rates, LMM & Calibration
+    color: text-cyan-400
+    type: textbook
+    category: quant
+    notes_dir: bgm_model
+    total_pages: 120
+    chapters:
+    - slug: ch00_front_matter
+      label: Front Matter — Preface
+    - slug: ch01_rates_arent_prices
+      label: Ch 1 — Rates Aren't Prices
+    - slug: ch02_building_blocks_curves_discount_factors_forward_rates
+      label: 'Ch 2 — The Building Blocks: Curves, Discount Factors, Forward Rates'
+    - slug: ch03_multi_curve_world_ois_sofr_death_of_libor
+      label: 'Ch 3 — The Multi-Curve World: OIS, SOFR, and the Death of LIBOR'
+    - slug: ch04_swaps_and_the_forward_swap_rate
+      label: Ch 4 — Swaps and the Forward Swap Rate
+    - slug: ch05_caps_and_floors
+      label: Ch 5 — Caps and Floors
+    - slug: ch06_pricing_caplets_black_and_bachelier
+      label: 'Ch 6 — Pricing Caplets: Black and Bachelier'
+    - slug: ch07_swaptions
+      label: Ch 7 — Swaptions
+    - slug: ch08_the_volatility_cube
+      label: Ch 8 — The Volatility Cube
+    - slug: ch09_short_rate_models_and_their_limits
+      label: Ch 9 — Short-Rate Models and Their Limits
+    - slug: ch10_the_heath_jarrow_morton_framework
+      label: Ch 10 — The Heath–Jarrow–Morton Framework
+    - slug: ch11_the_bgm_breakthrough
+      label: Ch 11 — The BGM Breakthrough
+    - slug: ch12_change_of_numeraire_and_forward_measure
+      label: Ch 12 — Change of Numeraire and the Forward Measure
+    - slug: ch13_the_bgm_model_formally
+      label: Ch 13 — The BGM Model, Formally
+    - slug: ch14_volatility_and_correlation_structure
+      label: Ch 14 — Volatility and Correlation Structure
+    - slug: ch15_extending_bgm_skew_smile_negative_rates
+      label: Ch 15 — Extending BGM for Skew, Smile, and Negative Rates
+    - slug: ch16_calibrating_to_caplets
+      label: Ch 16 — Calibrating to Caplets
+    - slug: ch17_calibrating_to_swaptions
+      label: Ch 17 — Calibrating to Swaptions
+    - slug: ch18_joint_calibration_and_cascade_algorithms
+      label: Ch 18 — Joint Calibration and Cascade Algorithms
+    - slug: ch19_monte_carlo_simulation_of_bgm
+      label: Ch 19 — Monte Carlo Simulation of BGM
+    - slug: ch20_architecture_of_a_recalibration_application
+      label: Ch 20 — Architecture of a Recalibration Application
+    - slug: ch21_practice_paper_a
+      label: Practice Paper A — Quantitative Core
+    - slug: ch22_practice_paper_b
+      label: Practice Paper B — Applied Core
+    - slug: ch23_solutions_paper_a
+      label: Solutions — Paper A
+    - slug: ch24_solutions_paper_b
+      label: Solutions — Paper B
+    - slug: ch25_back_matter_glossary_formulas_bibliography
+      label: Glossary, Formula Reference & Bibliography
